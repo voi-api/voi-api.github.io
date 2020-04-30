@@ -1,0 +1,624 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Maas Light</title>
+    <link rel="stylesheet" href="/assets/css/highlight.css">
+    <link rel="stylesheet" href="/assets/css/screen.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+<link rel="icon" 
+      type="image/png" 
+      href="/assets/images/favicon.png">
+  </head>
+
+  <a href="#" id="nav-button">
+  <span>
+    NAV
+      <img src="/assets/images/navbar.svg" class="nav" alt="nav">
+
+  </span>
+</a>
+<div class="toc-wrapper" id="toc-wrapper">
+  <div class="logowrapper"><img src="/assets/images/logo.svg" class="logo" alt="logo"></div>
+  <ul id="toc" class="toc-list-h1">
+  <li><a href="#mds">MDS</a>
+    <ul>
+      <li><a href="#authentication">Authentication</a></li>
+      <li><a href="#versioning">Versioning</a></li>
+      <li><a href="#trips">Trips</a></li>
+      <li><a href="#status-changes">Status Changes</a></li>
+      <li><a href="#events">Events</a></li>
+    </ul>
+  </li>
+  <li><a href="#gbfs">GBFS</a>
+    <ul>
+      <li><a href="#authentication-1">Authentication</a></li>
+      <li><a href="#free-bike-status">Free bike status</a></li>
+      <li><a href="#auto-discovery">Auto-discovery</a></li>
+      <li><a href="#system-information">System information</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+  <div class="page-wrapper">
+
+                <div class="dark-box"></div>
+        <div class="content" id="content">
+          <h1 id="mds">MDS</h1>
+
+<p>This section describes the Mobility Data Specification (MDS) provider API. To read it explained in full, go to the Open Mobility Foundation’s GitHub <a href="https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider">here</a>.</p>
+
+<h2 id="authentication">Authentication</h2>
+<blockquote>
+  <p>A token request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-X</span> POST <span class="nt">-u</span> user:password 
+  <span class="nt">-d</span> <span class="nv">grant_type</span><span class="o">=</span>client_credentials 
+  <span class="nt">-H</span> <span class="s2">"Content-Type:application/x-www-form-urlencoded"</span> 
+  mds.voiapp.io/token
+</code></pre></div></div>
+<blockquote>
+  <p>A token response.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+    <span class="s2">"access_token"</span>: <span class="s2">"&lt;access token&gt;"</span>,
+    <span class="s2">"expires_in"</span>: 900,
+    <span class="s2">"token_type"</span>: <span class="s2">"bearer"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>OAuth 2.0’s `client_credentials grant type (outlined in <a href="https://tools.ietf.org/html/rfc6749#section-4.4">RFC6749</a>) is used as the authentication and authorization scheme. 
+This is also sometimes referenced as a two-legged OAuth.</p>
+
+<h3 id="https-request">HTTPS request</h3>
+
+<p><code class="highlighter-rouge">POST mds.voiapp.io/token</code></p>
+
+<h3 id="usage">Usage</h3>
+
+<p>The token is required in the header, using Bearer authentication over HTTPS, on all API calls to MDS and GBFS endpoints.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td>Bearer access-token</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="versioning">Versioning</h2>
+
+<p>The MDS APIs handle requests for specific versions of the specification from the clients. 
+Version is communicated through the use of a custom media-type, <code class="highlighter-rouge">application/vnd.mds.provider+json</code>, combined with a required version parameter in the <code class="highlighter-rouge">Accept</code>.</p>
+
+<p>See Open Mobility Foundation’s MDS description on versioning <a href="https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#versioning">here</a>.</p>
+
+<aside class="warning">Current MDS implementation only supports version 0.4</aside>
+
+<h3 id="header">Header</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Accept</td>
+      <td>application/vnd.mds.provider+json;version=0.4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="trips">Trips</h2>
+<blockquote>
+  <p>A trips request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.mds.provider+json;version=0.4"</span> 
+  mds.voiapp.io/en/9/trips?end_time<span class="o">=</span>2020-01-01T23
+</code></pre></div></div>
+<p>A trip represents a journey taken by a mobility as a service customer with a geo-tagged start and stop point.
+The `/trips endpoint allows a user to query historical trip data that happened within the queried hour.</p>
+
+<p>See Open Mobility Foundation’s MDS description on trips <a href="https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#trips">here</a>.</p>
+<h3 id="https-request-1">HTTPS request</h3>
+
+<p><code class="highlighter-rouge">POST mds.voiapp.io/en/{zoneID}/trips</code></p>
+
+<h3 id="path-parameters">Path parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>parameter</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>zoneID</td>
+      <td>The zone id for the requested trips</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>parameter</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>end_time</td>
+      <td>YYYY-MM-DDTHH, an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> extended datetime representing an UTC hour between 00 and 23.</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="status-changes">Status Changes</h2>
+<blockquote>
+  <p>A status changes request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.mds.provider+json;version=0.4"</span> 
+  mds.voiapp.io/en/9/status_changes?event_time<span class="o">=</span>2020-01-01T23
+</code></pre></div></div>
+<p>The status of the inventory of vehicles available for customer use. The <code class="highlighter-rouge">/status_changes</code> endpoint allows a user to query the historical availability for a system within the queried hour.</p>
+
+<p>See Open Mobility Foundation’s MDS description on status changes <a href="https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#status_changes">here</a>.</p>
+<h3 id="https-request-2">HTTPS request</h3>
+
+<p><code class="highlighter-rouge">POST mds.voiapp.io/en/{zoneID}/status_changes</code></p>
+
+<h3 id="path-parameters-1">Path parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>parameter</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>zoneID</td>
+      <td>The zone id for the requested status changes</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="query-parameters-1">Query parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>parameter</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_time</td>
+      <td>YYYY-MM-DDTHH, an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> extended datetime representing an UTC hour between 00 and 23.</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="events">Events</h2>
+
+<blockquote>
+  <p>An events request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.mds.provider+json;version=0.4"</span>
+  mds.voiapp.io/en/9/events?start_time<span class="o">=</span>1580518800000&amp;end_time<span class="o">=</span>1581123600000
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">/events</code> endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events.</p>
+
+<p>The <code class="highlighter-rouge">/events</code> endpoint functions similarly to <code class="highlighter-rouge">/status_changes</code>, but does not included data older than 2 weeks (that data is in <code class="highlighter-rouge">/status_changes</code>.)</p>
+
+<p>See Open Mobility Foundation’s MDS description on events <a href="https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#events">here</a>.</p>
+
+<h3 id="https-request-3">HTTPS request</h3>
+
+<p><code class="highlighter-rouge">POST mds.voiapp.io/en/{zoneID}/events</code></p>
+
+<h3 id="path-parameters-2">Path parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>parameter</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>zoneID</td>
+      <td>The zone id for the requested events</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="query-parameters-2">Query parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>parameter</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>end_time</td>
+      <td>timestamp, integer milliseconds since Unix epoch</td>
+      <td>required</td>
+    </tr>
+    <tr>
+      <td>start_time</td>
+      <td>timestamp, integer milliseconds since Unix epoch</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="gbfs">GBFS</h1>
+
+<p>Voi provides a flavored version of the GBFS (The General Bikeshare Feed Specification) API.</p>
+
+<p>Since the vehicles Voi currently provide are considered dockless and since GBFS does not fully support this means of transport yet, some API endpoints in the GBFS specification doesn’t apply.</p>
+
+<p>Of the GBFS files specified in <a href="https://github.com/NABSA/gbfs/blob/master/gbfs.md">here</a>, Voi supports the following files.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">gbfs.json</code></li>
+  <li><code class="highlighter-rouge">system_information.json</code></li>
+  <li><code class="highlighter-rouge">free_bike_status.json</code></li>
+</ul>
+
+<h3 id="common-response">Common response</h3>
+
+<p>Every JSON file presented in this specification contains the same common header information at the top level of the JSON response object:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>type</th>
+      <th>Defines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">last_updated</code></td>
+      <td>Integer</td>
+      <td>POSIX timestamp indicating the last time the data in this feed was updated</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ttl</code></td>
+      <td>Integer</td>
+      <td>Representing the number of seconds before the data in this feed will be updated again (0 if the data should always be refreshed)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">version</code></td>
+      <td>String</td>
+      <td>GBFS version number to which the feed confirms, according to the versioning framework.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">data</code></td>
+      <td>JSON</td>
+      <td>JSON hash containing the data fields for this response</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="authentication-1">Authentication</h2>
+
+<p>Authentication for GBFS is same as for MDS and is described in the MDS section found <a href="#mds">here</a>.</p>
+
+<h2 id="free-bike-status">Free bike status</h2>
+
+<blockquote>
+  <p>A free_bike_status.json request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-H</span> <span class="s2">"X-Auth-Token: &lt;access_token&gt;"</span> 
+  mds.voiapp.io/v1/gbfs/1/free_bike_status.json 
+</code></pre></div></div>
+
+<blockquote>
+  <p>A free_bike_status.json response.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+    <span class="s2">"last_updated"</span>: 1574954898,
+    <span class="s2">"ttl"</span>: 0,
+    <span class="s2">"data"</span>: <span class="o">{</span>
+        <span class="s2">"bikes"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"bike_id"</span>: <span class="s2">"0fae06eb-aaaa-0000-cccc-77f696a30000"</span>,
+                <span class="s2">"lat"</span>: 48.871983,
+                <span class="s2">"lon"</span>: 2.303089,
+                <span class="s2">"is_reserved"</span>: 1,
+                <span class="s2">"is_disabled"</span>: 0,
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"bike_id"</span>: <span class="s2">"8c0940ec-aaaa-0000-cccc-3057d9820000"</span>,
+                <span class="s2">"lat"</span>: 48.853252,
+                <span class="s2">"lon"</span>: 2.343597,
+                <span class="s2">"is_reserved"</span>: 0,
+                <span class="s2">"is_disabled"</span>: 0,
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">free_bike_status.json</code> describes the available vehicles in real-time. This endpoint comes with the option to extend the response outside the current GBFS standard.</p>
+
+<p>A successful request returns an array of vehicles and their current status in accordance with the specification found <a href="https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson">here</a>.</p>
+
+<h3 id="response">Response</h3>
+
+<p>The <code class="highlighter-rouge">data:</code> Payload <code class="highlighter-rouge">{ "bikes": [] }</code>, is an array of objects with the following structure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>type</th>
+      <th>Defines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`bike_id</td>
+      <td>String</td>
+      <td>Unique identifier of a vehicle</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lat</code></td>
+      <td>Number</td>
+      <td>Latitude of the bike. The field value must be a valid WGS 84 latitude in decimal degrees format. See: <a href="http://en.wikipedia.org/wiki/World_Geodetic_System">World Geodetic System</a>, <a href="https://en.wikipedia.org/wiki/Decimal_degrees">Decimal degrees</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lon</code></td>
+      <td>Number</td>
+      <td>Longitude of the bike. See <code class="highlighter-rouge">lat</code> definition.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">is_reserved</code></td>
+      <td>Ìnteger</td>
+      <td>1/0 value - is the bike currently reserved for someone else</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">is_disabled</code></td>
+      <td>Ìnteger</td>
+      <td>1/0 value - is the bike currently disabled (broken)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="extension">Extension</h3>
+
+<blockquote>
+  <p>A free_bike_status.json extended request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-H</span> <span class="s2">"X-Auth-Token: &lt;access_token&gt;"</span> 
+  <span class="nt">-H</span> <span class="s2">"X-Voigbfs-Ext: Battery"</span>
+  mds.voiapp.io/v1/gbfs/1/free_bike_status.json 
+</code></pre></div></div>
+
+<blockquote>
+  <p>A free_bike_status.json extended response.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+    <span class="s2">"last_updated"</span>: 1574954898,
+    <span class="s2">"ttl"</span>: 0,
+    <span class="s2">"data"</span>: <span class="o">{</span>
+        <span class="s2">"bikes"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"bike_id"</span>: <span class="s2">"0fae06eb-aaaa-0000-cccc-77f696a30000"</span>,
+                <span class="s2">"lat"</span>: 48.871983,
+                <span class="s2">"lon"</span>: 2.303089,
+                <span class="s2">"is_reserved"</span>: 1,
+                <span class="s2">"is_disabled"</span>: 0,
+                <span class="s2">"battery"</span>: 51
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"bike_id"</span>: <span class="s2">"8c0940ec-aaaa-0000-cccc-3057d9820000"</span>,
+                <span class="s2">"lat"</span>: 48.853252,
+                <span class="s2">"lon"</span>: 2.343597,
+                <span class="s2">"is_reserved"</span>: 0,
+                <span class="s2">"is_disabled"</span>: 0,
+                <span class="s2">"battery"</span>: 59
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>The response from <code class="highlighter-rouge">free_bike_status</code> can be extended to include a <code class="highlighter-rouge">battery</code> field describing the state of charge of each vehicle in the response array.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>type</th>
+      <th>Defines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">battery</code></td>
+      <td>Integer</td>
+      <td>The state of charge for a vehicle</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To access this field, add the request header <code class="highlighter-rouge">X-Voigbfs-Ext</code> with the requested field name header value.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>X-Voigbfs-Ext</td>
+      <td>Battery</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="auto-discovery">Auto-discovery</h2>
+
+<blockquote>
+  <p>A gbfs.json request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-H</span> <span class="s2">"X-Auth-Token: &lt;access_token&gt;"</span> 
+  mds.voiapp.io/v1/gbfs/gbfs.json 
+</code></pre></div></div>
+
+<blockquote>
+  <p>A gbfs.json response.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+    <span class="s2">"last_updated"</span>: 1574950567,
+    <span class="s2">"ttl"</span>: 0,
+    <span class="s2">"data"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="o">{</span>
+            <span class="s2">"feeds"</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">"name"</span>: <span class="s2">"system_information"</span>,
+                    <span class="s2">"url"</span>: <span class="s2">"https://mds.voiapp.io/v1/gbfs/en/1/system_information"</span>
+                <span class="o">}</span>,
+                <span class="o">{</span>
+                    <span class="s2">"name"</span>: <span class="s2">"free_bike_status"</span>,
+                    <span class="s2">"url"</span>: <span class="s2">"https://mds.voiapp.io/v1/gbfs/en/1/free_bike_status"</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">gbfs.json</code> is an auto-discovery file that links to all of the other files published by the system.</p>
+
+<p>A successful response contains which GBFS endpoints that the user’s role can access.</p>
+
+<h3 id="response-1">Response</h3>
+
+<p>The following fields are all attributes within the main data object for this feed.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>type</th>
+      <th>Defines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">language</code></td>
+      <td>String</td>
+      <td>The language that all of the contained files will be published in. This language must match the value in the system_information file</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">feeds</code></td>
+      <td>Array</td>
+      <td>An array of all of the feeds that are published by this auto-discovery file</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>String</td>
+      <td>Key identifying the type of feed this is (e.g. “system_information”, “station_information”)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>String</td>
+      <td>Full URL for the feed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="system-information">System information</h2>
+
+<p>The following fields are all the required attributes within the main data object for this feed.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>type</th>
+      <th>Defines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">system_id</code></td>
+      <td>String</td>
+      <td>The identifier for this system. This is globally unique (even between different systems). In addition, this value is intended to remain the same over the life of the system</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">language</code></td>
+      <td>String</td>
+      <td>An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See <a href="https://tools.ietf.org/html/bcp47">bcp47</a> and <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a> for details about the format of this tag</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>String</td>
+      <td>Full name of the system to be displayed to customers</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td>String</td>
+      <td>The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the “TZ” value <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a> for a list of valid values</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+      </div>
+
+  </body>
+  <script type="text/javascript" src="/assets/js/all.js"></script>
+
+</html>

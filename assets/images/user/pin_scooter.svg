@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs>
+    <clipPath id="clip-voi_pin_coral-bg">
+      <rect width="1000" height="1000"/>
+    </clipPath>
+  </defs>
+  <g id="voi_pin_coral-bg" clip-path="url(#clip-voi_pin_coral-bg)">
+    <rect width="1000" height="1000" fill="#f46c63"/>
+    <g id="Pinned-scooter" transform="translate(24.243 27.596)">
+      <g id="logo" transform="translate(323.823 670.864) rotate(-90)">
+        <rect id="Rectangle_180" data-name="Rectangle 180" width="75.893" height="303.558" rx="37.946" transform="translate(113.839 0)" fill="#fff"/>
+        <rect id="Rectangle_212" data-name="Rectangle 212" width="75.624" height="184.664" rx="37.812" transform="translate(396.742 226.872) rotate(90)" fill="#fff"/>
+        <rect id="Rectangle_184" data-name="Rectangle 184" width="75.893" height="75.889" rx="37.945" fill="#fff"/>
+        <rect id="Rectangle_185" data-name="Rectangle 185" width="75.893" height="75.889" rx="37.945" transform="translate(0 227.668)" fill="#fff"/>
+        <path id="Path_81" data-name="Path 81" d="M22.869,0h.269A22.863,22.863,0,0,1,46,22.863V130.046A22.863,22.863,0,0,1,23.138,152.91L0,153.034S.006,142.673.006,22.863A22.863,22.863,0,0,1,22.869,0Z" transform="translate(350.74 149.489)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Deeplinks</title>
+    <link rel="stylesheet" href="/assets/css/highlight.css">
+    <link rel="stylesheet" href="/assets/css/screen.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+<link rel="icon" 
+      type="image/png" 
+      href="/assets/images/favicon.png">
+  </head>
+
+  <a href="#" id="nav-button">
+  <span>
+    NAV
+      <img src="/assets/images/navbar.svg" class="nav" alt="nav">
+
+  </span>
+</a>
+<div class="toc-wrapper" id="toc-wrapper">
+  <div class="logowrapper"><img src="/assets/images/logo.svg" class="logo" alt="logo"></div>
+  <ul id="toc" class="toc-list-h1">
+  <li><a href="#how-deeplinks-work">How deeplinks work</a></li>
+  <li><a href="#schema">Schema</a>
+    <ul>
+      <li><a href="#base-url">Base url</a></li>
+      <li><a href="#parameters">Parameters</a></li>
+      <li><a href="#example">Example</a></li>
+    </ul>
+  </li>
+  <li><a href="#views">Views</a></li>
+</ul>
+</div>
+  <div class="page-wrapper">
+
+                  <div class="content" id="content">
+        	<h1 id="how-deeplinks-work">How deeplinks work</h1>
+<p>Deeplinks is a way to send user to a view in another app. If the user doesn’t have the app they are sent to the appstore with a prompt to download the app. We are using adjust to deep-link and track usage from third party apps.</p>
+
+<h1 id="schema">Schema</h1>
+
+<h2 id="base-url">Base url</h2>
+<p>https://lqfa.adj.st/voiapp/open</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adj_t</td>
+      <td>3swpnku</td>
+      <td>This is the group that should be used for all partner-integration.</td>
+    </tr>
+    <tr>
+      <td>adj_campaign</td>
+      <td>pt</td>
+      <td>Use if client is public transit</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>maas</td>
+      <td>use if client is mobile as a service application</td>
+    </tr>
+    <tr>
+      <td>adj_adgroup</td>
+      <td>app name</td>
+      <td>Put in your app name</td>
+    </tr>
+    <tr>
+      <td>adj_creative</td>
+      <td>any grouping for example by city</td>
+      <td>optional, can be used for any grouping you want to share with us</td>
+    </tr>
+    <tr>
+      <td>adj_deeplink</td>
+      <td>voiapp deeplink</td>
+      <td>optional, url-encoded deeplinks specified in <a href="#views">Views</a> below</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+<p><a href="">https://lqfa.adj.st/voiapp/open?adj_t=3swpnku&amp;adj_campaign=campaign2&amp;adj_adgroup=adgroup2&amp;adj_creative=creative2&amp;adj_deeplink=voiapp%3A%2F%2Fhome</a></p>
+
+<h1 id="views">Views</h1>
+<p>select a parameter based on what view you want the user to end up in</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>View</th>
+      <th>Parameter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Map</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fhome</td>
+    </tr>
+    <tr>
+      <td>Qr-code-scanner</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fscan</td>
+    </tr>
+    <tr>
+      <td>Send credits</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Ffree</td>
+    </tr>
+    <tr>
+      <td>Redeem credits</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fredeem%2Fcode</td>
+    </tr>
+    <tr>
+      <td>Ride history</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fhistory</td>
+    </tr>
+    <tr>
+      <td>Rules for riding</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Frule</td>
+    </tr>
+    <tr>
+      <td>Help</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fhelp</td>
+    </tr>
+    <tr>
+      <td>Profile page</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fprofile</td>
+    </tr>
+    <tr>
+      <td>Edit user details</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fprofiledetail</td>
+    </tr>
+    <tr>
+      <td>Edit payment methods</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fpayment</td>
+    </tr>
+    <tr>
+      <td>View credits</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Fcredit</td>
+    </tr>
+    <tr>
+      <td>Select language</td>
+      <td>adj_deeplink=voiapp%3A%2F%2Flanguage</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </div>
+
+
+  </body>
+  <script type="text/javascript" src="/assets/js/all.js"></script>
+
+</html>
