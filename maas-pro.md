@@ -149,6 +149,53 @@ StatusBadRequest|Invalid user id|InvalidUserId
 StatusNotFound|User not found|ErrUserNotFound
 StatusInternalServerError| | 
 
+## Update user details
+
+> An update user request.
+
+```shell
+curl -X Pathc https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
+  -H "X-Auth-Token $TOKEN"
+  -d '{"emai": "agatha.christie@gmail.com", "phoneNumber": "+46911"}'
+```
+
+> An update user response.
+
+```shell
+{
+  "data": {
+    "id": "9b39971c-8e51-5b32-aa07-dd2fee64c2b0",
+    "type": "user",
+    "attributes": {
+      "email": "agatha.christie@gmail.com",
+      "firstName": "Agatha",
+      "lastName": "Christie" ,
+      "phoneNumber: "+46911",
+      "externalId": "12345678-abcd-0000-1111-1234567890ab"
+    }
+  }
+}
+```
+
+Update user details allow for a users to be updated. Only fields that are send in the patch request will be affected by the update request.
+
+
+
+### HTTPS request
+`PATCH https://partners.voiapp.io/v1/user/{id}`
+
+
+### Patch parameters
+
+field | type | description | presence
+------ | -------- | -------- | -------
+email | string | The user's email address| optional
+firstName | string |The user's first name | optional
+lastName | string | The user's last name| optional
+phoneNumber | string | The user's phone number| optional
+
+
+
 
 # Rental
 A rental is the domain where a user is having access to the scooter. It is done by starting and ending the rental. At the end of the rental the price will be posted so that the partner can charge the user. A user only rent one scooter at the time and it is not possible to pre-book a scooter.
