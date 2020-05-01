@@ -41,6 +41,7 @@
       <li><a href="#user-model">User model</a></li>
       <li><a href="#register-user">Register user</a></li>
       <li><a href="#get-user">Get user</a></li>
+      <li><a href="#update-user-details">Update user details</a></li>
     </ul>
   </li>
   <li><a href="#rental">Rental</a>
@@ -279,17 +280,17 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidinput</td>
+      <td>Invalid input</td>
       <td>InvalidInput</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Thisexternaluseridalreadyexists</td>
+      <td>This external user id already exists</td>
       <td>ExternalUserIDAlreadyExists</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Emptyuseremailid</td>
+      <td>Empty user email id</td>
       <td>EmptyUserEmailID</td>
     </tr>
     <tr>
@@ -378,6 +379,80 @@
       <td>StatusInternalServerError</td>
       <td> </td>
       <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="update-user-details">Update user details</h2>
+
+<blockquote>
+  <p>An update user request.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> Pathc https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
+  <span class="nt">-H</span> <span class="s2">"X-Auth-Token </span><span class="nv">$TOKEN</span><span class="s2">"</span>
+  <span class="nt">-d</span> <span class="s1">'{"emai": "agatha.christie@gmail.com", "phoneNumber": "+46911"}'</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>An update user response.</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"9b39971c-8e51-5b32-aa07-dd2fee64c2b0"</span>,
+    <span class="s2">"type"</span>: <span class="s2">"user"</span>,
+    <span class="s2">"attributes"</span>: <span class="o">{</span>
+      <span class="s2">"email"</span>: <span class="s2">"agatha.christie@gmail.com"</span>,
+      <span class="s2">"firstName"</span>: <span class="s2">"Agatha"</span>,
+      <span class="s2">"lastName"</span>: <span class="s2">"Christie"</span> ,
+      <span class="s2">"phoneNumber: "</span>+46911<span class="s2">",
+      "</span>externalId<span class="s2">": "</span>12345678-abcd-0000-1111-1234567890ab<span class="s2">"
+    }
+  }
+}
+</span></code></pre></div></div>
+
+<p>Update user details allow for a users to be updated. Only fields that are send in the patch request will be affected by the update request.</p>
+
+<h3 id="https-request-2">HTTPS request</h3>
+<p><code class="highlighter-rouge">PATCH https://partners.voiapp.io/v1/user/{id}</code></p>
+
+<h3 id="patch-parameters">Patch parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>field</th>
+      <th>type</th>
+      <th>description</th>
+      <th>presence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>email</td>
+      <td>string</td>
+      <td>The user’s email address</td>
+      <td>optional</td>
+    </tr>
+    <tr>
+      <td>firstName</td>
+      <td>string</td>
+      <td>The user’s first name</td>
+      <td>optional</td>
+    </tr>
+    <tr>
+      <td>lastName</td>
+      <td>string</td>
+      <td>The user’s last name</td>
+      <td>optional</td>
+    </tr>
+    <tr>
+      <td>phoneNumber</td>
+      <td>string</td>
+      <td>The user’s phone number</td>
+      <td>optional</td>
     </tr>
   </tbody>
 </table>
@@ -645,7 +720,7 @@
 </code></pre></div></div>
 <p>Start rental makes a vehicle accessible to ride with. To request to start a rental, the <code class="highlighter-rouge">userId</code> and <code class="highlighter-rouge">vehicleId</code> are provided in the request body.</p>
 
-<h3 id="https-request-2">HTTPS request</h3>
+<h3 id="https-request-3">HTTPS request</h3>
 
 <p><code class="highlighter-rouge">POST https://partners.voiapp.io/v1/rental/start</code></p>
 
@@ -695,32 +770,32 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidinput</td>
+      <td>Invalid input</td>
       <td>InvalidInput</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invaliduserid</td>
+      <td>Invalid user id</td>
       <td>InvalidUserId</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidvehicleid</td>
+      <td>Invalid vehicle id</td>
       <td>InvalidVehicleId</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Userdoesnotexist</td>
+      <td>User does not exist</td>
       <td>UserNotFound</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Thisuseralreadyhasarental</td>
+      <td>This user already has a rental</td>
       <td>RentalAlreadyExists</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Vehiclenotfound</td>
+      <td>Vehicle not found</td>
       <td>VehicleNotFound</td>
     </tr>
     <tr>
@@ -797,7 +872,7 @@
     <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<h3 id="https-request-3">HTTPS request</h3>
+<h3 id="https-request-4">HTTPS request</h3>
 <p><code class="highlighter-rouge">POST https://partners.voiapp.io/v1/rental/&lt;rentalId&gt;/end</code></p>
 
 <h3 id="path-parameters-1">Path parameters</h3>
@@ -851,22 +926,22 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidinput</td>
+      <td>Invalid input</td>
       <td>InvalidInput</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidrentalid</td>
+      <td>Invalid rental id</td>
       <td>InvalidRentalID</td>
     </tr>
     <tr>
       <td>StatusNotFound</td>
-      <td>RentalIDdoesnotexist</td>
+      <td>Rental ID does not exist</td>
       <td>RentalIDDoesNotExist</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Rentalisalreadyendedforthisrentalid</td>
+      <td>Rental is already ended for this rental id</td>
       <td>RentalAlreadyEnded</td>
     </tr>
     <tr>
@@ -883,7 +958,7 @@
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span>
 
 </code></pre></div></div>
-<h3 id="https-request-4">HTTPS request</h3>
+<h3 id="https-request-5">HTTPS request</h3>
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/rental/&lt;id&gt;</code></p>
 
 <h3 id="path-parameters-2">Path parameters</h3>
@@ -914,7 +989,7 @@
 
 </code></pre></div></div>
 
-<h3 id="https-request-5">HTTPS request</h3>
+<h3 id="https-request-6">HTTPS request</h3>
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/rental/user/&lt;id&gt;/active</code></p>
 
 <h3 id="path-parameters-3">Path parameters</h3>
@@ -947,12 +1022,12 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidinput</td>
+      <td>Invalid input</td>
       <td>InvalidInput</td>
     </tr>
     <tr>
       <td>StatusNotFound</td>
-      <td>Unabletofindactiverental</td>
+      <td>Unable to find active rental</td>
       <td>ActiveRentalNotFound</td>
     </tr>
     <tr>
@@ -969,7 +1044,7 @@
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span>
 
 </code></pre></div></div>
-<h3 id="https-request-6">HTTPS request</h3>
+<h3 id="https-request-7">HTTPS request</h3>
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/rental/user/&lt;id&gt;</code></p>
 
 <h3 id="path-parameters-4">Path parameters</h3>
@@ -1124,7 +1199,7 @@
 
 <p>Pricing information can be accessed for a particular vehicle by referencing the vehicle’s id. Prices are updated dynamically so do not cache price information, but rather request it when it’s needed by the user.</p>
 
-<h3 id="https-request-7">HTTPS request</h3>
+<h3 id="https-request-8">HTTPS request</h3>
 <p>GET https://partners.voiapp.io/v1/pricing/vehicle/{id}</p>
 
 <h3 id="path-parameters-5">Path parameters</h3>
@@ -1159,7 +1234,7 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Invalidvehicleid</td>
+      <td>Invalid vehicle id</td>
       <td>InvalidVehicleId</td>
     </tr>
     <tr>
@@ -1296,7 +1371,7 @@
 
 <p>To be able to start a rental or get pricing, the vehicle which is subject for the rental or the pricing needs to be referenced with its id.  To discover the set of vehicles available for rental, the zone id needs to be provided. Only vehicles available for rental will be part of the response. We recommend retrieving the vechiles position every 7 seconds.</p>
 
-<h3 id="https-request-8">HTTPS request</h3>
+<h3 id="https-request-9">HTTPS request</h3>
 
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/vehicles/?zoneID={zoneID}</code></p>
 
@@ -1334,12 +1409,12 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Vehiclecodewasempty</td>
+      <td>Vehicle code was empty</td>
       <td>EmptyVehicleCode</td>
     </tr>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Vehicleidwasempty</td>
+      <td>Vehicle id was empty</td>
       <td>EmptyVehicleID</td>
     </tr>
     <tr>
@@ -1380,7 +1455,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="https-request-9">HTTPS request</h3>
+<h3 id="https-request-10">HTTPS request</h3>
 
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/vehicles/code/{code}</code></p>
 
@@ -1433,7 +1508,7 @@
   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<h3 id="https-request-10">HTTPS request</h3>
+<h3 id="https-request-11">HTTPS request</h3>
 
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/vehicles/id/{id}</code></p>
 
@@ -1549,7 +1624,7 @@
 
 <p>Each operational zone operates with either mandatory parking spots or free floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.</p>
 
-<h3 id="https-request-11">HTTPS request</h3>
+<h3 id="https-request-12">HTTPS request</h3>
 
 <p><code class="highlighter-rouge">GET https://partners.voiapp.io/v1/zone/id/&lt;zoneId&gt;</code></p>
 
@@ -1624,7 +1699,7 @@
   <tbody>
     <tr>
       <td>StatusBadRequest</td>
-      <td>Zoneidwasempty</td>
+      <td>Zone id was empty</td>
       <td>EmptyZoneID</td>
     </tr>
     <tr>
