@@ -96,9 +96,9 @@ productId | string |  The  product id (UUID Version 4)| optional
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Invalidinput|InvalidInput
-StatusBadRequest|Thisexternaluseridalreadyexists|ExternalUserIDAlreadyExists
-StatusBadRequest|Emptyuseremailid|EmptyUserEmailID
+StatusBadRequest|Invalid input|InvalidInput
+StatusBadRequest|This external user id already exists|ExternalUserIDAlreadyExists
+StatusBadRequest|Empty user email id|EmptyUserEmailID
 StatusInternalServerError| | 
 
 
@@ -355,14 +355,13 @@ userStartLocation | object | The user’s location when starting the rental| opt
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Invalidinput|InvalidInput
-StatusBadRequest|Invaliduserid|InvalidUserId
-StatusBadRequest|Invalidvehicleid|InvalidVehicleId
-StatusBadRequest|Userdoesnotexist|UserNotFound
-StatusBadRequest|Thisuseralreadyhasarental|RentalAlreadyExists
-StatusBadRequest|Vehiclenotfound|VehicleNotFound
+StatusBadRequest|Invalid input|InvalidInput
+StatusBadRequest|Invalid user id|InvalidUserId
+StatusBadRequest|Invalid vehicle id|InvalidVehicleId
+StatusBadRequest|User does not exist|UserNotFound
+StatusBadRequest|This user already has a rental|RentalAlreadyExists
+StatusBadRequest|Vehicle not found|VehicleNotFound
 StatusInternalServerError| | 
-
 
 ## End rental
 
@@ -447,10 +446,10 @@ userEndLocation | object | The user’s location when ending the rental | option
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Invalidinput|InvalidInput
-StatusBadRequest|Invalidrentalid|InvalidRentalID
-StatusNotFound|RentalIDdoesnotexist|RentalIDDoesNotExist
-StatusBadRequest|Rentalisalreadyendedforthisrentalid|RentalAlreadyEnded
+StatusBadRequest|Invalid input|InvalidInput
+StatusBadRequest|Invalid rental id|InvalidRentalID
+StatusNotFound|Rental ID does not exist|RentalIDDoesNotExist
+StatusBadRequest|Rental is already ended for this rental id|RentalAlreadyEnded
 StatusInternalServerError| | 
 
 ## Rental by id
@@ -492,8 +491,8 @@ id |  The user id for the requested rental
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Invalidinput|InvalidInput
-StatusNotFound|Unabletofindactiverental|ActiveRentalNotFound
+StatusBadRequest|Invalid input|InvalidInput
+StatusNotFound|Unable to find active rental|ActiveRentalNotFound
 StatusInternalServerError| | 
 
 
@@ -594,7 +593,7 @@ id | The vehicle id (UUID version 4). | required
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Invalidvehicleid|InvalidVehicleId
+StatusBadRequest|Invalid vehicle id|InvalidVehicleId
 StatusInternalServerError| | 
 
 
@@ -695,8 +694,8 @@ zoneID |  The id of the requested zone | required
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Vehiclecodewasempty|EmptyVehicleCode
-StatusBadRequest|Vehicleidwasempty|EmptyVehicleID
+StatusBadRequest|Vehicle code was empty|EmptyVehicleCode
+StatusBadRequest|Vehicle id was empty|EmptyVehicleID
 StatusInternalServerError| | 
 
 ## Get Vehicle by code
@@ -874,7 +873,7 @@ geometry | object | Describes the geometry for the area (geoJSON), described as 
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Zoneidwasempty|EmptyZoneID
+StatusBadRequest|Zone id was empty|EmptyZoneID
 StatusInternalServerError| | 
 
 # Miscellaneous
