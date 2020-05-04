@@ -67,7 +67,7 @@ Accept | application/vnd.mds.provider+json;version=0.4
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4" 
   mds.voiapp.io/en/9/trips?end_time=2020-01-01T23
 ```
-A trip represents a journey taken by a mobility as a service customer with a geo-tagged start and stop point.
+A trip represents a journey taken by a customer with a geo-tagged start and stop point.
 The `/trips endpoint allows a user to query historical trip data that happened within the queried hour.
 
 See Open Mobility Foundation's MDS description on trips [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#trips).
@@ -85,7 +85,7 @@ zoneID | The zone id for the requested trips| required
 
 parameter | description | presence
 ------|--------- | -----
-end_time | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended datetime representing an UTC hour between 00 and 23.| required
+end_time | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended DateTime representing a UTC hour between 00 and 23.| required
 
 ## Status Changes
 > A status changes request.
@@ -111,7 +111,7 @@ zoneID | The zone id for the requested status changes | required
 
 parameter | description | presence
 ------|--------- | -----
-event_time | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended datetime representing an UTC hour between 00 and 23.| required
+event_time | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended DateTime representing a UTC hour between 00 and 23.| required
 
 ## Events
 
@@ -123,9 +123,9 @@ $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
 ```
 The `/events` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events. 
 
-The `/events` endpoint functions similarly to `/status_changes`, but does not included data older than 2 weeks (that data is in `/status_changes`.)
+The `/events` endpoint functions similarly to `/status_changes`, but does not include data older than 2 weeks (that data is in `/status_changes`.)
 
-See Open Mobility Foundation's MDS description on events [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#events).
+See Open Mobility Foundation's MDS description of events [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#events).
 
 ### HTTPS request
 
@@ -170,7 +170,7 @@ Field Name | type | Defines
 
 ## Authentication
 
-Authentication for GBFS is same as for MDS and is described in the MDS section found [here](#mds).
+Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
 
 ## Free bike status
 
@@ -210,7 +210,7 @@ $ curl -H "X-Auth-Token: <access_token>"
 
 `free_bike_status.json` describes the available vehicles in real-time. This endpoint comes with the option to extend the response outside the current GBFS standard.
 
-A successful request returns an array of vehicles and their current status in accordance with the specification found [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson). 
+A successful request returns an array of vehicles and their current status per the specification found [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson). 
 
 ### Response
 
@@ -328,7 +328,7 @@ The following fields are all the required attributes within the main data object
 
 Field Name | type | Defines
 --------- | ----------- | ------
-`system_id` | String |  The identifier for this system. This is globally unique (even between different systems). In addition, this value is intended to remain the same over the life of the system
+`system_id` | String |  The identifier for this system. This is globally unique (even between different systems). Also, this value is intended to remain the same over the life of the system
 `language` | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag
 `name` | String | Full name of the system to be displayed to customers
 `timezone` | String |   The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid values

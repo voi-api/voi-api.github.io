@@ -6,12 +6,12 @@ menu: main
 description: Create links to views in the Voi app.
 ---
 
-# How deeplinks work
-Deeplinks is a way to send user to a view in another app. If the user doesn't have the app they are sent to the appstore with a prompt to download the app. We are using adjust to deep-link and track usage from third party apps.
+# How deep links work
+Deeplinks are a way to send the user to a view in another app. If the user doesn't have the app they are sent to the AppStore with a prompt to download the app. We are using adjust to deep-link and track usage from third-party apps.
 
 # Schema
 
-## Base url
+## Base URL
 https://lqfa.adj.st/voiapp/open
 
 ## Parameters
@@ -20,10 +20,10 @@ https://lqfa.adj.st/voiapp/open
 |---|---|---|
 |adj_t|3swpnku|This is the group that should be used for all partner-integration.|
 |adj_campaign|pt|Use if client is public transit|
-||maas|use if client is mobile as a service application|
+||maas|use if the client is mobility as a service application|
 |adj_adgroup|app name|Put in your app name|
 |adj_creative|any grouping for example by city|optional, can be used for any grouping you want to share with us|
-|adj_deeplink|voiapp deeplink|optional, url-encoded deeplinks specified in [Views](#views) below|
+|adj_deeplink|voiapp deeplink|optional, URL-encoded deep links specified in [Views](#views) below|
 
 ## Example
 [https://lqfa.adj.st/voiapp/open?adj_t=3swpnku&adj_campaign=campaign2&adj_adgroup=adgroup2&adj_creative=creative2&adj_deeplink=voiapp%3A%2F%2Fhome]()
