@@ -194,7 +194,13 @@ firstName | string |The user's first name | optional
 lastName | string | The user's last name| optional
 phoneNumber | string | The user's phone number| optional
 
+### Errors
 
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest | Invalid user id | InvalidUserId
+StatusNotFound | User not found | ErrUserNotFound
+StatusInternalServerError| | 
 
 
 # Rental
@@ -694,8 +700,6 @@ zoneID |  The id of the requested zone | required
 
 Code|Detail|ErrorCode
 -----|-----|-----
-StatusBadRequest|Vehicle code was empty|EmptyVehicleCode
-StatusBadRequest|Vehicle id was empty|EmptyVehicleID
 StatusInternalServerError| | 
 
 ## Get Vehicle by code
@@ -773,6 +777,12 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 parameter  | description | presence
 ------ | -------- | -------
 id |  The vehicle's id (UUID version 4)  | required
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusInternalServerError| | 
 
 # Zone Areas
 
