@@ -9,7 +9,7 @@ description: Customer support flows, ways of contact and service cases.
 # Customer Support
 Voi is responsible for any service cases related to the ride, accidents, and police. Any other requests are handled by the partner. By presenting Voi's contact information while the user is unlocking, riding, and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company. Refunds are always performed by the partner but sometimes requested by Voi.
 
-Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for urgent matters.
+Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for accidents and users that cannot end their trip.
 
 ## Ways for users and partners to contact Voi customer support.
 We use email for customer support. (In our app and on our webpage you can also fill in a form, but this is converted into an email). For regulatory reasons, we also provide phone-support in some markets. Phone support has no access to admin tools, meaning they can answer simple questions and most users calling in will get referred to e-mail-support.
