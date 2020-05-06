@@ -6,7 +6,7 @@ menu: main
 description: Graphics, legal documents
 ---
 # Brand guidelines
-Vois brand guidline must be adhered to when using Voi brand. It can be found at [brand.voiscooters.com](https://brand.voiscooters.com/)
+You must adhere to Vois brand guidline when using Vois' brand. They can be found at [brand.voiscooters.com](https://brand.voiscooters.com/)
 
 # Images
 
@@ -31,15 +31,15 @@ Vois brand guidline must be adhered to when using Voi brand. It can be found at 
 
 
 # Onboarding animations
-Voi encourages you to use our animations for onboarding users. We use a framework called [Lottie](https://lottiefiles.com/), an iOS, Android, and React Native library that renders After Effects animations in real time, allowing apps to use animations as easily as they use static images. See the files below.
+Voi encourages you to use our animations for onboarding users. We use a framework called [Lottie](https://lottiefiles.com/), it's an iOS, Android, and React Native library that renders After Effects animations in real time, allowing apps to use animations as easily as static images. See the files below.
 
 * [Start ride](https://lottiefiles.com/share/ereItg)
 * [Ride](https://lottiefiles.com/share/RG6Ywh)
 * [End ride](https://lottiefiles.com/share/jnJW21)
 
 # Texts
-The most recently updated versions of these documents are always available on the following addresses, we recommend including them as web views in your apps. They are all available in multiple languages, you can pick the language on the respective page.
+The most recently updated versions of these documents are always available on the following addresses, we recommend including them as web views in your apps and they will be updated automatically. They are all available in multiple languages, you can pick the language on the respective page to get the url for that language.
 
-* [Frequently asked questions](https://www.voiscooters.com/faq/) (available in English, Deutsch, French, Spanish and Portuguese.)
-* [Terms and conditions](https://www.voiscooters.com/voi-user-agreement-12rr/)
+* [Frequently asked questions](https://www.voiscooters.com/faq/)
+* [Terms and conditions](https://www.voiscooters.com/voi-user-agreement-12rr/)x
 * [Privacy Policy](https://www.voiscooters.com/legal/voi-privacy-policy/)

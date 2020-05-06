@@ -7,7 +7,7 @@ description: Create links to views in the Voi app.
 ---
 
 # How deep links work
-Deeplinks are a way to send the user to a view in another app. If the user doesn't have the app they are sent to the AppStore with a prompt to download the app. We are using adjust to deep-link and track usage from third-party apps.
+Deeplinks are a way to send the user to a view in a mobe app. If the user doesn't have the app they are sent to the AppStore with a prompt to download the app. We are using the third-party tool adjust to deep-link and track usage from third-party apps.
 
 # Schema
 

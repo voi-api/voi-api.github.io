@@ -5,11 +5,22 @@ permalink: /checklist/
 menu: main
 description: Deep integration checklist
 ---
+# Overview
+A typical integration completes steps in the following order
+
+1. Sign data sharing agreement
+2. Rough commercial agreement
+3. Kick off technical integration
+4. Sign final commercial agreement
+5. Payment and customer support alignment
+6. Finalize technical integration
+7. Launch
+
 # Agreements
 The following agreements need to be reached. Contact our [Commercial point of contact](/poc/) for details.
 
-- Data sharing agreement
-- Commercial agreement
+- Data sharing agreement – basically an NDA.
+- Commercial agreement – Covers all aspects of an integration.
 
 # Technical integration
 Follow these steps to complete a deep integration 
@@ -25,9 +36,9 @@ Follow these steps to complete a deep integration
 # Meetings (optional)
 We offer the partners to align on details with [counterparts](/poc/) in the following areas. Reach out to them if you want to set up a meeting.
 
-- Payment alignments – recommended doing close to launch.
-- Customer support alignment – recommended doing half-way through the integration.
-- Engineering, recommended doing after tests against API are performed.
+- Payment – recommended doing close to launch.
+- Customer support – recommended doing half-way through the integration.
+- Engineering, make sure to test our API before to get the most out of this meeting.
 
 # Provide information
 Voi needs the following information from the partners

@@ -8,7 +8,7 @@ description: A read only API, containing MDS, GBFS and Zone data
 
 # MDS
 
-This section describes the Mobility Data Specification (MDS) provider API. To read it explained in full, go to the Open Mobility Foundation's GitHub [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider). 
+This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider). 
 
 
 ## Authentication
@@ -30,7 +30,7 @@ $ curl -X POST -u user:password
 }
 ```
 OAuth 2.0's `client_credentials grant type (outlined in [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4)) is used as the authentication and authorization scheme. 
-This is also sometimes referenced as a two-legged OAuth.
+This is sometimes called as a two-legged OAuth.
 
 ### HTTPS request
 
@@ -123,7 +123,7 @@ $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
 ```
 The `/events` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events. 
 
-The `/events` endpoint functions similarly to `/status_changes`, but does not include data older than 2 weeks (that data is in `/status_changes`.)
+The `/events` endpoint functions similarly to `/status_changes`, but does not include data older than 2 weeks.
 
 See Open Mobility Foundation's MDS description of events [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#events).
 
@@ -149,7 +149,7 @@ start_time | timestamp, integer milliseconds since Unix epoch| required
 
 Voi provides a flavored version of the GBFS (The General Bikeshare Feed Specification) API. 
 
-Since the vehicles Voi currently provide are considered dockless and since GBFS does not fully support this means of transport yet, some API endpoints in the GBFS specification doesn’t apply.
+Since the vehicles Voi currently provide are considered dockless and since GBFS does not fully support this means of transport, some API endpoints in the GBFS specification doesn’t apply.
 
 Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md), Voi supports the following files.
 
@@ -210,7 +210,7 @@ $ curl -H "X-Auth-Token: <access_token>"
 
 `free_bike_status.json` describes the available vehicles in real-time. This endpoint comes with the option to extend the response outside the current GBFS standard.
 
-A successful request returns an array of vehicles and their current status per the specification found [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson). 
+It returns an array of vehicles and their current status per the specification found [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson). 
 
 ### Response
 
@@ -262,7 +262,7 @@ $ curl -H "X-Auth-Token: <access_token>"
     }
 }
 ```
-The response from `free_bike_status` can be extended to include a `battery` field describing the state of charge of each vehicle in the response array.                           
+The response from `free_bike_status` can be extended to include a `battery` field describing the state of charge of the battery in each vehicle in the response array.                           
 
 Field Name | type | Defines             
 --------- | ----------- | ------ 

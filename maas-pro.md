@@ -10,15 +10,16 @@ description: A deep integration API, used for completing full user journeys.
 Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. 
 
 ## Development
-Development is performed against our staging environment. Within it, we provide virtual scooters and relevant zones, located in the Operational Zone of Berlin. Virtual scooters differ from real scooters in several ways.
+For a broader description of the integration-process, check out our [checklist](/checklist/)
+
+Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
 * Whenever you call the scooter with unlocking or lock it will respond with success.
-* The scooter's location will never change.
+* The scooter's location will not change even if you provide an end ride location.
+* The zones and scooters are spread over a much larger area than the real scooters.
 
 ## Going live
-Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment with access to the city you operate in. Now you will be able to test the integration with real scooters that you can pick from the street. Test the integration in closed beta before giving access to all your users.
-
-
+Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment in the cities you operate in. Now you will be able to test the integration with real scooters that you can pick from the street. Test the integration in closed beta before giving access to all your users.
 
 # Authentication
 
@@ -85,12 +86,12 @@ Register user creates a new user with a unique user id. A user is required to be
 
 field | type | description | presence
 ------ | -------- | -------- | -------
-email | string | The user's email address is used by customer support to identify users when contacting Voi.| required
+email | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email adress. | required
 firstName | string |The user's first name | optional
 lastName | string | The user's last name| optional
-phoneNumber | string | The user's phone number. (not used as identifier)| optional
-externalId | string |  The user's id created in the API consumers' system. This is used by customer support, debugging, and as a reference in the invoicing material. | optional
-productId | string |  The  product id (UUID Version 4)| optional
+phoneNumber | string | The users' phone number. (not used as identifier)| optional
+externalId | string |  The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material. | optional
+productId | string |  The  product id (UUID Version 4) you received from Voi.| optional but will become mandatory
 
 ### Errors
 
@@ -130,7 +131,7 @@ curl https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
 ```
 
 
-Get user by its user-id
+Get user by user-id
 
 ### HTTPS request
 `GET https://partners.voiapp.io/v1/user/id/{id}`
@@ -604,7 +605,6 @@ StatusInternalServerError| |
 
 
 # Vehicle
-This section describes the possible interactions with the vehicle domain of the API.
 
 ## Vehicle model
 > The vehicle response model.
@@ -634,11 +634,11 @@ field | type | description | presence
 ------ | -------- | -------- | -------
 id | string | The vehicle's id (UUID version 4) | required
 type | string | For vehicles the type will always be "vehicle"  | required
-batteryLevel | integer | The state of charge of the vehicle in percent (0-100)| required
+batteryLevel | integer | The state of charge of the vehicles' battery in percent (0-100)| required
 location | object | The vehicle’s location| required
-longitude | number | the longitude component in a location | required 
-latitude | number | the latitude component in a location | required 
-code | string |  the vehicle code, visually available on the vehicle | required
+longitude | number | the longitude component of the location | required 
+latitude | number | the latitude component of the location | required 
+code | string |  the vehicle code, available on the physical vehicle | required
 
 
 
@@ -867,7 +867,7 @@ parameter  | description
 ------ | -------- | -------
 zoneId |  The id of the requested zone
 
-<aside class="warning">All behavior connected to the areas in a zone is enforced by the system. But for good user experience, we recommend explaining the areas and their implication for the user.</aside> 
+<aside class="warning">All behavior connected to the areas in a zone is enforced by the system. But for good A user experience, we recommend explaining the areas and their implication TO the user.</aside> 
 
 ### Response
  
@@ -888,22 +888,17 @@ StatusInternalServerError| |
 
 # Miscellaneous
 ## GDPR requests
-Since the right to be forgotten and other GDPR-requests require that we go through all our systems manually. Requests are handled by contacting [customer support](/poc/). 
+Since the right to be forgotten and other GDPR-requests require that we go through all our internal systems manually. Requests are handled by contacting [customer support](/poc/). 
 
 ## Endpoints planned
 The following endpoints are added to our roadmap and will be made available shortly.
 
-### Operational zones
+### Available operational zones
 We plan to build an endpoint to see what operational zones you have access to. For now, you will receive the zone and id for the zone you are operating in once you receive access to them from Voi.
 
 ## Endpoints not planned
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
-### Users
-It's not possible to delete users.
-
-### Products
-Partners cannot add, update or delete products, contact Voi if you need to.
-
-### Lock and reserve 
-Since the feature is not widely used, we have not included lock and reserve in our API.
+* It's not possible to delete users, you can disable them on your end, ask user to contact our customer support for the right to be forgotten.
+* Partners cannot add, update or delete products, contact Voi if you need to.
+* We have not included lock and reserve in our API, since the feature is not widely used.

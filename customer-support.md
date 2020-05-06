@@ -9,18 +9,15 @@ description: Customer support flows, ways of contact and service cases.
 # Customer Support
 Voi is responsible for any service cases related to the ride, accidents, and police. Any other requests are handled by the partner. By presenting Voi's contact information while the user is unlocking, riding, and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company. Refunds are always performed by the partner but sometimes requested by Voi.
 
+## SLA
 Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for accidents and users that cannot end their trip.
 
 ## Ways for users and partners to contact Voi customer support.
-We use email for customer support. (In our app and on our webpage you can also fill in a form, but this is converted into an email). For regulatory reasons, we also provide phone-support in some markets. Phone support has no access to admin tools, meaning they can answer simple questions and most users calling in will get referred to e-mail-support.
+We use email for customer support. (In our app and on our webpage you can also fill in a form, but this is converted into an email). Voi uses the riders email-address and, if available, the 4-letter code next to the QR-code on the scooters to identify the users in our internal systems. We need this information and the name of your app provided when you contact our support.
 
-Voi uses the email-address and, if available, the 4-letter code next to the QR-code on the scooters to identify the users in our internal systems. We need the same info and the name of your app when you contact our support.
+We have different [points of contact](/poc/), one for you and one for your end users.
 
-For your customer support, you can use these [points of contact](/poc/). Please provide this e-mail as the primary means of communication to your users: [support@voiapp.io](support@voiapp.io)
-
-
-
-For the following cities, we provide phone-based customer support:
+For regulatory reasons, we also provide phone-support in some markets. Phone support has no access to admin tools, meaning they can answer simple questions and most users calling in will get referred to e-mail-support. For the following cities, we provide phone-based customer support:
 
 City|Phone-number
 -----|-----
@@ -47,9 +44,17 @@ Voi will need the following information:
 We will provide you with the users' e-mail when contacting your customer support.
 
 # Performing Refunds
-## Partner refunding
+## How to refund
+### Partner
 For active rides, Voi customer support will end them and set the price. For already ended rides, the partner is free to perform under conditions described below. The partner has to keep track of refunds and present them with the amount owed when invoicing Voi, including info on what id of the ride that was refunded and the users' id.
 
+### Voi
+When Voi want to request a refund from a partner, we will contact you via e-mail with the following information: 
+* The users' e-mail
+* the sum to refund 
+* the time+date of the ride.
+
+## When to refund
 ### When it's our fault
 We always refund when the issue was our fault.
 
@@ -74,12 +79,6 @@ If the charge (or extra charge) is below 10 Euro, we offer users refunds in cred
 ### Not refundable
 We don’t make refunds for insignificant issues that don’t affect users’ experience. Instead, in these cases, we can send the users 1-2 Voi credits (1-2 Euro) as compensation for the inconvenience. 
 Examples of insignificant issues: not working bell, no kickstand, slow Internet connection, etc.
-
-## Voi refunding
-When Voi want to request a refund from a partner, we will contact you with the following information: 
-* The users' e-mail
-* the sum to refund 
-* the time+date of the ride.
 
 # Service cases
 ## If the partner gets contacted
