@@ -13,7 +13,7 @@ Voi is responsible for any service cases related to scooters, active rides, acci
 Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for accidents and end ride issues.
 
 ## Ways for users and partners to contact Voi customer support.
-We use email for customer support. In our app and on our webpage you can also fill in a form, but this is converted into an email. Voi uses the riders email-address and, if available, the 4-letter code next to the QR-code on the scooters to identify the users in our internal systems. We need this information and the name of your app provided when you contact our support.
+We mainly use email for customer support. In our app and on our webpage you can also fill in a form, but this is converted into an email. Voi uses the riders email-address and, if available, the 4-letter code next to the QR-code on the scooters to identify the users in our internal systems. We need this information and the name of your app provided when you contact our support.
 
 We have different [points of contact](/poc/), one for you and one for your end users.
 
