@@ -92,7 +92,7 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |User cannot start a ride|Make sure the user has performed the required steps in your app. If it still is not working contact Voi.|
 |The scooter is located outside of Voi business area with an active rental|Ask the user to go back to the operational area and warn about the possibility of additional fees (25 Euro or higher). If the user doesn't want to go back, contact Voi and let them know what they said. We charge the user 25€ extra as a part of the end-ride (it will be invoiced by the partner at the end of the ride).|
 |The scooter did not unlock, the user insists on refund|There will be no cost since the scooter didn't unlock. Contact Voi with the four-letter code so we can take care of the scooter.|
-|A user finds broken scooter|If you get the four-letter code, forward it to Voi. Otherwise, contact the user and request the four-letter code|
+|A user finds a broken scooter|If you get the four-letter code, forward it to Voi. Otherwise, contact the user and request the four-letter code|
 |Traffic authority contacts partner because user committed traffic offenses |Forward request to Voi|
 |User was in an accident|Forward request to Voi.|
 |If police reach out with a request for data|Refer them to the point of [contact for police data requests](/poc/)|
