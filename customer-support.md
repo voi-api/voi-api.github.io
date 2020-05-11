@@ -35,7 +35,7 @@ Erfurt|0361-41771177
 Lübeck|0451-88333333
 Augsburg|0821-44999999
 
-## Contacting partners customer support
+## Contacting partner's customer support
 Voi will need the following information:
 * A point of contact for our customer support to contact your customer support.
 * A point of contact for requesting refunds.
