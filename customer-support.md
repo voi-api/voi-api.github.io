@@ -104,7 +104,7 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 
 |Support case | Action |
 |---|---|
-|The scooter is broken|First help with the scooter. If necessary contact the partner for a refund reques providing with the sum to refund and the time+date of the ride.|
+|The scooter is broken|First help with the scooter. If necessary contact the partner for a refund request providing with the sum to refund and the time+date of the ride.|
 |Voi wants to charge a rider post-ride for bad parking or other post-ride-fines.|Voi doesn't currently do that.|
 |Any questions regarding accounts and payments|Forward the request to the partner.|
 |Any questions regarding the app and the partner|Forward the request to the partner.|
