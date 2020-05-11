@@ -46,7 +46,7 @@ We will provide you with the user's e-mail when contacting your customer support
 # Performing Refunds
 ## How to refund
 ### Partner
-For active rides, Voi customer support will end them and set the price. For already ended rides, the partner is free to perform under conditions described below. The partner has to keep track of refunds and present them with the amount owed when invoicing Voi, including info on what id of the ride that was refunded and the user's id.
+For active rides, Voi customer support will end them and set the price. For already ended rides, the partner is free to perform under conditions described below. The partner has to keep track of refunds and present them with the amount owed when invoicing Voi, including the id of the ride that was refunded and the user's id.
 
 ### Voi
 When Voi wants to request a refund from a partner, we will contact you with the following information (via email or directly through Zendesk if Zendesk integration is implemented): 
