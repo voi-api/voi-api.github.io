@@ -87,7 +87,7 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |---|---|
 |Reserved wrong scooter/couldn't be found/is damaged|Can’t happen, since you cannot book a Voi.|
 |User cannot find a scooter|Ask the user to find another scooter. Voi will automatically create a search and rescue task for the missing scooter.|
-|User cannot get the scooter to move|First troubleshoot (make sure the scooter is unlocked, ask the user to kick-start to get some speed and push the gas-button). If doesn't help, contact Voi. If the ride is less than 2 min and less than 100 meters, the price will be zero. The partner may refund the end-user.|
+|User cannot get the scooter to move|First troubleshoot (make sure the scooter is unlocked, ask the user to kick-start to get some speed and push the gas-button). If doesn't help, contact Voi. If the ride is less than 2 minutes and/or 100 meters, the price will be zero. The partner may refund the end-user.|
 |Active rental cannot be ended|First troubleshoot (check if the user is located in an area where you are allowed to park). Ask for the duration of the ride and then contact Voi to manually end it.|
 |User cannot start a ride|Make sure the user has performed the required steps in your app. If it still is not working, contact Voi.|
 |The scooter is located outside of the Voi business area with an active rental|Ask the user to go back to the operational area and warn about the possibility of additional fees (25 Euro or higher). If the user doesn't want to go back, forward the case to Voi. We charge the user 25€ extra as a part of the end-ride (it will be invoiced by the partner at the end of the ride).|
