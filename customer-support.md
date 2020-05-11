@@ -49,10 +49,10 @@ We will provide you with the users' e-mail when contacting your customer support
 For active rides, Voi customer support will end them and set the price. For already ended rides, the partner is free to perform under conditions described below. The partner has to keep track of refunds and present them with the amount owed when invoicing Voi, including info on what id of the ride that was refunded and the users' id.
 
 ### Voi
-When Voi want to request a refund from a partner, we will contact you via e-mail with the following information: 
-* The users' e-mail
-* the sum to refund 
-* the time+date of the ride.
+When Voi wants to request a refund from a partner, we will contact you with the following information (via email or directly through Zendesk if Zendesk integration is implemented): 
+* The user's e-mail;
+* The sum to refund;
+* The time+date of the ride.
 
 ## When to refund
 ### When it's our fault
@@ -67,10 +67,10 @@ If the user managed to ride (even if only until a certain point), the ride shoul
 
 *Examples*
 * The user was riding for 15 mins and then couldn’t end a ride for around 20 minutes. As a result, he was overcharged for 20 minutes. So we calculate how much the user should’ve paid for a 15 minutes ride and refund the overcharge.
-* The scooter shut down in the middle of the ride. That means that the user was riding for some time and then the scooter stopped working and the user had to end the ride. Therefore, since the ride was completed, we don’t refund the charge, but we can add 1-2 Voi credits (1-2 Euro) as compensation for the inconvenience.
+* The scooter shut down in the middle of the ride. That means that the user was riding for some time and then the scooter stopped working and the user had to end the ride. Therefore, since the ride was completed, we don’t refund the charge, but we can send 1-2 Voi credits (1-2 Euro) as compensation for the inconvenience.
 
 ### Credits and refunds
-If the charge (or extra charge) is below 10 Euro, we offer users refunds in credits (unless the user specifically asks for a refund in money, then we refund the money). If the amount is above 10 Euro, we refund in money. When refunding in Voi credits, we usually add a bit extra as compensation, around 1-2 Voi credits (1-2 Euro).
+If the charge (or extra charge) is below 10 Euro, we offer users refunds in Voi credits (unless the user specifically asks for a refund in money, then we refund the money). If the amount is above 10 Euro, we refund in money. When refunding in Voi credits, we usually add a bit extra as compensation, around 1-2 Voi credits (1-2 Euro).
 
 *Examples*
 * The user was charged 4 Euro for the scooter that didn’t work at all. So we give the user 5 Voi credits (5 Euro) - a refund for the charge plus some extra as compensation. 
@@ -89,8 +89,8 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |User cannot find scooters|Ask the user to find another scooter. Voi will automatically create a search and rescue task for the missing scooter.|
 |User cannot get the scooter to move|First troubleshoot(make sure the scooter is unlocked, ask the user to kick to get some speed and push gas-button). Contact Voi. If the ride is less than 2 min and less than 100m the price will be zero. Partner may refund the end-user.|
 |Active rental cannot be ended|First troubleshoot (check if the user is located in an area where you are allowed to park). Ask for the duration of the ride and then contact Voi to manually end it.|
-|User cannot perform start a ride|Make sure the user has performed the required steps in your app. If it still is not working contact Voi.|
-|The scooter is located outside of Voi:s business area with an active rental|Contact the user and ask them to go back to the operational area and warn them about the 25€ fee. If the user doesn't want to go back then contact Voi and let them know what they said. (We charge the user 25€ extra as a part of the end-ride(it will be invoiced by the partner at the end of the ride)). Voi will contact the user moving forward.|
+|User cannot start a ride|Make sure the user has performed the required steps in your app. If it still is not working contact Voi.|
+|The scooter is located outside of Voi:s business area with an active rental|Ask the user to go back to the operational area and warn about the possibility of additional fees (25 Euro or higher). If the user doesn't want to go back, contact Voi and let them know what they said. (We charge the user 25€ extra as a part of the end-ride(it will be invoiced by the partner at the end of the ride)).|
 |The scooter did not unlock, the user insists on refund|There will be no cost since the scooter didn't unlock. Contact Voi with the four-letter code so we can take care of the scooter.|
 |A user finds broken scooter|If you get the four-letter code, forward it to Voi. Otherwise, contact the user and request the four-letter code|
 |Traffic authority contacts partner because user committed traffic offenses |Forward request to Voi|
@@ -98,6 +98,7 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |If police reach out with a request for data|Refer them to the point of [contact for police data requests](/poc/)|
 |User requests access to their data|Do your normal procedure and ask them to contact Voi for a separate right to be forgotten request|
 |User requests right to be forgotten|Do your normal procedure and ask them to contact Voi for a separate request|
+|User contacts the partner providing general feedback on Voi scooters, prices or operational zones|Forwarde the ticket to Voi|
 
 ## If Voi gets contacted
 
@@ -106,6 +107,7 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |The scooter is broken|First help with the scooter. If necessary contact partner for refund request. With the sum to refund and the time+date of the ride.|
 |Voi wants to charge rider post-ride for bad parking or other post-ride-fines.|Voi does not do that currently do that.|
 |Any questions regarding account and payments|Forward request to partner|
+|Any questions regarding the app and the partner|Forward request to partner|
 |Voi see suspicious activities|Contact partner|
 |User requests access to their data|Do your normal procedure and ask them to contact Partner for a separate right to be forgotten request|
 |User requests right to be forgotten|Do your normal procedure and ask them to contact Partner for a separate request|
