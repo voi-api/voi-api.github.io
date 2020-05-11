@@ -41,7 +41,7 @@ Voi will need the following information:
 * A point of contact for requesting refunds.
 * A point of contact where we can refer users to you.
 
-We will provide you with the users' e-mail when contacting your customer support.
+We will provide you with the user's e-mail when contacting your customer support.
 
 # Performing Refunds
 ## How to refund
