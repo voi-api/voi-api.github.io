@@ -161,12 +161,6 @@ html, body {
     transition-duration: 200ms;
   }
 
-  // This is the currently selected ToC entry
-  a.active {
-    background-color: $nav-active-bg;
-    color: $nav-active-text;
-  }
-
   // this is parent links of the currently selected ToC entry
   a.active-parent {
     background-color: $nav-active-parent-bg;

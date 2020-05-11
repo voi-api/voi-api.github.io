@@ -33,6 +33,10 @@
     left: 6px;
 }
 
+.content {
+    padding-bottom: 100vh;
+}
+
 .content > table {
     font-size: 12px;
 }
@@ -94,21 +98,17 @@
     flex: 1;
     border: 0
 }
-
-.toc-wrapper a.active {
-    background: rgba(144,142,143,0.51)
-}
-
 .toc-wrapper>ul {
     padding: 0 20px;
 }
 
-.toc-wrapper a {
-    margin: 0
-}
 
 
-.toc-wrapper li ul li a {
+
+
+
+
+.toc-list-h1 li ul li a {
     padding-left: 25px;
     font-size: 12px;
     font-weight: 500;
@@ -127,21 +127,10 @@
     max-height: 200px;
 }
 
-.toc-wrapper .toc-list-h2 {
+.toc-list-h1 .toc-list-h2 {
     background: transparent
 }
 
-.toc-wrapper .search-results a {
-    color: white
-}
-
-.toc-wrapper .search-results.visible {
-    margin-bottom: 0
-}
-
-.toc-wrapper>.search:before {
-    left: 25px
-}
 
 input#input-search {
     padding-left: 30px
@@ -155,7 +144,7 @@ input#input-search {
     display: none
 }
 
-.toc-wrapper a {
+.toc-list-h1 a {
     text-transform: uppercase;
     color: white;
     font-size: 14px;
@@ -165,10 +154,15 @@ input#input-search {
     transition: all 0.2s ease-in-out 0s;
     opacity: .5;
     line-height: 1.2em;
+      // This is the currently selected ToC entry
+  &.active {
+    background-color: rgba(144, 142, 143, 0.51);
+  }
+
 
 }
 
-.toc-wrapper a.active,.toc-wrapper a:hover {
+.toc-list-h1 a.active,.toc-list-h1 a:hover {
     opacity: 1;
 }
 
