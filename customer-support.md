@@ -95,7 +95,7 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |A user finds a broken scooter|If you get the four-letter code, forward it to Voi. Otherwise, contact the user and request the four-letter code.|
 |Traffic authority contacts partner because a user committed traffic offenses |Forward request to Voi.|
 |User was in an accident|Forward request to Voi.|
-|If police reach out with a request for data|Refer them to the point of [contact for police data requests](/poc/).|
+|If police reaches out with a request for data|Refer them to the point of [contact for police data requests](/poc/).|
 |User requests access to their data|Do your normal procedure and ask them to contact Voi for a separate right to be forgotten request.|
 |User requests right to be forgotten|Do your normal procedure and ask them to contact Voi for a separate request.|
 |User contacts the partner providing general feedback on Voi scooters, prices or operational zones|Forwarde the ticket to Voi.|
