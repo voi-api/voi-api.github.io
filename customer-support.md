@@ -54,7 +54,7 @@ When Voi wants to request a refund from a partner, we will contact you with the 
 * The sum to refund;
 * The time+date of the ride.
 
-## When to refund
+## Refunds conditions
 ### When it's our fault
 We always refund when the issue was our fault.
 
