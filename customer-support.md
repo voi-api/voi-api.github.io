@@ -92,13 +92,13 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |User cannot start a ride|Make sure the user has performed the required steps in your app. If it still is not working contact Voi.|
 |The scooter is located outside of Voi business area with an active rental|Ask the user to go back to the operational area and warn about the possibility of additional fees (25 Euro or higher). If the user doesn't want to go back, contact Voi and let them know what they said. We charge the user 25€ extra as a part of the end-ride (it will be invoiced by the partner at the end of the ride).|
 |The scooter did not unlock, the user insists on refund|There will be no cost since the scooter didn't unlock. Contact Voi with the four-letter code so we can take care of the scooter.|
-|A user finds a broken scooter|If you get the four-letter code, forward it to Voi. Otherwise, contact the user and request the four-letter code|
-|Traffic authority contacts partner because a user committed traffic offenses |Forward request to Voi|
+|A user finds a broken scooter|If you get the four-letter code, forward it to Voi. Otherwise, contact the user and request the four-letter code.|
+|Traffic authority contacts partner because a user committed traffic offenses |Forward request to Voi.|
 |User was in an accident|Forward request to Voi.|
-|If police reach out with a request for data|Refer them to the point of [contact for police data requests](/poc/)|
-|User requests access to their data|Do your normal procedure and ask them to contact Voi for a separate right to be forgotten request|
-|User requests right to be forgotten|Do your normal procedure and ask them to contact Voi for a separate request|
-|User contacts the partner providing general feedback on Voi scooters, prices or operational zones|Forwarde the ticket to Voi|
+|If police reach out with a request for data|Refer them to the point of [contact for police data requests](/poc/).|
+|User requests access to their data|Do your normal procedure and ask them to contact Voi for a separate right to be forgotten request.|
+|User requests right to be forgotten|Do your normal procedure and ask them to contact Voi for a separate request.|
+|User contacts the partner providing general feedback on Voi scooters, prices or operational zones|Forwarde the ticket to Voi.|
 
 ## If Voi gets contacted
 
@@ -106,11 +106,11 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |---|---|
 |The scooter is broken|First help with the scooter. If necessary contact partner for refund request. With the sum to refund and the time+date of the ride.|
 |Voi wants to charge rider post-ride for bad parking or other post-ride-fines.|Voi does not do that currently do that.|
-|Any questions regarding account and payments|Forward request to partner|
-|Any questions regarding the app and the partner|Forward request to partner|
-|Voi see suspicious activities|Contact partner|
-|User requests access to their data|Do your normal procedure and ask them to contact Partner for a separate right to be forgotten request|
-|User requests right to be forgotten|Do your normal procedure and ask them to contact Partner for a separate request|
+|Any questions regarding account and payments|Forward request to partner.|
+|Any questions regarding the app and the partner|Forward request to partner.|
+|Voi see suspicious activities|Contact partner.|
+|User requests access to their data|Do your normal procedure and ask them to contact Partner for a separate right to be forgotten request.|
+|User requests right to be forgotten|Do your normal procedure and ask them to contact Partner for a separate request.|
 
 # Faq
 Vois faq is available here: [https://voisupport.zendesk.com/hc/en-us](https://voisupport.zendesk.com/hc/en-us)
