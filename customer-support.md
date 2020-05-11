@@ -7,7 +7,7 @@ description: Customer support flows, ways of contact and service cases.
 ---
 
 # Customer Support
-Voi is responsible for any service cases related to scooters, active rides, accidents, and police. Any other requests are handled by the partner. By presenting Voi's contact information while the user is unlocking, riding, and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company. Refunds are always performed by the partner but sometimes requested by Voi.
+Voi is responsible for any service cases related to scooters, active rides, accidents, and police. Any other requests are handled by the partner. By presenting Voi's contact information while the user is unlocking, riding, and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company (via email or directly through Zendesk if Zendesk integration is implemented where the latter is highly recommended). Refunds are always performed by the partner but sometimes requested by Voi.
 
 ## SLA
 Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for accidents and users that cannot end their trip.
