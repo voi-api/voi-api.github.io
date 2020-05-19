@@ -102,6 +102,8 @@ StatusBadRequest|This external user id already exists|ExternalUserIDAlreadyExist
 StatusBadRequest|Empty user email id|EmptyUserEmailID
 StatusInternalServerError| | 
 
+<aside class="warning">We have some problems with older scooter models failing to unlock. For some scooters this can generate long response-times and/or StatusInternalServerError errors.</aside>
+
 
 ## Get user
 
