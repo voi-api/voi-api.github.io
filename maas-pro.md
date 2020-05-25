@@ -268,11 +268,11 @@ total | object | Contains the rental's total cost | required
 amount | integer | The priced amount, including VAT, in minor units (also called subunit)| required
 currency | string | The alphabetic currency code (ISO 4217) | required     
 vat | integer | The price VAT amount in minor units (also called subunit) | required 
-state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended. [more details here](/payments/#prices-and-fees)<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to.| required               
+state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended.<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to. <br> more details here](/payments/#prices-and-fees)| required               
 startedAt | string     |  Time when the rental started (RFC3339 in UTC) | required           
 endedAt |  string    |   Time when the rental ended (RFC3339 in UTC)      | optional             
 vehicle |  object    |  Contains information about the vehicle used in the rental      | required  
-vehicleCode |  string    |  The vehicle's unique code, visible on the physical vehicle | required  
+vehicleCode |  string    |  The 4-letter alphanumeric vehicle's unique code, visible on the physical vehicle | required  
 vehicleId |  string    |  The vehicle's unique id (UUID Version 4)| required             
 userStartLocation |  object    | The start location provided by the user     | optional   
 userEndLocation | object | The end location provided by the user | optional    
@@ -346,7 +346,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
     ]
 }
 ```
-Start rental makes a vehicle accessible to ride with. To request to start a rental, the `userId` and `vehicleId` are provided in the request body.
+Start rental makes a vehicle accessible to ride with. To request to start a rental, the `userId` and `vehicleId` are provided in the request body. The partner decides what, if any, limitations should be set on who can start a ride.
 
 ### HTTPS request
 
@@ -638,9 +638,9 @@ id | string | The vehicle's id (UUID version 4) | required
 type | string | For vehicles the type will always be "vehicle"  | required
 batteryLevel | integer | The state of charge of the vehicles' battery in percent (0-100)| required
 location | object | The vehicle’s location| required
-longitude | number | the longitude component of the location | required 
-latitude | number | the latitude component of the location | required 
-code | string |  the vehicle code, available on the physical vehicle | required
+longitude | number | The longitude component of the location | required 
+latitude | number | The latitude component of the location | required 
+code | string |  The 4-letter alphanumeric vehicle code, available on the physical vehicle | required
 
 
 
@@ -740,7 +740,7 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
 
 parameter  | description | presence
 ------ | -------- | -------
-code |  the vehicle code, visually available on the vehicle | required
+code |  the 4-letter alphanumeric vehicle code, visually available on the vehicle | required
 
 ## Get Vehicle by id
 
@@ -845,7 +845,7 @@ StatusInternalServerError| |
 }
 ```
 
-Within each operational Zone(a metropolitan area or city), there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
+Within each operational zone(every is it's own zone), there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
 
 ### Supported Zone Areas
 
