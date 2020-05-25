@@ -19,7 +19,7 @@ Test your applicaition against our staging environment. In staging, we provide v
 * The zones and scooters are spread over a much larger area than the real scooters.
 
 ## Going live
-Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment in the cities you operate in. Now you will be able to test the integration with real scooters that you can pick from the street. Test the integration in closed beta before giving access to all your users.
+Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment in the cities you operate in together with your cities zoneId:s. Now you will be able to test the integration with real scooters that you can pick from the street. Test the integration in closed beta before giving access to all your users.
 
 # Authentication
 
