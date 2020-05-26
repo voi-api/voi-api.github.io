@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="ic-noalcohol" transform="translate(-158 -314)">
+    <g id="Group_10594" data-name="Group 10594" transform="translate(2.5 -7.043)">
+      <path id="Path_9432" data-name="Path 9432" d="M186.563,443.276V431h-4.8v12.276a9.916,9.916,0,0,1-2.732,6.84h0a9.914,9.914,0,0,0-2.733,6.84v18.827a1.853,1.853,0,0,0,1.847,1.859h12.038a1.853,1.853,0,0,0,1.847-1.859V456.957a9.914,9.914,0,0,0-2.733-6.84h0A9.915,9.915,0,0,1,186.563,443.276Z" transform="translate(1.639 -102.957)"/>
+      <line id="Line_3279" data-name="Line 3279" x2="33" y2="33" transform="translate(169.5 337.5)" fill="none" stroke="#f46c63" stroke-linecap="square" stroke-miterlimit="10" stroke-width="5"/>
+    </g>
+    <rect id="Rectangle_2466" data-name="Rectangle 2466" width="60" height="60" transform="translate(158 314)" fill="none"/>
+  </g>
+</svg>

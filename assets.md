@@ -39,6 +39,12 @@ This is how Voi presents onboaring
 ![](/assets/images/user/onboarding4.png)
 
 ## Assets
+### Images
+![](/assets/images/user/ic1.svg)
+![](/assets/images/user/ic2.svg)
+![](/assets/images/user/ic3.svg)
+![](/assets/images/user/ic4.svg)
+
 ### Animations
 Voi encourages you to use our animations for onboarding users. We use a framework called [Lottie](https://lottiefiles.com/), it's an iOS, Android, and React Native library that renders After Effects animations in real time, allowing apps to use animations as easily as static images. See the files below.
 

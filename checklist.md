@@ -15,6 +15,7 @@ A typical integration completes steps in the following order
 5. Payment and customer support alignment
 6. Finalize technical integration
 7. Launch
+8. Celebrate
 
 # Agreements
 The following agreements need to be reached. Contact our [Commercial point of contact](/poc/) for details.
