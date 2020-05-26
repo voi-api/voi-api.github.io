@@ -19,21 +19,18 @@ We have different [points of contact](/poc/), one for you and one for your end u
 
 For regulatory reasons, we also provide phone-support in some markets. Phone support has no access to admin tools, meaning they can answer simple questions and most users calling in will get referred to e-mail-support. For the following cities, we provide phone-based customer support:
 
-City|Phone-number
------|-----
-Stuttgart|0711-88880808
-Düsseldorf|0211-91191008
-Dortmund|0231-53035005
-Nürnberg|0911-47880086
-Frankfurt|069-37305005
-Karlsruhe|0721-97665000
-Ingolstadt|0841-79408333
-München|089-24584000-0
-Berlin|030-40740740-7
-Hamburg|040-41112000-0
-Erfurt|0361-41771177
-Lübeck|0451-88333333
-Augsburg|0821-44999999
+City|Zone Id|Phone-number
+-----|-----|-----
+Stuttgart|175|0711-88880808
+Düsseldorf|174|0211-91191008
+Dortmund|186|0231-53035005
+Nürnberg|169|0911-47880086
+Frankfurt|192|069-37305005
+Karlsruhe|178|0721-97665000
+Ingolstadt|183|0841-79408333
+Berlin|145|030-40740740-7
+Hamburg|151|040-41112000-0
+Augsburg|162|0821-44999999
 
 ## Contacting partner's customer support
 Voi will need the following information:

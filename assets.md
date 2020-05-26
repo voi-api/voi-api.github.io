@@ -30,7 +30,16 @@ You must adhere to Vois brand guidline when using Vois' brand. They can be found
 ![](/assets/images/user/pin_scooter.svg)
 
 
-# Onboarding animations
+# Onboarding
+## Example
+This is how Voi presents onboaring
+![](/assets/images/user/onboarding1.png)
+![](/assets/images/user/onboarding2.png)
+![](/assets/images/user/onboarding3.png)
+![](/assets/images/user/onboarding4.jpg)
+
+## Assets
+### Animations
 Voi encourages you to use our animations for onboarding users. We use a framework called [Lottie](https://lottiefiles.com/), it's an iOS, Android, and React Native library that renders After Effects animations in real time, allowing apps to use animations as easily as static images. See the files below.
 
 * [Start ride](https://lottiefiles.com/share/ereItg)
