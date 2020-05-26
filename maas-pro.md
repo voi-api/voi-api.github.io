@@ -268,7 +268,7 @@ total | object | Contains the rental's total cost | required
 amount | integer | The priced amount, including VAT, in minor units (also called subunit)| required
 currency | string | The alphabetic currency code (ISO 4217) | required     
 vat | integer | The price VAT amount in minor units (also called subunit) | required 
-state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended.<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to. <br> more details here](/payments/#prices-and-fees)| required               
+state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended.<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to. <br> [more details here](/payments/#prices-and-fees)| required               
 startedAt | string     |  Time when the rental started (RFC3339 in UTC) | required           
 endedAt |  string    |   Time when the rental ended (RFC3339 in UTC)      | optional             
 vehicle |  object    |  Contains information about the vehicle used in the rental      | required  
@@ -346,7 +346,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
     ]
 }
 ```
-Start rental makes a vehicle accessible to ride with. To request to start a rental, the `userId` and `vehicleId` are provided in the request body. The partner decides what, if any, limitations should be set on who can start a ride.
+Start rental makes a vehicle accessible to ride. The vechileId is usually retreved by either the user selecting the [scooter in the app](#get-vehicles-by-zone) or the user scanning the [vechile code](#get-vehicle-by-code) present on the scooter. The partner decides what, if any, limitations should be set on who can start a ride.
 
 ### HTTPS request
 
@@ -357,7 +357,7 @@ Start rental makes a vehicle accessible to ride with. To request to start a rent
 field | type | description | presence
 ------ | -------- | -------- | -------
 userId | string | The id of the user for whom the rental is started | required
-vehicleId | string | The id of the vehicle which will be rented. The vechileId is represented as a QR code on the scooter and always a four-character alphanumeric string.| required
+vehicleId | string | The id of the vehicle which will be rented.| required
 userStartLocation | object | The user’s location when starting the rental| optional
 
 ### Errors
@@ -640,7 +640,7 @@ batteryLevel | integer | The state of charge of the vehicles' battery in percent
 location | object | The vehicle’s location| required
 longitude | number | The longitude component of the location | required 
 latitude | number | The latitude component of the location | required 
-code | string |  The 4-letter alphanumeric vehicle code, available on the physical vehicle | required
+code | string |  The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code. | required
 
 
 
@@ -683,7 +683,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
 }
 ```
 
-To be able to start a rental or get pricing, the vehicle which is subject to the rental or the pricing needs to be referenced with its id.  To discover the set of vehicles available for rental, the zone id needs to be provided. Only vehicles available for rental will be part of the response. We recommend retrieving the position of the vehicle every 7 seconds.
+To be able to start a rental or get pricing, the vehicle which is subject to the rental or the pricing needs to be referenced with its id.  To discover the set of vehicles available for rental, the zone id needs to be provided. Only vehicles available for rental will be part of the response. We recommend updating the vechile model every 7 seconds.
 
 
 ### HTTPS request
@@ -705,6 +705,9 @@ Code|Detail|ErrorCode
 StatusInternalServerError| | 
 
 ## Get Vehicle by code
+
+On each scooters handlebars, the code, 4 alphanumeric characters, are written in plain text and as a QR-code.
+
 > A get vehicle by code request.
 
 ```shell
@@ -740,7 +743,7 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
 
 parameter  | description | presence
 ------ | -------- | -------
-code |  the 4-letter alphanumeric vehicle code, visually available on the vehicle | required
+code |  the 4-letter alphanumeric vehicle code, visually available on the vehicle in text and as  | required
 
 ## Get Vehicle by id
 

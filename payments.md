@@ -14,7 +14,7 @@ When a user finishes a ride, Voi calculates the total price of the ride and retu
 # Prices and fees
 Pricing is under active development and constantly evolving, but it typically consists of a fixed fee and a minute fee. Below are other conditions that will also effect the price of the ride. The true price will always be returned so that you can charge the end-users.
 
-__End ride fines__ If the user leaves the scooter in a non-parking zone, Voi may add another fee before ending the ride. This will be included in the end-ride charge.
+__End ride fines__ If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will also end the the ride when the scooter stopped moving and add a fee of 25€. This fee will be included in the end-ride charge.
 
 __Short rides__ If the users ride for less than 100 meters or less than 2 minutes, we will not charge for the ride. It is optional for the partner to present receipts and/or add these rides to the invoicing material.
 
