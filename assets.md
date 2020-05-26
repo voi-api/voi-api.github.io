@@ -32,7 +32,8 @@ You must adhere to Vois brand guidline when using Vois' brand. They can be found
 
 # Onboarding
 ## Example
-This is how Voi presents onboaring
+This is how Voi presents onboaring in our own app.
+
 ![](/assets/images/user/onboarding1.png)
 ![](/assets/images/user/onboarding2.png)
 ![](/assets/images/user/onboarding3.png)
