@@ -36,7 +36,7 @@ This is how Voi presents onboaring
 ![](/assets/images/user/onboarding1.png)
 ![](/assets/images/user/onboarding2.png)
 ![](/assets/images/user/onboarding3.png)
-![](/assets/images/user/onboarding4.png)
+![](/assets/images/user/onboarding4.jpg)
 
 ## Assets
 ### Animations
