@@ -892,7 +892,7 @@ StatusBadRequest|Zone id was empty|EmptyZoneID
 StatusInternalServerError| | 
 
 
-## Get available zones
+## Get operational zones
 
 > The partner's zone response model.
 
@@ -904,11 +904,11 @@ StatusInternalServerError| |
       "attributes":{
          "zones":[
             {
-               "zoneId":"100",
+               "zoneId":"1",
                "zoneName":"Stockholm"
             },
             {
-               "zoneId":"200",
+               "zoneId":"145",
                "zoneName":"Berlin"
             }
          ]
@@ -916,7 +916,7 @@ StatusInternalServerError| |
    }
 }
 ```
-Get all Zones that a partner has access to.
+Get all operational zones that a partner has access to.
 
 ### HTTPS request
 
