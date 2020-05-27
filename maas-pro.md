@@ -891,6 +891,38 @@ Code|Detail|ErrorCode
 StatusBadRequest|Zone id was empty|EmptyZoneID
 StatusInternalServerError| | 
 
+
+## Get partner's available zones
+
+> The partner's zone response model.
+
+```shell
+{
+   "data":{
+      "id":"4EAC93B2-CB40-4FFD-B905-F4505E2E3BAD",
+      "type":"zone",
+      "attributes":{
+         "zones":[
+            {
+               "zoneId":"100",
+               "zoneName":"Stockholm"
+            },
+            {
+               "zoneId":"200",
+               "zoneName":"Berlin"
+            }
+         ]
+      }
+   }
+}
+```
+Partners can have access to their available zones, by calling this API with their auth token in header.
+
+### HTTPS request
+
+`GET https://partners.voiapp.io/v1/zone/info`
+
+
 # Miscellaneous
 ## GDPR requests
 Since the right to be forgotten and other GDPR-requests require that we go through all our internal systems manually. Requests are handled by contacting [customer support](/poc/). 
