@@ -927,12 +927,6 @@ Get all operational zones that a partner has access to.
 ## GDPR requests
 Since the right to be forgotten and other GDPR-requests require that we go through all our internal systems manually. Requests are handled by contacting [customer support](/poc/). 
 
-## Endpoints planned
-The following endpoints are added to our roadmap and will be made available shortly.
-
-### Available operational zones
-We plan to build an endpoint to see what operational zones you have access to. For now, you will receive the zone and id for the zone you are operating in once you receive access to them from Voi.
-
 ## Endpoints not planned
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
