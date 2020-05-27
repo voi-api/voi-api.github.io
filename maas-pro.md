@@ -848,7 +848,7 @@ StatusInternalServerError| |
 }
 ```
 
-Within each operational zone(every is it's own zone), there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
+Every city has it's own operational zone. Within each operational zone, there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
 
 ### Supported Zone Areas
 
@@ -892,7 +892,7 @@ StatusBadRequest|Zone id was empty|EmptyZoneID
 StatusInternalServerError| | 
 
 
-## Get partner's available zones
+## Get available zones
 
 > The partner's zone response model.
 
@@ -916,7 +916,7 @@ StatusInternalServerError| |
    }
 }
 ```
-Partners can have access to their available zones, by calling this API with their auth token in header.
+Get all Zones that a partner has access to.
 
 ### HTTPS request
 
