@@ -1,15 +1,50 @@
 ---
 layout: default
 ---
+<div class="home">
+	<div class="home_header">
+		<img src="/assets/images/ic_voi.svg" >
+		{{ content }}
+	</div>
 
-        <div class="content" id="content">
-        	{{ content }}
-        	
-			{% assign pages =  site.html_pages | where: 'menu' , 'main'  %}
+	<div class="home_content">
+		<div class="home_left">
+			<a class="assets" href="/assets/">
+				<h1>Assets</h1>
+				<p>Graphics, legal documents</p>
+			</a>
+			<a class="poc" href="/poc/">
+				<h1>Points of contact</h1>
+				<p>Who to contact about what.</p>
+			</a>
+		</div>
+		<div class="home_right">
+			<div class="home_products_header">
+				<h1>Products</h1>
+				<p>Available API:s</p>
+			</div>
 
-        	{% for page in pages %}
-	        	<h1>{{page.title}}</h1>
-	        	<p>{{page.description}}</p>
-	        	<p><a href="{{page.url}}">Link</a></p>
-        	{% endfor %}
-        </div>
+			<div class="home_products">
+				<div class="home_products_left">
+					<a class="home_product" href="/maas-light/">
+						<h1>Maas Light</h1>
+						<p>A read only API, containing MDS, GBFS and Zone data</p>
+					</a>
+					<a class="home_product" href="/deeplinks/">
+						<h1>Deeplinks</h1>
+						<p>Create links to views in the Voi app.</p>
+					</a>
+				</div>
+				<div class="home_products_right">
+					<h1>Maas Pro</h1>
+					<p>A deep integration API, used for completing full user journeys.<p>
+					<a class="sub-product" href="/checklist/">Integration checklist</a>
+					<a class="sub-product" href="/maas-pro/">Technical specification</a>
+					<a class="sub-product"  href="/customer-support/">Customer support</a>
+					<a class="sub-product" href="/payments/">Payments</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

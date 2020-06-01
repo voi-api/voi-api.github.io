@@ -789,7 +789,7 @@ Code|Detail|ErrorCode
 -----|-----|-----
 StatusInternalServerError| | 
 
-# Zone Areas
+# Zone
 
 ## Get zone areas
 
@@ -921,6 +921,14 @@ Get all operational zones that a partner has access to.
 ### HTTPS request
 
 `GET https://partners.voiapp.io/v1/zone/info`
+
+### Response
+ 
+field | type | description
+------ | -------- | --------
+zones | object | A zone object
+zoneId | integer | Vois unique id of the operational Zone
+zoneName | String | The name of the city
 
 
 # Miscellaneous
