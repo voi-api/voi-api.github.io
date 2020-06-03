@@ -195,65 +195,67 @@ input#input-search {
 
 .home h1{
     color: #1D1B1C;
-    font-size: 15px;
-    letter-spacing: 0.23px;
+    font-size: calc(15vw/12.6);
+    letter-spacing: calc(0.23vw/12.6);
 }
 
 .home a, .home p{
     text-decoration: none;
     color: #777777;
-    font-size: 13px;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+    font-size: calc(13vw/12.6);
+    line-height: calc(20vw/12.6);
+    letter-spacing: calc(0.2vw/12.6);
 }
 
 .home_header {
-    width: 320px;
+    width: calc(320vw/12.6);
     background: white;
-    padding: 102px 26px 40px 40px;
+    padding: calc(102vw/12.6) calc(26vw/12.6) calc(40vw/12.6) calc(40vw/12.6);
     box-sizing: border-box;
     min-height: 100vh;
     float: left;
-    margin-right: 30px;
+    margin-right: calc(30vw/12.6);
     h1 {
-        letter-spacing: 0.3px;
-        margin-top: 19px;
-        margin-bottom: -3px;
-        font-size: 20px;
+        letter-spacing: calc(.3vw/12.6);
+        margin-top: calc(19vw/12.6);
+        margin-bottom: calc(-3vw/12.6);
+        font-size: calc(20vw/12.6);
     }
     p{
-        line-height: 23px;
-        font-size: 12px;
+        line-height: calc(23vw/12.6);
+        font-size: calc(12vw/12.6);
     }
 }
 
 
 .home_content {
-    padding: 91px 44px 0 30px; 
+    padding: calc(91vw/12.6) calc(30vw/12.6) 0 calc(30vw/12.6); 
 }
 
 .home_left{
-    width: 228px;
+    width: calc(228vw/12.6);
     float: left;
-    margin-right: 20px;
+    margin-right: calc(20vw/12.6);
 
 }
 
 .home_left a {
-    height: 274px;
+    height: calc(274vw/12.6);
     display: block;
     background-color: white;
     background-repeat: no-repeat;
-    background-position: center 61px;
+    background-size: calc(64vw/12.6);
+    background-position: center calc(61vw/12.6);;
     text-align: center;
-    margin: 0 0 20px;
-    box-shadow: 0px 1px 4px #0000000F;
-    border-radius: 20px;
+    margin: 0 0 calc(20vw/12.6);;
+    box-shadow: 0 1px 4px #0000000F;
+    border-radius: calc(20vw/12.6);
 
 }
 
 .home_left a, .home_product, .sub-product{
-       transition: all 0.3s;
+       transition: box-shadow transform;
+       transition-duration: 0.3s;
 
     &:hover{
         box-shadow: 0px 1px 24px #00000014;
@@ -264,12 +266,12 @@ input#input-search {
 
 .home_left a{
  h1 {
-    padding-top: 147px;
+    padding-top: calc(147vw/12.6);;
     margin: 0;
 }
 p{
-    margin-top:2px;
-    padding: 0px 25px;
+    margin-top: 2px;
+    padding: 0px calc(25vw/12.6);;
 }
 }
 
@@ -277,24 +279,24 @@ p{
     background: white;
     float: left;
     box-shadow: 0px 1px 4px #0000000F;
-    border-radius: 20px;
+    border-radius: calc(20vw/12.6);;
 }
 
 
 .home_products_left{
     float: left;
-    padding: 27px 20px 30px 30px;
+    padding: calc(27vw/12.6) calc(20vw/12.6) calc(30vw/12.6) calc(30vw/12.6);
 }
 
 
 .home_products_right{
-    width: 304px;
+    width: calc(304vw/12.6);
     float: left;
     border: 1px solid #F0F0F0;
-    border-radius: 12px;
+    border-radius: calc(12vw/12.6);
     text-align: center;
-    margin: 27px 20px 30px 0;
-    padding: 10px 18px;
+    margin: calc(27vw/12.6) calc(20vw/12.6) calc(30vw/12.6) 0;
+    padding: calc(10vw/12.6) calc(10vw/12.6) calc(18vw/12.6);
     box-sizing: border-box;
     h1{
         font-weight: 500;
@@ -302,14 +304,15 @@ p{
     }
     p{
         margin-top: 0;
-        margin-bottom: 39px;
+        margin-bottom: calc(39vw/12.6);
     }
 }
 
 .home_products_header{
-    margin: 30px 0 0 30px;
-    padding: 12px 0 20px 84px;
-    background: url('/assets/images/ic_products.svg') no-repeat ;
+    margin: calc(30vw/12.6)0 0 calc(30vw/12.6);
+    padding: calc(12vw/12.6) 0 calc(20vw/12.6) calc(84vw/12.6);
+    background: url('/assets/images/ic_products.svg') no-repeat;
+    background-size: calc(64vw/12.6);
 
     h1{
         margin: 0;
@@ -321,12 +324,12 @@ p{
 }
 a.home_product{
     border: 1px solid #F0F0F0;
-    border-radius: 12px;
+    border-radius: calc(12vw/12.6);
     display: block;
     text-align: center;
-    margin: 0 0 20px;
-    padding: 17px;  
-    width: 254px;
+    margin: 0 0 calc(20vw/12.6);
+    padding: calc(17vw/12.6);  
+    width: calc(254vw/12.6);
     box-sizing: border-box;
     h1 {
         margin: 0;
@@ -340,9 +343,10 @@ a.home_product{
 a.sub-product {
     display: block;
     border: 1px solid #F0F0F0;
-    border-radius: 12px;
-    margin: 20px 0 ;
-    line-height: 48px;
+    border-radius: calc(12vw/12.6);
+    margin: calc(20vw/12.6) 0 ;
+    line-height: calc(48vw/12.6);
+    font-weight: 500;
 }
 
 .assets{
@@ -354,7 +358,7 @@ a.sub-product {
 }
 
 
-@media (max-width: 1315px) {
+@media (max-width: 1255px) {
     .home_header{
         width: 100%;
         min-height: auto;
