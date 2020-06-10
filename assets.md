@@ -57,5 +57,5 @@ Voi encourages you to use our animations for onboarding users. We use a framewor
 The most recently updated versions of these documents are always available on the following addresses, we recommend including them as web views in your apps and they will be updated automatically. They are all available in multiple languages, you can pick the language on the respective page to get the url for that language.
 
 * [Frequently asked questions](https://www.voiscooters.com/faq/)
-* [Terms and conditions](https://www.voiscooters.com/voi-user-agreement-12rr/)x
+* [Terms and conditions](https://www.voiscooters.com/voi-user-agreement-12rr/)
 * [Privacy Policy](https://www.voiscooters.com/legal/voi-privacy-policy/)
