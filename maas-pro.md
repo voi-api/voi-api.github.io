@@ -7,14 +7,14 @@ description: A deep integration API, used for completing full user journeys.
 ---
 # Introduction
 ## API contract
-Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. 
+Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. This API is not rate-limited but we expect you to cache cacheable data. More details on each point.
 
 ## Development
 For a broader description of the integration-process, check out our [checklist](/checklist/)
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
-* Whenever you call the scooter with unlocking or lock it will respond with success.
+* Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
 * The scooter's location will not change even if you provide an end ride location.
 * The zones and scooters are spread over a much larger area than the real scooters.
 
@@ -543,7 +543,7 @@ StatusInternalServerError| |
 
 
 # Pricing
-The cost of renting a Voi can differ, amongst others based on where the scooter is located and what time it is. When the user starts the ride, we commit to the price presented at that time. Some exceptions will cause the price to change, [more details here](/payments/#prices-and-fees).
+The cost of renting a Voi can differ, amongst others based on where the scooter is located and what time it is. When the user starts the ride, we commit to the price presented at that time. Some exceptions will cause the price to change, [more details here](/maas-pro/#end-rental). All prices are in the local currency.
 ## Pricing model
 > The vehicle response model.
 
@@ -568,7 +568,7 @@ field | type | description | presence
 ------ | -------- | -------- | -------
 id | string | The vehicle's id (UUID version 4) for which the pricing is derived | required
 type | string | For pricing the type will always be "pricing"  | required
-pricePerMinute | integer | the price per minute, excluding Vat in minor units (also called subunit)| required
+pricePerMinute | integer | the price per minute, excluding Vat, in minor units| required
 startPrice | integer | the start price, excluding Vat in minor units (also called subunit)| required
 currency | string | the three-letter alphabetic currency code (ISO 4217) | required     
 vat | integer | the VAT percentage  | required  
@@ -694,7 +694,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
 }
 ```
 
-To be able to start a rental or get pricing, the vehicle which is subject to the rental or the pricing needs to be referenced with its id.  To discover the set of vehicles available for rental, the zone id needs to be provided. Only vehicles available for rental will be part of the response. We recommend updating the vechile model every 7 seconds.
+To be able to start a rental or get pricing, the vehicle which is subject to the rental or the pricing needs to be referenced with its id. Only vehicles available for rental will be part of the response. We recommend updating the vechile model every 7 seconds. There is no technical limit to the number of vechiles in a Zone.
 
 
 ### HTTPS request
