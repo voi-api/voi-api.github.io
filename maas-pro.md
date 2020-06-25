@@ -500,7 +500,7 @@ curl https://partners.voiapp.io/v1/rental/user/82267e03-f5b1-4b76-86c6-9f07df279
 
 ```
 
-Returns the [rental model](#rental-model)
+Returns the [rental model](#rental-model) for the currently active rental.
 
 ### HTTPS request
 `GET https://partners.voiapp.io/v1/rental/user/<id>/active`
