@@ -479,6 +479,8 @@ curl https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df279372
   -H "Authorization: Bearer $TOKEN"
 
 ```
+Returns the [rental model](#rental-model)
+
 ### HTTPS request
 `GET https://partners.voiapp.io/v1/rental/<id>`
 
@@ -497,6 +499,8 @@ curl https://partners.voiapp.io/v1/rental/user/82267e03-f5b1-4b76-86c6-9f07df279
   -H "Authorization: Bearer $TOKEN"
 
 ```
+
+Returns the [rental model](#rental-model)
 
 ### HTTPS request
 `GET https://partners.voiapp.io/v1/rental/user/<id>/active`
@@ -523,6 +527,9 @@ curl https://partners.voiapp.io/v1/rental/user/82267e03-f5b1-4b76-86c6-9f07df279
   -H "Authorization: Bearer $TOKEN"
 
 ```
+
+Returns the [rental model](#rental-model) for users all rentals.
+
 ### HTTPS request
 `GET https://partners.voiapp.io/v1/rental/user/<id>`
 
