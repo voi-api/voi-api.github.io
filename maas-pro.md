@@ -642,6 +642,7 @@ StatusInternalServerError| |
             "longitude": 17.382606,
          },
         "code": "L33T",
+        "zoneId": "145",
       }
     },
   ]
@@ -684,6 +685,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
             "longitude": 17.382606,
          },
         "code": "L33T",
+        "zoneId": "145"
       },
       {
       "type": "vehicle",
@@ -695,6 +697,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
             "longitude": 16.382606,
         },
         "code": "D0IT",
+        "zoneId": "145"
       }
     },
   ]
@@ -747,6 +750,7 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
                "longitude": 17.382606,
             },
            "code": "L33T",
+           "zoneId": "145"
          }
     },
   ]
@@ -786,6 +790,7 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
             "longitude": 16.382606,
         },
         "code": "D0IT",
+        "zoneId": "145",
       }
     },
   ]
