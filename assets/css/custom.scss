@@ -255,6 +255,7 @@ input#input-search {
 .home_left a, .home_product, .sub-product{
        transition-property: box-shadow, transform;
        transition-duration: 0.3s;
+        transform: scale(1.001);//hack for roudning error.
 
     &:hover{
         box-shadow: 0px 1px 24px #00000014;
