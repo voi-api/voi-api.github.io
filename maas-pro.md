@@ -36,6 +36,79 @@ Key | Value
 --------- | -----------
 X-Auth-Token |  your-token
 
+
+# Product
+
+A product is usually a distinct app with a different name. We keep them seperate for monitoring, invoicing and customer support. All users are associated with a single product. You can have unlimited products and they will only available with your auth token. You should use the same product for multiple platforms, for example if you run your app on both iOs and Android.
+
+## Product model
+
+> The product response model
+
+```shell
+{
+   "data":[
+      {
+         "id":"48d45384-4fa6-4325-841b-3191385af8fc",
+         "type":"product",
+         "attributes":{
+            "productName": Travelizer,
+            "state":"ACTIVE"
+         }
+      }
+   ]
+}
+```
+### Response
+ 
+field | type | description | presence
+------ | -------- | -------- | -------
+id |string | The product's id (UUID version 4)  | Required
+type |  string | For vehicles the type will always be "product"  | Required
+productName | string | Your products name | Required
+state | string | Can be acitve or inactive | Required
+
+## Register
+
+`POST https://partner.voiapp.io/v1/product/register`
+
+Use to register a new product.
+
+### Payload Request
+
+parameter  | description | Presense
+------ | --------  | ----
+productName | The actual name of the product.  | Required
+
+## List
+
+`GET https://partner.voiapp.io/v1/product`
+
+Will return a list of all your products
+
+## Update
+
+`PUT https://partner.voiapp.io/v1/product`
+
+Use to update a product name.
+
+### Payload Request
+parameter  | description | Presense
+------ | --------  | ----
+productName | The new name of your product.  | Required
+productId | The id of the product you want to change | Required
+
+## Delete
+
+`DELETE https://partner.voiapp.io/v1/product/{id}`
+
+Use to delete a product. The product will still be listed but marked as inactive.
+
+### Path parameters 
+parameter  | description | Presense
+------ | --------  | ----
+productId | The id of the product you want to delete. | Required
+
 # User
 
 This section describes the possible interactions with the user domain of the API.
@@ -91,7 +164,7 @@ firstName | string |The user's first name | optional
 lastName | string | The user's last name| optional
 phoneNumber | string | The users' phone number. (not used as identifier)| optional
 externalId | string |  The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material. | optional
-productId | string |  The  product id (UUID Version 4) you received from Voi.| optional but will become mandatory
+productId | string | Your products Id. [You can create products as needed](#product) | required
 
 ### Errors
 
@@ -961,6 +1034,6 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 ## Endpoints not planned
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
-* It's not possible to delete users, you can disable them on your end, ask user to contact our customer support for the right to be forgotten.
-* Partners cannot add, update or delete products, contact Voi if you need to.
+* It's not possible to delete users in our system
+* Ask user to contact our customer support for the right to be forgotten.
 * We have not included lock and reserve in our API, since the feature is not widely used.
