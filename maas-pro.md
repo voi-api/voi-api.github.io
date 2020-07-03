@@ -80,11 +80,26 @@ parameter  | description | Presense
 ------ | --------  | ----
 productName | The actual name of the product.  | Required
 
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalid input|InvalidInput
+StatusBadRequest|Empty product name|EmptyProductName
+StatusInternalServerError|Failed to register product|FailedToRegisterProduct
+
 ## List
 
 `GET https://partner.voiapp.io/v1/product`
 
 Will return a list of all your products
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+FailedToGetProduct|Failed to get product|FailedToGetProduct
+
 
 ## Update
 
@@ -93,10 +108,21 @@ Will return a list of all your products
 Use to update a product name.
 
 ### Payload Request
+
 parameter  | description | Presense
 ------ | --------  | ----
 productName | The new name of your product.  | Required
 productId | The id of the product you want to change | Required
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalid input|InvalidInput
+EmptyProductName|Empty product name|EmptyProductName
+StatusBadRequest|Empty product id| ErrEmptyProductID
+StatusInternalServerError|Failed to update product|FailedToUpdateProduct
+StatusNotFound|Product id not found|FailedToUpdateProduct
 
 ## Delete
 
@@ -104,7 +130,8 @@ productId | The id of the product you want to change | Required
 
 Use to delete a product. The product will still be listed but marked as inactive.
 
-### Path parameters 
+### Path parameters
+
 parameter  | description | Presense
 ------ | --------  | ----
 productId | The id of the product you want to delete. | Required
