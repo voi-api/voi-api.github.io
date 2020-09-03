@@ -332,3 +332,144 @@ Field Name | type | Defines
 `language` | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag
 `name` | String | Full name of the system to be displayed to customers
 `timezone` | String |   The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid values
+
+# Zone
+
+## Get zone areas
+
+> The zones response model.
+
+```shell
+{
+  "data": {
+    "id": "1",
+    "type": "area",
+    "attributes": {
+      "areas": [
+        {
+          "area_type": "no-parking",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    18.04053783416748,
+                    59.33789244534906
+                  ],
+                  [
+                    18.04053783416748,
+                    59.33789244534906
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "area_type": "slow-zone",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    10.732870101928711,
+                    59.949568270842
+                  ],
+                  [
+                    10.732870101928711,
+                    59.949568270842
+                  ]
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Every city has it's own operational zone. Within each operational zone, there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
+
+### Supported Zone Areas
+
+area type  | Description
+------ | -------- 
+operations |  The operational area, where Voi operates
+no-parking |  An area where rentals can't be ended* 
+parking-spot |  An area where a rental must be ended*
+slow-zone |  An area where a vehicle's max-speed will be lowered, the maximum speed is not available.
+
+Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
+
+
+### HTTPS request
+
+`GET https://partners.voiapp.io/v1/zone/id/<zoneId>`
+
+### Path parameters
+
+parameter  | description
+------ | -------- | -------
+zoneId |  The id of the requested zone
+
+<aside class="warning">All behavior connected to the areas in a zone is enforced by the system. But for good A user experience, we recommend explaining the areas and their implication TO the user.</aside> 
+
+### Response
+ 
+field | type | description | presence
+------ | -------- | -------- | -------
+id | string | The operational zone id  | required
+type | string | For zones the type will always be "area"  | required
+area_type | string | The area type (one of the supported area types)| required
+geometry | object | Describes the geometry for the area (geoJSON), described as multipolygons.| required
+
+### Errors
+
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Zone id was empty|EmptyZoneID
+StatusInternalServerError| | 
+
+
+## Get operational zones
+
+> The partner's zone response model.
+
+```shell
+{
+   "data":{
+      "id":"4EAC93B2-CB40-4FFD-B905-F4505E2E3BAD",
+      "type":"zone",
+      "attributes":{
+         "zones":[
+            {
+               "zoneId":"1",
+               "zoneName":"Stockholm"
+            },
+            {
+               "zoneId":"145",
+               "zoneName":"Berlin"
+            }
+         ]
+      }
+   }
+}
+```
+Get all operational zones that a partner has access to.
+
+### HTTPS request
+
+`GET https://partners.voiapp.io/v1/zone/info`
+
+### Response
+ 
+field | type | description
+------ | -------- | --------
+zones | object | A zone object
+zoneId | integer | Vois unique id of the operational Zone
+zoneName | String | The name of the city
