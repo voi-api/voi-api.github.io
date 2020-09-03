@@ -155,7 +155,7 @@ Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/master/
 
 * `gbfs.json`
 * `system_information.json` 
-* `free_bike_status.json`
+* `free_bike_status`
 
 ### Common response
 
@@ -174,14 +174,14 @@ Authentication for GBFS is the same as for MDS and is described in the MDS secti
 
 ## Free bike status
 
-> A free_bike_status.json request.
+> A free_bike_status request.
 
 ```shell
 $ curl -H "X-Auth-Token: <access_token>" 
-  mds.voiapp.io/v1/gbfs/1/free_bike_status.json 
+  mds.voiapp.io/v1/gbfs/1/free_bike_status 
 ```
 
-> A free_bike_status.json response.
+> A free_bike_status response.
 
 ```shell
 {
@@ -208,7 +208,7 @@ $ curl -H "X-Auth-Token: <access_token>"
 }
 ```
 
-`free_bike_status.json` describes the available vehicles in real-time. This endpoint comes with the option to extend the response outside the current GBFS standard.
+`free_bike_status` describes the available vehicles in real-time. This endpoint comes with the option to extend the response outside the current GBFS standard.
 
 It returns an array of vehicles and their current status per the specification found [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson). 
 
@@ -226,15 +226,15 @@ Field Name | type | Defines
                           
 ### Extension 
 
-> A free_bike_status.json extended request.
+> A free_bike_status extended request.
 
 ```shell
 $ curl -H "X-Auth-Token: <access_token>" 
   -H "X-Voigbfs-Ext: Battery"
-  mds.voiapp.io/v1/gbfs/1/free_bike_status.json 
+  mds.voiapp.io/v1/gbfs/1/free_bike_status 
 ```
 
-> A free_bike_status.json extended response.
+> A free_bike_status extended response.
 
 ```shell
 {
