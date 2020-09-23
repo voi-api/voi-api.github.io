@@ -17,4 +17,4 @@ description: Who to contact about what.
 | Finance: |Josefine Ernlothsson |[partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io)|
 | Product: |Kristoffer Nolgren |[kristoffer.nolgren@voiapp.io](mailto:kristoffer.nolgren@voiapp.io)|
 | Engineering: |Fredrik Holmberg |[fredrik.holmberg@voiapp.io](mailto:fredrik.holmberg@voiapp.io)|
-| Police data requests | Björn Idrén | [bjorn@voiapp.io](mailto:bjorn@voiapp.io)|
+| Police data requests | Björn Idrén | [bjorn.idren@voiapp.io](mailto:bjorn.idren@voiapp.io)|
