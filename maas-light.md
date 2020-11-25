@@ -73,7 +73,7 @@ The `/trips endpoint allows a user to query historical trip data that happened w
 See Open Mobility Foundation's MDS description on trips [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#trips).
 ### HTTPS request
 
-`POST mds.voiapp.io/en/{zoneID}/trips`
+`GET mds.voiapp.io/en/{zoneID}/trips`
 
 ### Path parameters
 
@@ -99,7 +99,7 @@ The status of the inventory of vehicles available for customer use. The `/status
 See Open Mobility Foundation's MDS description on status changes [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#status_changes).
 ### HTTPS request
 
-`POST mds.voiapp.io/en/{zoneID}/status_changes`
+`GET mds.voiapp.io/en/{zoneID}/status_changes`
 
 ### Path parameters
 
