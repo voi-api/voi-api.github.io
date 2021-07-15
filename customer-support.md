@@ -47,7 +47,7 @@ We will provide you with the user's e-mail when contacting your customer support
 For active rides, Voi customer support will end them and set the price. For already ended rides, the partner is free to perform under conditions described below. The partner has to keep track of refunds and present them with the amount owed when invoicing Voi, including the id of the ride that was refunded and the user's id.
 
 ### Voi
-When Voi wants to request a refund from a partner, we will contact you with the following information (via email or directly through Zendesk if Zendesk integration is implemented): 
+When Voi wants to request a refund from a partner, we will contact you with the following information (via email or directly through Kustomer if Kustomer integration is implemented): 
 * The user's e-mail;
 * The sum to refund;
 * The time+date of the ride.
@@ -111,6 +111,5 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |User requests the right to be forgotten|Do your normal procedure and ask them to contact the Partner for a separate request.|
 
 # Faq
-Vois faq is available here: [https://voisupport.zendesk.com/hc/en-us](https://voisupport.zendesk.com/hc/en-us)
-
+Vois faq is available here: https://www.voiscooters.com/faq/
 We recommend embedding it as a web-view within your app.
