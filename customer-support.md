@@ -112,4 +112,4 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 
 # Faq
 Vois faq is available here:[here](https://www.voiscooters.com/faq/).|
-We recommend embedding it as a web-view within your app.
+|We recommend embedding it as a web-view within your app.
