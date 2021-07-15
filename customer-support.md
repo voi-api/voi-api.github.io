@@ -110,5 +110,5 @@ Examples of insignificant issues: not working bell, no kickstand, slow Internet 
 |User requests access to their data|Do your normal procedure and ask them to contact the Partner for a separate request.|
 |User requests the right to be forgotten|Do your normal procedure and ask them to contact the Partner for a separate request.|
 
-# Faq
-Vois faq is available here:[here](https://www.voiscooters.com/faq/). We recommend embedding it as a web-view within your app.
+# FAQ
+Vois faq is available [here](https://www.voiscooters.com/faq/). We recommend embedding it as a web-view within your app.
