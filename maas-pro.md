@@ -448,7 +448,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
 }
 ```
 
-Start rental makes a vehicle accessible to ride. The vechile-Id is usually retrieved by either the user selecting the [scooter in the app](#get-vehicles-by-zone) or the user scanning the [vehicle code](#get-vehicle-by-code) present on the scooter. The partner decides what, if any, limitations should be set on who can start a ride.
+Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retrieved by either the user selecting the [scooter in the app](#get-vehicles-by-zone) or the user scanning the [vehicle code](#get-vehicle-by-code) present on the scooter. The partner decides what, if any, limitations should be set on who can start a ride.
 
 ### HTTPS request
 
@@ -869,7 +869,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
 }
 ```
 
-To be able to start a rental or get pricing, the vehicle which is subject to the rental or the pricing needs to be referenced with its id. Only vehicles available for rental will be part of the response. We recommend updating the vechile model every 7 seconds. There is no technical limit to the number of vechiles in a Zone.
+To be able to start a rental or get pricing, the vehicle which is subject to the rental or the pricing needs to be referenced with its id. Only vehicles available for rental will be part of the response. We recommend updating the vehicle model every 7 seconds. There is no technical limit to the number of vehicles in a Zone.
 
 ### HTTPS request
 
@@ -1052,7 +1052,7 @@ Every city has it's own operational zone. Within each operational zone, there ar
 | no-parking   | An area where rentals can't be ended\*                                                   |
 | parking-spot | An area where a rental must be ended\*                                                   |
 | slow-zone    | An area where a vehicle's max-speed will be lowered, the maximum speed is not available. |
-| no-go-zone   | An area vechiles may stop(depending on configuration) and you cannot end the ride.       |
+| no-go-zone   | An area vehicles may stop(depending on configuration) and you cannot end the ride.       |
 
 Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
 
