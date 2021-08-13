@@ -18,9 +18,9 @@ For a broader description of the integration-process, check out our [checklist](
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
-- Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
-- The scooter's location will not change even if you provide an end ride location.
-- The zones and scooters are spread over a much larger area than the real scooters.
+-   Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
+-   The scooter's location will not change even if you provide an end ride location.
+-   The zones and scooters are spread over a much larger area than the real scooters.
 
 ## Going live
 
@@ -89,7 +89,7 @@ Use to register a new product.
 
 | Code                      | Detail                     | ErrorCode               |
 | ------------------------- | -------------------------- | ----------------------- |
-| StatusBadRequest          | Invalid input              | InvalidInput            |
+| StatusBadRequest          | Invalid request body       | InvalidRequestBody      |
 | StatusBadRequest          | Empty product name         | EmptyProductName        |
 | StatusInternalServerError | Failed to register product | FailedToRegisterProduct |
 
@@ -122,7 +122,7 @@ Use to update a product name.
 
 | Code                      | Detail                   | ErrorCode             |
 | ------------------------- | ------------------------ | --------------------- |
-| StatusBadRequest          | Invalid input            | InvalidInput          |
+| StatusBadRequest          | Invalid request body     | InvalidRequestBody    |
 | EmptyProductName          | Empty product name       | EmptyProductName      |
 | StatusBadRequest          | Empty product id         | ErrEmptyProductID     |
 | StatusInternalServerError | Failed to update product | FailedToUpdateProduct |
@@ -201,7 +201,7 @@ Register user creates a new user with a unique user id. A user is required to be
 
 | Code                      | Detail                               | ErrorCode                   |
 | ------------------------- | ------------------------------------ | --------------------------- |
-| StatusBadRequest          | Invalid input                        | InvalidInput                |
+| StatusBadRequest          | Invalid request body                 | InvalidRequestBody          |
 | StatusBadRequest          | This external user id already exists | ExternalUserIDAlreadyExists |
 | StatusBadRequest          | Empty user email id                  | EmptyUserEmailID            |
 | StatusInternalServerError |                                      |
@@ -260,7 +260,7 @@ Get user by user-id
 > An update user request.
 
 ```shell
-curl -X Pathc https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
+curl -X Patch https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
   -H "X-Auth-Token $TOKEN"
   -d '{"emai": "agatha.christie@gmail.com", "phoneNumber": "+46911"}'
 ```
@@ -300,11 +300,11 @@ Update user details allow for a user to be updated. Only fields that are sent in
 
 ### Errors
 
-| Code                      | Detail          | ErrorCode       |
-| ------------------------- | --------------- | --------------- |
-| StatusBadRequest          | Invalid user id | InvalidUserId   |
-| StatusNotFound            | User not found  | ErrUserNotFound |
-| StatusInternalServerError |                 |
+| Code                      | Detail               | ErrorCode          |
+| ------------------------- | -------------------- | ------------------ |
+| StatusBadRequest          | Invalid request body | InvalidRequestBody |
+| StatusNotFound            | User not found       | ErrUserNotFound    |
+| StatusInternalServerError |                      |
 
 # Rental
 
@@ -466,7 +466,7 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 | Code                      | Detail                         | ErrorCode           |
 | ------------------------- | ------------------------------ | ------------------- |
-| StatusBadRequest          | Invalid input                  | InvalidInput        |
+| StatusBadRequest          | Invalid request body           | InvalidRequestBody  |
 | StatusBadRequest          | Invalid user id                | InvalidUserId       |
 | StatusBadRequest          | Invalid vehicle id             | InvalidVehicleId    |
 | StatusBadRequest          | User does not exist            | UserNotFound        |
@@ -512,7 +512,6 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 | Code                      | Detail                        | ErrorCode                  |
 | ------------------------- | ----------------------------- | -------------------------- |
-| StatusBadRequest          | Invalid input                 | InvalidInput               |
 | StatusBadRequest          | Invalid rental id             | InvalidRentalID            |
 | StatusNotFound            | Rental ID does not exist      | RentalIDDoesNotExist       |
 | StatusMethodNotAllowed    | Vehicle not manually lockable | VehicleNotManuallyLockable |
@@ -604,7 +603,6 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 | Code                      | Detail                                     | ErrorCode            |
 | ------------------------- | ------------------------------------------ | -------------------- |
-| StatusBadRequest          | Invalid input                              | InvalidInput         |
 | StatusBadRequest          | Invalid rental id                          | InvalidRentalID      |
 | StatusNotFound            | Rental ID does not exist                   | RentalIDDoesNotExist |
 | StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded   |
@@ -1133,6 +1131,6 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
-- It's not possible to delete users in our system
-- Ask user to contact our customer support for the right to be forgotten.
-- We have not included lock and reserve in our API, since the feature is not widely used.
+-   It's not possible to delete users in our system
+-   Ask user to contact our customer support for the right to be forgotten.
+-   We have not included lock and reserve in our API, since the feature is not widely used.
