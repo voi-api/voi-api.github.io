@@ -5,12 +5,14 @@ permalink: /checklist/
 menu: main
 description: Deep integration checklist
 ---
+
 # Overview
+
 A typical integration completes steps in the following order
 
-1. Sign data sharing agreement
+1. Sign data sharing agreement/NDA
 2. Rough commercial agreement
-3. Kick off technical integration
+3. Kick off, technical integration meeting
 4. Sign final commercial agreement
 5. Payment and customer support alignment
 6. Finalize technical integration
@@ -18,13 +20,15 @@ A typical integration completes steps in the following order
 8. Celebrate
 
 # Agreements
+
 The following agreements need to be reached. Contact our [Commercial point of contact](/poc/) for details.
 
 - Data sharing agreement – basically an NDA.
 - Commercial agreement – Covers all aspects of an integration.
 
 # Technical integration
-Follow these steps to complete a deep integration 
+
+Follow these steps to complete a deep integration
 
 0. Get access to staging from our [engineering point of contact](/poc/).
 1. Implement MaaS Pro API in our staging environment.
@@ -35,6 +39,7 @@ Follow these steps to complete a deep integration
 6. Celebrate!
 
 # Meetings (optional)
+
 We offer the partners to align on details with [counterparts](/poc/) in the following areas. Reach out to them if you want to set up a meeting.
 
 - Payment – recommended doing close to launch.
@@ -42,6 +47,7 @@ We offer the partners to align on details with [counterparts](/poc/) in the foll
 - Engineering, make sure to test our API before to get the most out of this meeting.
 
 # Provide information
+
 Voi needs the following information from the partners
 
 - Planned go-live date.

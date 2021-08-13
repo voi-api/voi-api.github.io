@@ -18,9 +18,9 @@ For a broader description of the integration-process, check out our [checklist](
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
--   Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
--   The scooter's location will not change even if you provide an end ride location.
--   The zones and scooters are spread over a much larger area than the real scooters.
+- Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
+- The scooter's location will not change even if you provide an end ride location.
+- The zones and scooters are spread over a much larger area than the real scooters.
 
 ## Going live
 
@@ -308,7 +308,7 @@ Update user details allow for a user to be updated. Only fields that are sent in
 
 # Rental
 
-A rental is a domain where a user is having access to the scooter. It is done by starting and ending the rental. At the end of the rental, the price will be posted so that the partner can charge the user. A user can only rent one scooter at the time and it is not possible to pre-book a scooter.
+A rental is a domain where a user has access to a scooter. It is done by starting and ending a rental. At the end of a rental, the price will be posted so that the partner can charge the user. A user can only rent one scooter at a time and it is not possible to pre-book a scooter.
 
 ## Rental model
 
@@ -448,7 +448,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
 }
 ```
 
-Start rental makes a vehicle accessible to ride. The vechileId is usually retreved by either the user selecting the [scooter in the app](#get-vehicles-by-zone) or the user scanning the [vechile code](#get-vehicle-by-code) present on the scooter. The partner decides what, if any, limitations should be set on who can start a ride.
+Start rental makes a vehicle accessible to ride. The vechile-Id is usually retrieved by either the user selecting the [scooter in the app](#get-vehicles-by-zone) or the user scanning the [vehicle code](#get-vehicle-by-code) present on the scooter. The partner decides what, if any, limitations should be set on who can start a ride.
 
 ### HTTPS request
 
@@ -612,15 +612,15 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 ### On pricing
 
-Pricing is under active development and constantly evolving, but it typically consists of a fixed fee and a minute fee. Below are other conditions that will also effect the price of the ride. Regardless, the actual price will always be returned when ending the ride.
+Pricing is under active development and constantly evolving, but it typically consists of a fixed fee and a minute fee. Below are other conditions that will also affect the price of the ride. Regardless, the actual price will always be returned when ending the ride.
 
-**End ride fines** If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will also end the the ride when the scooter stopped moving and add a fee of 25€. This fee will be included in the end-ride charge.
+**End ride fines** If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will end the ride with a cost corresponding to the time when the scooter stopped moving and in additon add a fee of 25€. This fee will be included in the end-ride charge.
 
 **Short rides** If the users ride for less than 100 meters or less than 2 minutes, we will not charge for the ride. It is optional for the partner to present receipts and/or add these rides to the invoicing material.
 
-**Refunds** The partner is responsible for performing refunds. When this is done is defined in the customer support criteria. Sometimes, Voi customer support also requests the partner to perform refunds.
+**Refunds** The partner is responsible for performing refunds. When this is done it is defined in the customer support criteria. Sometimes, Voi customer support also requests the partner to perform refunds.
 
-**Parking fees and other charges post-ride** Voi doesn't perform any charges after the ride is ended.
+**Parking fees and other charges post-ride** Voi does not perform any charges after the ride is ended.
 
 ## Rental by id
 
@@ -1133,6 +1133,6 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
--   It's not possible to delete users in our system
--   Ask user to contact our customer support for the right to be forgotten.
--   We have not included lock and reserve in our API, since the feature is not widely used.
+- It's not possible to delete users in our system
+- Ask user to contact our customer support for the right to be forgotten.
+- We have not included lock and reserve in our API, since the feature is not widely used.
