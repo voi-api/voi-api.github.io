@@ -339,3 +339,267 @@ The following fields are all the required attributes within the main data object
 | `language`  | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag |
 | `name`      | String | Full name of the system to be displayed to customers                                                                                                                                                                                                                                                       |
 | `timezone`  | String | The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid values                                                 |
+
+# GBFS v2
+
+Voi provides a flavored version of the GBFS (The General Bikeshare Feed Specification) API.
+
+Since the vehicles Voi currently provide are considered dockless and since GBFS does not fully support this means of transport, some API endpoints in the GBFS specification doesn’t apply.
+
+Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md), Voi supports the following files.
+
+- `gbfs.json`
+- `system_information.json`
+- `vehicle-types.json`
+- `system_pricing_plans.json`
+- `system_regions.json`
+- `free_bike_status.json`
+
+### Common response
+
+Every JSON file presented in this specification contains the same common header information at the top level of the JSON response object:
+
+| Field Name     | type    | Defines                                                                                                                          |
+| -------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `last_updated` | Integer | POSIX timestamp indicating the last time the data in this feed was updated                                                       |
+| `ttl`          | Integer | Representing the number of seconds before the data in this feed will be updated again (0 if the data should always be refreshed) |
+| `version`      | String  | GBFS version number to which the feed confirms, according to the versioning framework.                                           |
+| `data`         | JSON    | JSON hash containing the data fields for this response                                                                           |
+
+## Authentication
+
+Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
+
+## Free Bike Status
+
+> A free_bike_status request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/free_bike_status.json
+```
+
+> A free_bike_status response.
+
+```shell
+{
+    "last_updated": 1574954898,
+    "ttl": 0,
+    "data": {
+        "bikes": [
+            {
+                "bike_id": "0fae06eb-aaaa-0000-cccc-77f696a30000",
+                "last_reported": 1629273261,
+                "lat": 48.871983,
+                "lon": 2.303089,
+                "is_reserved": true,
+                "is_disabled": false,
+                "vehicle_type_id": "voi_scooter",
+                "current_range_meters": 17750,
+                "pricing_plan_id": "plan-scooter-1",
+                "rental_uris": {
+                    "android": "https://lqfa.adj.st/open?adj_t=b2hnabv&adj_deep_link=voiapp%3A%2F%2Fopen&adj_campaign=all_all_general-bikeshare-feed-specification_all_all_voiapp.io_all_central_all__",
+                    "ios": "https://lqfa.adj.st/closest_vehicle?adj_t=b2hnabv&adj_deep_link=voiapp%3A%2F%2Fclosest_vehicle&adj_campaign=all_all_general-bikeshare-feed-specification_all_all_voiapp.io_all_central_all__"
+                }
+            },
+            {
+                "bike_id": "8c0940ec-aaaa-0000-cccc-3057d9820000",
+                "last_reported": 1629273261,
+                "lat": 48.853252,
+                "lon": 2.343597,
+                "is_reserved": false,
+                "is_disabled": false,
+                "vehicle_type_id": "voi_scooter",
+                "current_range_meters": 20250,
+                "pricing_plan_id": "plan-scooter-1",
+                "rental_uris": {
+                    "android": "https://lqfa.adj.st/open?adj_t=b2hnabv&adj_deep_link=voiapp%3A%2F%2Fopen&adj_campaign=all_all_general-bikeshare-feed-specification_all_all_voiapp.io_all_central_all__",
+                    "ios": "https://lqfa.adj.st/closest_vehicle?adj_t=b2hnabv&adj_deep_link=voiapp%3A%2F%2Fclosest_vehicle&adj_campaign=all_all_general-bikeshare-feed-specification_all_all_voiapp.io_all_central_all__"
+                }
+            },
+```
+
+`free_bike_status` describes the available vehicles in real-time. This endpoint comes with the option to extend the response outside the current GBFS standard.
+
+It returns an array of vehicles and their current status per the specification found [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md#free_bike_statusjson).
+
+### Response
+
+The `data:` Payload `{ "bikes": [] }`, is an array of objects with the following structure.
+
+| Field Name             | type    | Defines                                                                                                                                                                                                                                             |
+| ---------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bike_id`              | String  | Unique identifier of a vehicle                                                                                                                                                                                                                      |
+| `lat`                  | Number  | Latitude of the bike. The field value must be a valid WGS 84 latitude in decimal degrees format. See: [World Geodetic System](http://en.wikipedia.org/wiki/World_Geodetic_System), [Decimal degrees](https://en.wikipedia.org/wiki/Decimal_degrees) |
+| `lon`                  | Number  | Longitude of the bike. See `lat` definition.                                                                                                                                                                                                        |
+| `is_reserved`          | Ìnteger | True/False value - is the bike currently reserved for someone else                                                                                                                                                                                  |
+| `is_disabled`          | Ìnteger | True/False value - is the bike currently disabled (broken)                                                                                                                                                                                          |
+| `vehicle_type_id`      | String  | Vehicle type. Scooter or E-bike                                                                                                                                                                                                                     |
+| `current_range_meters` | Number  | Furthest possible travel distance before the vehicle needs to be charged.                                                                                                                                                                           |
+| `pricing_plan_id`      | String  | The relevant pricing plan ID for the vehicle.                                                                                                                                                                                                       |
+| `rental uris`          | String  | Rental URIs for Android, iOS, and web in the android, ios, and web fields.                                                                                                                                                                          |
+
+## Vehicle Types
+
+> A Vehicle Types request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/vehicle_types.json
+```
+
+`vehicle_types` describes traits of our different vehicles
+
+### Response
+
+The `data:` Payload `{ "vehicle_types": [] }`, is an array of objects with the following structure.
+
+| Field Name         | type   | Defines                                                                          |
+| ------------------ | ------ | -------------------------------------------------------------------------------- |
+| `vehicle_type_id`  | String | Unique identifier of a vehicle type                                              |
+| `form_factor`      | String | The vehicle's general form factor e.g. `scooter` or `bicycle`                    |
+| `propulsion_type`  | String | The primary propuslion type of the vehicle, e.g. `electric` or `electric_assist` |
+| `name`             | String | Public name of relevant vehicle type                                             |
+| `max_range_meters` | Number | If engine-driven, furthest travel distance before it needs to be recharged       |
+
+## System Pricing Plans
+
+> A System Pricing Plans request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/system_pricing_plans.json
+```
+
+`system_pricing_plans` describes the current available pricing plans.
+
+### Response
+
+The `data:` Payload `{ "Plans": [] }`, is an array of objects with the following structure.
+
+| Field Name        | type    | Defines                                     |
+| ----------------- | ------- | ------------------------------------------- |
+| `plan_id`         | String  | Identifier for a pricing plan in the system |
+| `name`            | String  | Name of pricing plan                        |
+| `currency`        | String  | Type of currency used in the pricing plan   |
+| `price`           | Number  | Fee to start ride                           |
+| `is_taxable`      | integer | True/False                                  |
+| `description`     | String  | Clarification for pricing plan              |
+| `per_min_pricing` | Number  | Includes start, rate and interval price     |
+
+## System Regions
+
+> A System Regions request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/system_regions.json
+```
+
+`system_regions.json` gives information about what region(s)/zone(s) that you have access to
+
+### Response
+
+The `data:` Payload `{ "Regions": [] }`, is an array of objects with the following structure.
+
+| Field Name  | type   | Defines                      |
+| ----------- | ------ | ---------------------------- |
+| `name`      | String | Name of region/zone          |
+| `region_id` | Number | Unique ID of the region/zone |
+
+## System Information
+
+> A System Information request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/system_information.json
+```
+
+`system_information`, details regarding the relevant system
+
+## Response
+
+The following fields are all attributes within the main data object for this feed.
+
+| Field Name    | type   | Defines                                                                                                                                                                                                                                                                                                    |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `system_id`   | String | The identifier for this system. This is globally unique (even between different systems). Also, this value is intended to remain the same over the life of the system                                                                                                                                      |
+| `language`    | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag |
+| `name`        | String | Full name of the system to be displayed to customers                                                                                                                                                                                                                                                       |
+| `timezone`    | String | The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid                                                        |
+| `email`       | String | Voi's support email                                                                                                                                                                                                                                                                                        |
+| `url`         | String | Voi's official website                                                                                                                                                                                                                                                                                     |
+| `rental_apps` | String | Information about access to the voiapp, android and ios                                                                                                                                                                                                                                                    |
+
+## Auto-discovery
+
+> A gbfs.json request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/gbfs.json
+```
+
+> A gbfs.json response.
+
+```shell
+{
+    "last_updated": 1623912196,
+    "ttl": 0,
+    "version": "2.2",
+    "data": {
+        "en": {
+            "feeds": [
+                {
+                    "name": "gbfs",
+                    "url": "https://api.voiapp.io/gbfs/gbfs.json"
+                },
+                {
+                    "name": "system_information",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_information.json"
+                },
+                {
+                    "name": "vehicle_types",
+                    "url": "https://api.voiapp.io/gbfs/v2/vehicle_types.json"
+                },
+                {
+                    "name": "gbfs_versions",
+                    "url": "https://api.voiapp.io/gbfs/v2/gbfs_versions.json"
+                },
+                {
+                    "name": "system_alerts",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_alerts.json"
+                },
+                {
+                    "name": "system_pricing_plans",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_pricing_plans.json"
+                },
+                {
+                    "name": "system_regions",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_regions.json"
+                },
+                {
+                    "name": "free_bike_status",
+                    "url": "https://api.voiapp.io/gbfs/v2/free_bike_status.json"
+                }
+            ]
+        }
+    }
+}
+```
+
+`gbfs.json` is an auto-discovery file that links to all of the other files published by the system.
+
+A successful response contains which GBFS endpoints that the user's role can access.
+
+### Response
+
+The following fields are all attributes within the main data object for this feed.
+
+| Field Name | type   | Defines                                                                                                                              |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `language` | String | The language that all of the contained files will be published in. This language must match the value in the system_information file |
+| `feeds`    | Array  | An array of all of the feeds that are published by this auto-discovery file                                                          |
+| `name`     | String | Key identifying the type of feed this is (e.g. "system_information", "station_information")                                          |
+| `url`      | String | Full URL for the feed                                                                                                                |
