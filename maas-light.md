@@ -366,7 +366,7 @@ Every JSON file presented in this specification contains the same common header 
 | `version`      | String  | GBFS version number to which the feed confirms, according to the versioning framework.                                           |
 | `data`         | JSON    | JSON hash containing the data fields for this response                                                                           |
 
-## Authentication
+### Authentication
 
 Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
 
