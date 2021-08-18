@@ -518,7 +518,7 @@ $ curl -H "X-Auth-Token: <access_token>"
 
 `system_information`, details regarding the relevant system
 
-## Response
+### Response
 
 The following fields are all attributes within the main data object for this feed.
 
