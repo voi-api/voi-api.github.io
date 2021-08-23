@@ -603,3 +603,117 @@ The following fields are all attributes within the main data object for this fee
 | `feeds`    | Array  | An array of all of the feeds that are published by this auto-discovery file                                                          |
 | `name`     | String | Key identifying the type of feed this is (e.g. "system_information", "station_information")                                          |
 | `url`      | String | Full URL for the feed                                                                                                                |
+
+## Geofencing Zones
+
+> A geofencing_zones.json request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/geofencing_zones.json
+```
+
+```shell
+{
+    "last_updated": 1629449078,
+    "ttl": 0,
+    "version": "2.2",
+    "data": {
+        "geofencing_zones": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "coordinates": [
+                            [
+                                [
+                                    [
+                                        24.875300734352997,
+                                        60.19677933939972
+                                    ],
+                                    [
+                                        24.876078184389293,
+                                        60.196571432148964
+                                    ],
+                                    [
+                                        24.87618605249522,
+                                        60.196363399088206
+                                    ],
+                                    [
+                                        24.87612938343937,
+                                        60.196150842370635
+                                    ],
+                                    [
+                                        24.876268792954143,
+                                        60.19603585542455
+                                    ],
+                                    [
+                                        24.875936651214566,
+                                        60.195825393537206
+                                    ],
+                                    [
+                                        24.87535786580092,
+                                        60.19587858148064
+                                    ],
+                                    [
+                                        24.87417440192842,
+                                        60.196221845407074
+                                    ],
+                                    [
+                                        24.87424014658589,
+                                        60.1962826561851
+                                    ],
+                                    [
+                                        24.874309465537962,
+                                        60.196509407109204
+                                    ],
+                                    [
+                                        24.87445114116146,
+                                        60.19664629043662
+                                    ],
+                                    [
+                                        24.874682265477432,
+                                        60.196743969755794
+                                    ],
+                                    [
+                                        24.874975995084554,
+                                        60.19678359902475
+                                    ],
+                                    [
+                                        24.875300734352997,
+                                        60.19677933939972
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "type": "MultiPolygon"
+                    },
+                    "properties": {
+                        "name": "Helsinki - Munkka NRZ",
+                        "rules": [
+                            {
+                                "vehicle_type_id": [
+                                    "voi_scooter"
+                                ],
+                                "ride_allowed": false,
+                                "ride_through_allowed": false,
+                                "maximum_speed_kph": 25
+                            }
+                        ]
+                    }
+                }
+```
+
+`geofencing_zones.json` gives you information about area zones inside relevant operational zones.
+
+| Field Name             | type    | Defines                                                                           |
+| ---------------------- | ------- | --------------------------------------------------------------------------------- |
+| `name`                 | String  | Name of specific zone                                                             |
+| `rules`                | String  | contains the different rules in the zone                                          |
+| `vehicle_type_id`      | String  | Unique identifyer of a vehicle type, type of accessible vehicles in specific zone |
+| `ride_allowed`         | Integer | True/False - Is the ride allowed to start and end in this area?                   |
+| `ride_through_allowed` | Integer | True/False - Are users allowed to ride through the area?                          |
+| `maximum_speed_kph`    | Number  | The maximum speed allowed in the zone, kilometers per hour                        |
+
+Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
