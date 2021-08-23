@@ -14,7 +14,7 @@ Regardless of new features launched in the future, Voi commits to supporting the
 
 ## Development
 
-For a broader description of the integration-process, check out our [checklist](/checklist/)
+For a broader description of the integration-process, check out our [checklist](/checklist/).
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
@@ -31,7 +31,7 @@ Once the development is done, reach out to our [point of contact for engineering
 We have a default rate limit of 4000 requests per minute applied on our API (sum of all requests).
 VOI's API follows industry best practices by providing an HTTP 429 response code when the rate limit is exceeded.
 
-If you need a higher rate limit for your operations, please reach out to our engineering support [here](/poc/)
+If you need a higher rate limit for your operations, please reach out to our engineering support found [here](/poc/).
 
 # Authentication
 
