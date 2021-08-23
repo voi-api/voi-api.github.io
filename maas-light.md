@@ -370,6 +370,78 @@ Every JSON file presented in this specification contains the same common header 
 
 Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
 
+## Auto-discovery
+
+> A gbfs.json request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/gbfs.json
+```
+
+> A gbfs.json response.
+
+```shell
+{
+    "last_updated": 1623912196,
+    "ttl": 0,
+    "version": "2.2",
+    "data": {
+        "en": {
+            "feeds": [
+                {
+                    "name": "gbfs",
+                    "url": "https://api.voiapp.io/gbfs/gbfs.json"
+                },
+                {
+                    "name": "system_information",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_information.json"
+                },
+                {
+                    "name": "vehicle_types",
+                    "url": "https://api.voiapp.io/gbfs/v2/vehicle_types.json"
+                },
+                {
+                    "name": "gbfs_versions",
+                    "url": "https://api.voiapp.io/gbfs/v2/gbfs_versions.json"
+                },
+                {
+                    "name": "system_alerts",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_alerts.json"
+                },
+                {
+                    "name": "system_pricing_plans",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_pricing_plans.json"
+                },
+                {
+                    "name": "system_regions",
+                    "url": "https://api.voiapp.io/gbfs/v2/system_regions.json"
+                },
+                {
+                    "name": "free_bike_status",
+                    "url": "https://api.voiapp.io/gbfs/v2/free_bike_status.json"
+                }
+            ]
+        }
+    }
+}
+```
+
+`gbfs.json` is an auto-discovery file that links to all of the other files published by the system.
+
+A successful response contains which GBFS endpoints that the user's role can access.
+
+### Response
+
+The following fields are all attributes within the main data object for this feed.
+
+| Field Name | type   | Defines                                                                                                                              |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `language` | String | The language that all of the contained files will be published in. This language must match the value in the system_information file |
+| `feeds`    | Array  | An array of all of the feeds that are published by this auto-discovery file                                                          |
+| `name`     | String | Key identifying the type of feed this is (e.g. "system_information", "station_information")                                          |
+| `url`      | String | Full URL for the feed                                                                                                                |
+
 ## Free Bike Status
 
 > A free_bike_status request.
@@ -462,31 +534,6 @@ The `data:` Payload `{ "vehicle_types": [] }`, is an array of objects with the f
 | `name`             | String | Public name of relevant vehicle type                                             |
 | `max_range_meters` | Number | If engine-driven, furthest travel distance before it needs to be recharged       |
 
-## System Pricing Plans
-
-> A System Pricing Plans request.
-
-```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/system_pricing_plans.json
-```
-
-`system_pricing_plans` describes the current available pricing plans.
-
-### Response
-
-The `data:` Payload `{ "Plans": [] }`, is an array of objects with the following structure.
-
-| Field Name        | type    | Defines                                     |
-| ----------------- | ------- | ------------------------------------------- |
-| `plan_id`         | String  | Identifier for a pricing plan in the system |
-| `name`            | String  | Name of pricing plan                        |
-| `currency`        | String  | Type of currency used in the pricing plan   |
-| `price`           | Number  | Fee to start ride                           |
-| `is_taxable`      | integer | True/False                                  |
-| `description`     | String  | Clarification for pricing plan              |
-| `per_min_pricing` | Number  | Includes start, rate and interval price     |
-
 ## System Regions
 
 > A System Regions request.
@@ -506,103 +553,6 @@ The `data:` Payload `{ "Regions": [] }`, is an array of objects with the followi
 | ----------- | ------ | ---------------------------- |
 | `name`      | String | Name of region/zone          |
 | `region_id` | Number | Unique ID of the region/zone |
-
-## System Information
-
-> A System Information request.
-
-```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/system_information.json
-```
-
-`system_information`, details regarding the relevant system
-
-### Response
-
-The following fields are all attributes within the main data object for this feed.
-
-| Field Name    | type   | Defines                                                                                                                                                                                                                                                                                                    |
-| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `system_id`   | String | The identifier for this system. This is globally unique (even between different systems). Also, this value is intended to remain the same over the life of the system                                                                                                                                      |
-| `language`    | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag |
-| `name`        | String | Full name of the system to be displayed to customers                                                                                                                                                                                                                                                       |
-| `timezone`    | String | The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid                                                        |
-| `email`       | String | Voi's support email                                                                                                                                                                                                                                                                                        |
-| `url`         | String | Voi's official website                                                                                                                                                                                                                                                                                     |
-| `rental_apps` | String | Information about access to the voiapp, android and ios                                                                                                                                                                                                                                                    |
-
-## Auto-discovery
-
-> A gbfs.json request.
-
-```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/gbfs.json
-```
-
-> A gbfs.json response.
-
-```shell
-{
-    "last_updated": 1623912196,
-    "ttl": 0,
-    "version": "2.2",
-    "data": {
-        "en": {
-            "feeds": [
-                {
-                    "name": "gbfs",
-                    "url": "https://api.voiapp.io/gbfs/gbfs.json"
-                },
-                {
-                    "name": "system_information",
-                    "url": "https://api.voiapp.io/gbfs/v2/system_information.json"
-                },
-                {
-                    "name": "vehicle_types",
-                    "url": "https://api.voiapp.io/gbfs/v2/vehicle_types.json"
-                },
-                {
-                    "name": "gbfs_versions",
-                    "url": "https://api.voiapp.io/gbfs/v2/gbfs_versions.json"
-                },
-                {
-                    "name": "system_alerts",
-                    "url": "https://api.voiapp.io/gbfs/v2/system_alerts.json"
-                },
-                {
-                    "name": "system_pricing_plans",
-                    "url": "https://api.voiapp.io/gbfs/v2/system_pricing_plans.json"
-                },
-                {
-                    "name": "system_regions",
-                    "url": "https://api.voiapp.io/gbfs/v2/system_regions.json"
-                },
-                {
-                    "name": "free_bike_status",
-                    "url": "https://api.voiapp.io/gbfs/v2/free_bike_status.json"
-                }
-            ]
-        }
-    }
-}
-```
-
-`gbfs.json` is an auto-discovery file that links to all of the other files published by the system.
-
-A successful response contains which GBFS endpoints that the user's role can access.
-
-### Response
-
-The following fields are all attributes within the main data object for this feed.
-
-| Field Name | type   | Defines                                                                                                                              |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `language` | String | The language that all of the contained files will be published in. This language must match the value in the system_information file |
-| `feeds`    | Array  | An array of all of the feeds that are published by this auto-discovery file                                                          |
-| `name`     | String | Key identifying the type of feed this is (e.g. "system_information", "station_information")                                          |
-| `url`      | String | Full URL for the feed                                                                                                                |
 
 ## Geofencing Zones
 
@@ -705,7 +655,7 @@ $ curl -H "X-Auth-Token: <access_token>"
                 }
 ```
 
-`geofencing_zones.json` gives you information about area zones inside relevant operational zones.
+`geofencing_zones.json` gives you information about area zones inside relevant regions.
 
 | Field Name             | type    | Defines                                                                           |
 | ---------------------- | ------- | --------------------------------------------------------------------------------- |
@@ -717,3 +667,55 @@ $ curl -H "X-Auth-Token: <access_token>"
 | `maximum_speed_kph`    | Number  | The maximum speed allowed in the zone, kilometers per hour                        |
 
 Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
+
+## System requests
+
+### System Pricing Plans
+
+> A System Pricing Plans request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/system_pricing_plans.json
+```
+
+`system_pricing_plans` describes the current available pricing plans.
+
+### Response
+
+The `data:` Payload `{ "Plans": [] }`, is an array of objects with the following structure.
+
+| Field Name        | type    | Defines                                     |
+| ----------------- | ------- | ------------------------------------------- |
+| `plan_id`         | String  | Identifier for a pricing plan in the system |
+| `name`            | String  | Name of pricing plan                        |
+| `currency`        | String  | Type of currency used in the pricing plan   |
+| `price`           | Number  | Fee to start ride                           |
+| `is_taxable`      | integer | True/False                                  |
+| `description`     | String  | Clarification for pricing plan              |
+| `per_min_pricing` | Number  | Includes start, rate and interval price     |
+
+### System Information
+
+> A System Information request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/system_information.json
+```
+
+`system_information`, details regarding the relevant system
+
+### Response
+
+The following fields are all attributes within the main data object for this feed.
+
+| Field Name    | type   | Defines                                                                                                                                                                                                                                                                                                    |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `system_id`   | String | The identifier for this system. This is globally unique (even between different systems). Also, this value is intended to remain the same over the life of the system                                                                                                                                      |
+| `language`    | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag |
+| `name`        | String | Full name of the system to be displayed to customers                                                                                                                                                                                                                                                       |
+| `timezone`    | String | The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid                                                        |
+| `email`       | String | Voi's support email                                                                                                                                                                                                                                                                                        |
+| `url`         | String | Voi's official website                                                                                                                                                                                                                                                                                     |
+| `rental_apps` | String | Information about access to the voiapp, android and ios                                                                                                                                                                                                                                                    |
