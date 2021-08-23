@@ -18,13 +18,20 @@ For a broader description of the integration-process, check out our [checklist](
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
--   Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
--   The scooter's location will not change even if you provide an end ride location.
--   The zones and scooters are spread over a much larger area than the real scooters.
+- Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
+- The scooter's location will not change even if you provide an end ride location.
+- The zones and scooters are spread over a much larger area than the real scooters.
 
 ## Going live
 
 Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment in the cities you operate in together with your cities zoneId:s. Now you will be able to test the integration with real scooters that you can pick from the street. Test the integration in closed beta before giving access to all your users.
+
+## Rate Limit
+
+We have a default rate limit of 4000 requests per minute applied on our API (sum of all requests).
+VOI's API follows industry best practices by providing an HTTP 429 response code when the rate limit is exceeded.
+
+If you need a higher rate limit for your operations, please reach out to our engineering support [here](/poc/)
 
 # Authentication
 
@@ -1131,6 +1138,6 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
--   It's not possible to delete users in our system
--   Ask user to contact our customer support for the right to be forgotten.
--   We have not included lock and reserve in our API, since the feature is not widely used.
+- It's not possible to delete users in our system
+- Ask user to contact our customer support for the right to be forgotten.
+- We have not included lock and reserve in our API, since the feature is not widely used.
