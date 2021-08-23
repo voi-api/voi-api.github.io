@@ -442,6 +442,29 @@ The following fields are all attributes within the main data object for this fee
 | `name`     | String | Key identifying the type of feed this is (e.g. "system_information", "station_information")                                          |
 | `url`      | String | Full URL for the feed                                                                                                                |
 
+## Vehicle Types
+
+> A Vehicle Types request.
+
+```shell
+$ curl -H "X-Auth-Token: <access_token>"
+  api.voiapp.io/gbfs/v2/vehicle_types.json
+```
+
+`vehicle_types` describes traits of our different vehicles
+
+### Response
+
+The `data:` Payload `{ "vehicle_types": [] }`, is an array of objects with the following structure.
+
+| Field Name         | type   | Defines                                                                          |
+| ------------------ | ------ | -------------------------------------------------------------------------------- |
+| `vehicle_type_id`  | String | Unique identifier of a vehicle type                                              |
+| `form_factor`      | String | The vehicle's general form factor e.g. `scooter` or `bicycle`                    |
+| `propulsion_type`  | String | The primary propuslion type of the vehicle, e.g. `electric` or `electric_assist` |
+| `name`             | String | Public name of relevant vehicle type                                             |
+| `max_range_meters` | Number | If engine-driven, furthest travel distance before it needs to be recharged       |
+
 ## Free Bike Status
 
 > A free_bike_status request.
@@ -510,29 +533,6 @@ The `data:` Payload `{ "bikes": [] }`, is an array of objects with the following
 | `current_range_meters` | Number  | Furthest possible travel distance before the vehicle needs to be charged.                                                                                                                                                                           |
 | `pricing_plan_id`      | String  | The relevant pricing plan ID for the vehicle.                                                                                                                                                                                                       |
 | `rental uris`          | String  | Rental URIs for Android, iOS, and web in the android, ios, and web fields.                                                                                                                                                                          |
-
-## Vehicle Types
-
-> A Vehicle Types request.
-
-```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/vehicle_types.json
-```
-
-`vehicle_types` describes traits of our different vehicles
-
-### Response
-
-The `data:` Payload `{ "vehicle_types": [] }`, is an array of objects with the following structure.
-
-| Field Name         | type   | Defines                                                                          |
-| ------------------ | ------ | -------------------------------------------------------------------------------- |
-| `vehicle_type_id`  | String | Unique identifier of a vehicle type                                              |
-| `form_factor`      | String | The vehicle's general form factor e.g. `scooter` or `bicycle`                    |
-| `propulsion_type`  | String | The primary propuslion type of the vehicle, e.g. `electric` or `electric_assist` |
-| `name`             | String | Public name of relevant vehicle type                                             |
-| `max_range_meters` | Number | If engine-driven, furthest travel distance before it needs to be recharged       |
 
 ## System Regions
 
