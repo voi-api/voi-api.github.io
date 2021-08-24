@@ -10,6 +10,7 @@ description: Who to contact about what.
 
 | Category                       | Name              | E-mail                                                            |
 | ------------------------------ | ----------------- | ----------------------------------------------------------------- |
+| Market development / Expansion | Richard Corbett   | rich@voi.com                                                      |
 | Commercial                     | Jasmin Rimmele    | [jasmin.rimmele@voiapp.io](mailto:jasmin.rimmele@voiapp.io)       |
 | Customer Support Process       | Aldona Martynenka | [aldona.martynenka@voiapp.io](mailto:aldona.martynenka@voiapp.io) |
 | 2nd line support               |                   | [partner-support@voiapp.io](mailto:partner-support@voiapp.io)     |
