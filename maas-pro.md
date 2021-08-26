@@ -864,7 +864,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         "currency": "EUR",
         "pricePerMinute": 15,
         "startPrice": 100,
-        "vat": 19
+        "vat": 0.25
       }
     },
       {
@@ -885,7 +885,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         "currency": "EUR",
         "pricePerMinute": 15,
         "startPrice": 100,
-        "vat": 19
+        "vat": 0.25
       }
     },
   ]
@@ -946,7 +946,7 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
            "currency": "EUR",
            "pricePerMinute": 15,
            "startPrice": 100,
-           "vat": 19
+           "vat": 0.25
          }
     },
   ]
@@ -995,7 +995,7 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
         "currency": "EUR",
         "pricePerMinute": 15,
         "startPrice": 100,
-        "vat": 19
+        "vat": 0.25
       }
     },
   ]
