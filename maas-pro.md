@@ -815,17 +815,22 @@ GET https://partners.voiapp.io/v1/pricing/vehicle/{id}
 
 All successful vehicle interactions responds with the following vehicle model.
 
-| field        | type    | description                                                                                    | presence |
-| ------------ | ------- | ---------------------------------------------------------------------------------------------- | -------- |
-| id           | string  | The vehicle's id (UUID version 4)                                                              | required |
-| type         | string  | For vehicles the type will always be "vehicle"                                                 | required |
-| vehicle_type | string  | The vehicles type , values are `scooter`, `bicycle`                                            | required |
-| batteryLevel | integer | The state of charge of the vehicles' battery in percent (0-100)                                | required |
-| location     | object  | The vehicle’s location                                                                         | required |
-| longitude    | number  | The longitude component of the location                                                        | required |
-| latitude     | number  | The latitude component of the location                                                         | required |
-| code         | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code. | required |
-| locked       | bool    | The vehicle lock state                                                                         | required |
+| field          | type    | description                                                                                    | presence |
+| ------------   | ------- | ---------------------------------------------------------------------------------------------- | -------- |
+| id             | string  | The vehicle's id (UUID version 4)                                                              | required |
+| type           | string  | For vehicles the type will always be "vehicle"                                                 | required |
+| vehicle_type   | string  | The vehicles type , values are `scooter`, `bicycle`                                            | required |
+| batteryLevel   | integer | The state of charge of the vehicles' battery in percent (0-100)                                | required |
+| location       | object  | The vehicle’s location                                                                         | required |
+| longitude      | number  | The longitude component of the location                                                        | required |
+| latitude       | number  | The latitude component of the location                                                         | required |
+| code           | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code. | required |
+| price          | object  | The vehicle price                                                                              | required |
+| pricePerMinute | integer | the price per minute, excluding Vat, in minor units                                            | required |
+| startPrice     | integer | the start price, excluding Vat in minor units (also called subunit)                            | required |
+| currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                           | required |
+| vat            | integer | the VAT percentage                                                                             | required |
+
 
 ## Get vehicles by zone
 
@@ -855,6 +860,13 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         "zoneId": "145",
         "locked": true
       },
+      "price": {
+        "currency": "EUR",
+        "pricePerMinute": 15,
+        "startPrice": 100,
+        "vat": 0.25
+      }
+    },
       {
       "type": "vehicle",
       "vehicle_type": "bicycle",
@@ -868,6 +880,12 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         "code": "D0IT",
         "zoneId": "145",
         "locked": true
+      },
+      "price": {
+        "currency": "EUR",
+        "pricePerMinute": 15,
+        "startPrice": 100,
+        "vat": 0.25
       }
     },
   ]
@@ -923,6 +941,12 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
            "code": "L33T",
            "zoneId": "145",
           "locked": true
+         },
+         "price": {
+           "currency": "EUR",
+           "pricePerMinute": 15,
+           "startPrice": 100,
+           "vat": 0.25
          }
     },
   ]
@@ -966,6 +990,12 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
         "code": "D0IT",
         "zoneId": "145",
         "locked": true
+      },
+      "price": {
+        "currency": "EUR",
+        "pricePerMinute": 15,
+        "startPrice": 100,
+        "vat": 0.25
       }
     },
   ]
