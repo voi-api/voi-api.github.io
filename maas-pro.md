@@ -723,7 +723,7 @@ The cost of renting a Voi can differ, amongst others based on where the scooter 
       "currency": "EUR",
       "pricePerMinute": 15,
       "startPrice": 100,
-      "vat": 19
+      "vat": 0.25
     }
   }
 }
@@ -760,7 +760,7 @@ curl https://partners.voiapp.io/v1/pricing/vehicle/12345678-1337-abcd-1234-1234a
       "currency": "EUR",
       "pricePerMinute": 15,
       "startPrice": 100,
-      "vat": 19
+      "vat": 0.25
     }
   }
 }
@@ -816,7 +816,7 @@ GET https://partners.voiapp.io/v1/pricing/vehicle/{id}
 All successful vehicle interactions responds with the following vehicle model.
 
 | field          | type    | description                                                                                    | presence |
-| ------------   | ------- | ---------------------------------------------------------------------------------------------- | -------- |
+| -------------- | ------- | ---------------------------------------------------------------------------------------------- | -------- |
 | id             | string  | The vehicle's id (UUID version 4)                                                              | required |
 | type           | string  | For vehicles the type will always be "vehicle"                                                 | required |
 | vehicle_type   | string  | The vehicles type , values are `scooter`, `bicycle`                                            | required |
@@ -830,7 +830,6 @@ All successful vehicle interactions responds with the following vehicle model.
 | startPrice     | integer | the start price, excluding Vat in minor units (also called subunit)                            | required |
 | currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                           | required |
 | vat            | integer | the VAT percentage                                                                             | required |
-
 
 ## Get vehicles by zone
 
