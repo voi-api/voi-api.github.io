@@ -8,6 +8,8 @@ description: Who to contact about what.
 
 # Points of contact
 
+For Integration requests please click [here](https://voidev.atlassian.net/servicedesk/customer/portal/16/group/72)
+
 | Category                       | Name              | E-mail                                                            |
 | ------------------------------ | ----------------- | ----------------------------------------------------------------- |
 | Market development / Expansion | Richard Corbett   | [rich@voi.com](mailto:rich@voi.com)                               |
