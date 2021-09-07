@@ -68,6 +68,8 @@ See Open Mobility Foundation's MDS description on versioning [here](https://gith
 ```shell
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/trips?end_time=2020-01-01T23
+
+Do not copy ^ as the zone-ID might not match yours
 ```
 
 A trip represents a journey taken by a customer with a geo-tagged start and stop point.
@@ -98,6 +100,8 @@ See Open Mobility Foundation's MDS description on trips [here](https://github.co
 ```shell
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/status_changes?event_time=2020-01-01T23
+
+Do not copy ^ as the zone-ID might not match yours
 ```
 
 The status of the inventory of vehicles available for customer use. The `/status_changes` endpoint allows a user to query the historical availability for a system within the queried hour.
