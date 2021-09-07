@@ -127,6 +127,8 @@ See Open Mobility Foundation's MDS description on status changes [here](https://
 ```shell
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/events?start_time=1580518800000&end_time=1581123600000
+
+Do not copy ^ as the zone-ID might not match yours
 ```
 
 The `/events` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events.
