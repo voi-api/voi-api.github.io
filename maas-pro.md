@@ -321,7 +321,7 @@ curl -X DELETE https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fe
   -H "X-Auth-Token $TOKEN"
 ```
 
-Use to delete a user. The user will no more able start rental
+Use to delete a user. The user will not be able to start a rental
 
 ### HTTPS request
 
@@ -337,6 +337,7 @@ Use to delete a user. The user will no more able start rental
 
 | Code                      | Detail                | ErrorCode             |
 | ------------------------- | --------------------- | --------------------- |
+| StatusBadRequest          | Invalid user id       | InvalidUserId         |
 | StatusNotFound            | User not found        | ErrUserNotFound       |
 | StatusInternalServerError | Failed to delete User | ErrFailedToDeleteUser |
 
