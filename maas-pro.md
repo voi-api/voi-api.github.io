@@ -18,9 +18,10 @@ For a broader description of the integration-process, check out our [checklist](
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
-- Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
-- The scooter's location will not change even if you provide an end ride location.
-- The zones and scooters are spread over a much larger area than the real scooters.
+-   Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
+
+-   The scooter's location will not change even if you provide an end ride location.
+-   The zones and scooters are spread over a much larger area than the real scooters.
 
 ## Going live
 
@@ -312,6 +313,32 @@ Update user details allow for a user to be updated. Only fields that are sent in
 | StatusBadRequest          | Invalid request body | InvalidRequestBody |
 | StatusNotFound            | User not found       | ErrUserNotFound    |
 | StatusInternalServerError |                      |
+
+## Delete user
+
+```shell
+curl -X DELETE https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
+  -H "X-Auth-Token $TOKEN"
+```
+
+Use to delete a user. The user will no more able start rental
+
+### HTTPS request
+
+`DELETE https://partners.voiapp.io/v1/user/{id}`
+
+### Path parameters
+
+| parameter | description                  | presence |
+| --------- | ---------------------------- | -------- |
+| id        | the user id (UUID version 4) | required |
+
+### Errors
+
+| Code                      | Detail                | ErrorCode             |
+| ------------------------- | --------------------- | --------------------- |
+| StatusNotFound            | User not found        | ErrUserNotFound       |
+| StatusInternalServerError | Failed to delete User | ErrFailedToDeleteUser |
 
 # Rental
 
@@ -1167,6 +1194,6 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
-- It's not possible to delete users in our system
-- Ask user to contact our customer support for the right to be forgotten.
-- We have not included lock and reserve in our API, since the feature is not widely used.
+-   It's not possible to delete users in our system
+-   Ask user to contact our customer support for the right to be forgotten.
+-   We have not included lock and reserve in our API, since the feature is not widely used.
