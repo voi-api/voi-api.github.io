@@ -37,6 +37,7 @@ If you need a higher rate limit for your operations, please reach out to our eng
 ## Staging & Production domains
 
 Staging: `https://partners.stage.voiapp.io`
+
 Production: `https://partners.voiapp.io`
 
 # Authentication
