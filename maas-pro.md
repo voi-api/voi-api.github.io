@@ -33,6 +33,11 @@ VOI's API follows industry best practices by providing an HTTP 429 response code
 
 If you need a higher rate limit for your operations, please reach out to our engineering support found [here](/poc/).
 
+## Staging & Production domains
+
+Staging: `https://partners.stage.voiapp.io`
+Production: `https://partners.voiapp.io`
+
 # Authentication
 
 ```shell
