@@ -804,7 +804,7 @@ Pricing information can be accessed for a particular vehicle by referencing the 
 
 ### HTTPS request
 
-GET https://partners.voiapp.io/v1/pricing/vehicle/{id}
+`GET https://partners.voiapp.io/v1/pricing/vehicle/{id}`
 
 ### Path parameters
 
