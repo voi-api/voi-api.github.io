@@ -158,6 +158,31 @@ See Open Mobility Foundation's MDS description of events [here](https://github.c
 | end_time   | timestamp, integer milliseconds since Unix epoch | required |
 | start_time | timestamp, integer milliseconds since Unix epoch | required |
 
+## Vehicles
+
+> An vehicles request.
+
+```shell
+$ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
+  mds.voiapp.io/en/9/vehicles
+
+Do not copy ^ as the zone-ID might not match yours
+```
+
+The `/vehicles` endpoint returns the current status of vehicles on the PROW. Only vehicles that are currently in available, unavailable, or reserved states should be returned in this payload.
+
+See Open Mobility Foundation's MDS description of events [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/release-0.4.1/provider#vehicles).
+
+### HTTPS request
+
+`POST mds.voiapp.io/en/{zoneID}/vehicles`
+
+### Path parameters
+
+| parameter | description                          | presence |
+| --------- | ------------------------------------ | -------- |
+| zoneID    | The zone id for the requested events | required |
+
 # GBFS v1
 
 Voi provides a flavored version of the GBFS (The General Bikeshare Feed Specification) API.
@@ -166,9 +191,9 @@ Since the vehicles Voi currently provide are considered dockless and since GBFS 
 
 Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md), Voi supports the following files.
 
-- `gbfs.json`
-- `system_information.json`
-- `free_bike_status`
+-   `gbfs.json`
+-   `system_information.json`
+-   `free_bike_status`
 
 ### Common response
 
@@ -354,12 +379,12 @@ Since the vehicles Voi currently provide are considered dockless and since GBFS 
 
 Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/v2.2/gbfs.md), Voi supports the following files.
 
-- `gbfs.json`
-- `system_information.json`
-- `vehicle-types.json`
-- `system_pricing_plans.json`
-- `system_regions.json`
-- `free_bike_status.json`
+-   `gbfs.json`
+-   `system_information.json`
+-   `vehicle-types.json`
+-   `system_pricing_plans.json`
+-   `system_regions.json`
+-   `free_bike_status.json`
 
 ### Common response
 
