@@ -649,6 +649,16 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 | StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded   |
 | StatusInternalServerError |                                            |
 
+### End Ride Photo
+In Zones where where `end ride photo` is applicable the end rental response will include a photoURL. This to allow for the end ride photo taken by the user to be sent to Voi.
+Instructions for end ride photo should be displayed in the partner application. 
+It should include these instructions: 
+"Make sure that the picture is not too dark"
+"Make sure that there are no people in the photo"
+"Make sure that the scooter is inside the frame"
+"Make sure that the scooter is parked correctly"
+"Wrongly parked scooters may result in a fine"
+
 ### On pricing
 
 Pricing is under active development and constantly evolving, but it typically consists of a fixed fee and a minute fee. Below are other conditions that will also affect the price of the ride. Regardless, the actual price will always be returned when ending the ride.
