@@ -43,7 +43,7 @@ select a parameter based on what view you want the user to end up in
 |Help |adj_deeplink=voiapp%3A%2F%2Fhelp|
 |Edit payment methods |adj_deeplink=voiapp%3A%2F%2Fpayment|
 |View credits |adj_deeplink=voiapp%3A%2F%2Fcredit|
-|Select language |adj_deeplink=voiapp%3A%2F%2Flanguage|
+|Select language (only Android)|adj_deeplink=voiapp%3A%2F%2Flanguage|
 |Pre-select closest vehicle |adj_deeplink=voiapp%3A%2F%2Fclosest_vehicle|
 |-|adj_deeplink=voiapp%3A%2F%2Fnearest|
 |My impact dashboard |adj_deeplink=voiapp%3A%2F%2Fmy_impact|
