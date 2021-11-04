@@ -37,11 +37,13 @@ select a parameter based on what view you want the user to end up in
 |Qr-code-scanner|adj_deeplink=voiapp%3A%2F%2Fscan|
 |Send credits|adj_deeplink=voiapp%3A%2F%2Ffree|
 |Redeem credits|adj_deeplink=voiapp%3A%2F%2Fredeem%2Fcode|
-|Ride history|adj_deeplink=voiapp%3A%2F%2Fhistory|
+|Ride history|adj_deeplink=voiapp%3A%2F%2Fride_history|
+|Loyalty Instructions|dj_deeplink=voiapp%3A%2F%2loyalty_instructions|
 |Rules for riding |adj_deeplink=voiapp%3A%2F%2Frule|
 |Help |adj_deeplink=voiapp%3A%2F%2Fhelp|
-|Profile page |adj_deeplink=voiapp%3A%2F%2Fprofile|
-|Edit user details |adj_deeplink=voiapp%3A%2F%2Fprofiledetail|
 |Edit payment methods |adj_deeplink=voiapp%3A%2F%2Fpayment|
 |View credits |adj_deeplink=voiapp%3A%2F%2Fcredit|
-|Select language |adj_deeplink=voiapp%3A%2F%2Flanguage|
+|Select language (only Android)|adj_deeplink=voiapp%3A%2F%2Flanguage|
+|Pre-select closest vehicle |adj_deeplink=voiapp%3A%2F%2Fclosest_vehicle|
+|-|adj_deeplink=voiapp%3A%2F%2Fnearest|
+|My impact dashboard |adj_deeplink=voiapp%3A%2F%2Fmy_impact|
