@@ -505,15 +505,16 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 ### Errors
 
-| Code                      | Detail                         | ErrorCode           |
-| ------------------------- | ------------------------------ | ------------------- |
-| StatusBadRequest          | Invalid request body           | InvalidRequestBody  |
-| StatusBadRequest          | Invalid user id                | InvalidUserId       |
-| StatusBadRequest          | Invalid vehicle id             | InvalidVehicleId    |
-| StatusBadRequest          | User does not exist            | UserNotFound        |
-| StatusBadRequest          | This user already has a rental | RentalAlreadyExists |
-| StatusBadRequest          | Vehicle not found              | VehicleNotFound     |
-| StatusInternalServerError |                                |
+| Code                      | Detail                                | ErrorCode           |
+| ------------------------- | ------------------------------------- | ------------------- |
+| StatusBadRequest          | Invalid request body                  | InvalidRequestBody  |
+| StatusBadRequest          | Invalid user id                       | InvalidUserId       |
+| StatusBadRequest          | Invalid vehicle id                    | InvalidVehicleId    |
+| StatusBadRequest          | User does not exist                   | UserNotFound        |
+| StatusBadRequest          | This user already has a rental        | RentalAlreadyExists |
+| StatusBadRequest          | Vehicle not found                     | VehicleNotFound     |
+| StatusMethodNotAllowed    | Rental not allowed during sleep hours | ZoneIsSleeping      |
+| StatusInternalServerError |                                       |
 
 ## Manual Disarm
 
@@ -1128,6 +1129,8 @@ Every city has it's own operational zone. Within each operational zone, there ar
 | no-go-zone   | An area vehicles may stop(depending on configuration) and you cannot end the ride.       |
 
 Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
+
+Some of our operational zones have vehicle sleep times. During vehicle sleep time no rentals can be started.
 
 ### HTTPS request
 
