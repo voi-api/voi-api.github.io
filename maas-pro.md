@@ -652,7 +652,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 ### End Ride Photo
 
-In Zones where where `end ride photo` is applicable the end rental response will include a `photoURL`. This to allows for the end ride photo taken by the user to be sent to Voi.
+In Zones where `end ride photo` is applicable, the end rental response will include a `photoURL`. This to allow for the end ride photo, taken by the user, to be sent to Voi.
 Instructions for end ride photo should be displayed in the partner application. Such as brightness, no people in photo, correct parking, fines, etc.
 
 ### On pricing
