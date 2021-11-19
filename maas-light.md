@@ -175,7 +175,7 @@ See Open Mobility Foundation's MDS description of events [here](https://github.c
 
 ### HTTPS request
 
-`POST mds.voiapp.io/en/{zoneID}/vehicles`
+`GET mds.voiapp.io/en/{zoneID}/vehicles`
 
 ### Path parameters
 
