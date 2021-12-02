@@ -1120,14 +1120,14 @@ Every city has it's own operational zone. Within each operational zone, there ar
 
 ### Supported Zone Areas
 
-| area type                 | Description                                                                              |
-| ------------------------- | ---------------------------------------------------------------------------------------- |
-| operations                | The operational area, where Voi operates                                                 |
-| no-parking                | An area where rentals can't be ended\*                                                   |
-| parking-spot              | An area where a rental must be ended\*                                                   |
-| slow-zone                 | An area where a vehicle's max-speed will be lowered, the maximum speed is not available. |
-| no-go-zone                | An area vehicles may stop(depending on configuration) and you cannot end the ride.       |
-| Incentivized-parking-zone | An area where users are incentivized to park                                             |
+| area type    | Description                                                                              |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| operations   | The operational area, where Voi operates                                                 |
+| no-parking   | An area where rentals can't be ended\*                                                   |
+| parking-spot | An area where a rental must be ended\*                                                   |
+| slow-zone    | An area where a vehicle's max-speed will be lowered, the maximum speed is not available. |
+| no-riding    | An area vehicles may stop(depending on configuration) and you cannot end the ride.       |
+| incentive    | An area where users are incentivized to park                                             |
 
 Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
 
