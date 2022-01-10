@@ -209,7 +209,7 @@ Register user creates a new user with a unique user id. A user is required to be
 | lastName    | string | The user's last name                                                                                                                                                                                         | optional |
 | phoneNumber | string | The users' phone number. (not used as identifier)                                                                                                                                                            | optional |
 | externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                  | optional |
-| productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                              | required |
+| productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                              | optional |
 
 ### Errors
 
