@@ -1135,7 +1135,7 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 
 ### HTTPS request
 
-`GET https://partners.voiapp.io/v1/zone/id/<zoneId>`
+`GET https://partners.voiapp.io/v1/zone/id/{zoneId}`
 
 ### Path parameters
 
@@ -1160,6 +1160,36 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 | ------------------------- | ----------------- | ----------- |
 | StatusBadRequest          | Zone id was empty | EmptyZoneID |
 | StatusInternalServerError |                   |
+
+## Get parking zone occupancy
+
+> The parking zone occupancy response model
+
+```shell
+"data": [
+        {
+            "id": "044bb70b-8ac6-605c-984f-2244776800a5",
+            "occupancy": 8,
+            "capacity": 10
+        },
+
+```
+
+This endpoint allows you to identify the number of available parking spots in all parking-spot areas in the relevant operational zone.
+
+### HTTPS request
+
+`GET https://partners.voiapp.io/v1/zone/id/{id}/areasOccupancy`
+
+Replace {id} with relevant zoneID
+
+### Response
+
+| field     | type   | description                                                         |
+| --------- | ------ | ------------------------------------------------------------------- |
+| Id        | String | Specific parking-spot area id                                       |
+| Occupancy | Number | Number of parked scooters in the parking-spot area                  |
+| Capacity  | String | Maximum Capacity of number of scooters inside the parking-spot area |
 
 ## Get operational zones
 
@@ -1194,11 +1224,11 @@ Get all operational zones that a partner has access to.
 
 ### Response
 
-| field    | type    | description                            |
-| -------- | ------- | -------------------------------------- |
-| zones    | object  | A zone object                          |
-| zoneId   | integer | Vois unique id of the operational Zone |
-| zoneName | String  | The name of the city                   |
+| field    | type   | description                            |
+| -------- | ------ | -------------------------------------- |
+| zones    | object | A zone object                          |
+| zoneId   | Number | Vois unique id of the operational Zone |
+| zoneName | Number | The name of the city                   |
 
 # Miscellaneous
 
