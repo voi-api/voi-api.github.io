@@ -215,7 +215,8 @@ Authentication for GBFS is the same as for MDS and is described in the MDS secti
 > A free_bike_status request.
 
 ```shell
-$ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status "Authorization: Bearer <Bearer token>"
+$ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status
+"Authorization: Bearer <Bearer token>"
 
 ```
 
@@ -267,7 +268,8 @@ The `data:` Payload `{ "bikes": [] }`, is an array of objects with the following
 > A free_bike_status extended request.
 
 ```shell
-$ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status "Authorization: Bearer <Bearer token>"
+$ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status
+"Authorization: Bearer <Bearer token>"
   -H "X-Voigbfs-Ext: Battery"
 ```
 
@@ -317,8 +319,8 @@ To access this field, add the request header `X-Voigbfs-Ext` with the requested 
 > A gbfs.json request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  mds.voiapp.io/v1/gbfs/gbfs.json
+$ curl --location --request GET mds.voiapp.io/v1/gbfs/gbfs.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 > A gbfs.json response.
@@ -405,8 +407,8 @@ Authentication for GBFS is the same as for MDS and is described in the MDS secti
 > A gbfs.json request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/gbfs.json
+$ curl --location --request GET api.voiapp.io/gbfs/v2/gbfs.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 > A gbfs.json response.
@@ -477,8 +479,8 @@ The following fields are all attributes within the main data object for this fee
 > A Vehicle Types request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/vehicle_types.json
+$curl --location --request GET api.voiapp.io/gbfs/v2/vehicle_types.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 `vehicle_types` describes traits of our different vehicles
@@ -500,8 +502,8 @@ The `data:` Payload `{ "vehicle_types": [] }`, is an array of objects with the f
 > A free_bike_status request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/free_bike_status.json
+$ curl --location --request GET api.voiapp.io/gbfs/v2/free_bike_status.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 > A free_bike_status response.
@@ -569,8 +571,8 @@ The `data:` Payload `{ "bikes": [] }`, is an array of objects with the following
 > A System Regions request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/system_regions.json
+$ curl --location --request GET api.voiapp.io/gbfs/v2/system_regions.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 `system_regions.json` gives information about what region(s)/zone(s) that you have access to
@@ -589,8 +591,8 @@ The `data:` Payload `{ "Regions": [] }`, is an array of objects with the followi
 > A geofencing_zones.json request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/geofencing_zones.json
+$ curl --location --request GET api.voiapp.io/gbfs/v2/geofencing_zones.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 ```shell
@@ -705,8 +707,8 @@ Each operational zone operates with either mandatory parking spots or a free-flo
 > A System Pricing Plans request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/system_pricing_plans.json
+$ curl --location --request GET api.voiapp.io/gbfs/v2/system_pricing_plans.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 `system_pricing_plans` describes the current available pricing plans.
@@ -730,8 +732,8 @@ The `data:` Payload `{ "Plans": [] }`, is an array of objects with the following
 > A System Information request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  api.voiapp.io/gbfs/v2/system_information.json
+$ curl --location --request GET api.voiapp.io/gbfs/v2/system_information.json
+"Authorization: Bearer <Bearer token>"
 ```
 
 `system_information`, details regarding the relevant system
