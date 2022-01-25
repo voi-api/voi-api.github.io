@@ -215,8 +215,8 @@ Authentication for GBFS is the same as for MDS and is described in the MDS secti
 > A free_bike_status request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
-  mds.voiapp.io/v1/gbfs/1/free_bike_status
+$ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status "Authorization: Bearer <Bearer token>"
+  
 ```
 
 > A free_bike_status response.
