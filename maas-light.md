@@ -191,9 +191,9 @@ Since the vehicles Voi currently provide are considered dockless and since GBFS 
 
 Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/master/gbfs.md), Voi supports the following files.
 
--   `gbfs.json`
--   `system_information.json`
--   `free_bike_status`
+- `gbfs.json`
+- `system_information.json`
+- `free_bike_status`
 
 ### Common response
 
@@ -216,7 +216,7 @@ Authentication for GBFS is the same as for MDS and is described in the MDS secti
 
 ```shell
 $ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status "Authorization: Bearer <Bearer token>"
-  
+
 ```
 
 > A free_bike_status response.
@@ -267,9 +267,8 @@ The `data:` Payload `{ "bikes": [] }`, is an array of objects with the following
 > A free_bike_status extended request.
 
 ```shell
-$ curl -H "X-Auth-Token: <access_token>"
+$ curl --location --request GET mds.voiapp.io/v1/gbfs/1/free_bike_status "Authorization: Bearer <Bearer token>"
   -H "X-Voigbfs-Ext: Battery"
-  mds.voiapp.io/v1/gbfs/1/free_bike_status
 ```
 
 > A free_bike_status extended response.
@@ -379,12 +378,12 @@ Since the vehicles Voi currently provide are considered dockless and since GBFS 
 
 Of the GBFS files specified in [here](https://github.com/NABSA/gbfs/blob/v2.2/gbfs.md), Voi supports the following files.
 
--   `gbfs.json`
--   `system_information.json`
--   `vehicle-types.json`
--   `system_pricing_plans.json`
--   `system_regions.json`
--   `free_bike_status.json`
+- `gbfs.json`
+- `system_information.json`
+- `vehicle-types.json`
+- `system_pricing_plans.json`
+- `system_regions.json`
+- `free_bike_status.json`
 
 ### Common response
 
