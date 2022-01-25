@@ -1189,7 +1189,7 @@ Replace {id} with relevant zoneID
 | --------- | ------ | ------------------------------------------------------------------- |
 | Id        | String | Specific parking-spot area id                                       |
 | Occupancy | Number | Number of parked scooters in the parking-spot area                  |
-| Capacity  | String | Maximum Capacity of number of scooters inside the parking-spot area |
+| Capacity  | Number | Maximum Capacity of number of scooters inside the parking-spot area |
 
 ## Get operational zones
 
