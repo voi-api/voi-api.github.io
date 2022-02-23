@@ -8,7 +8,7 @@ description: A read only API, containing MDS, GBFS and Zone data
 
 # MDS
 
-This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider).
+This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider).
 
 ## Authentication
 
@@ -49,33 +49,40 @@ The token is required in the header, using Bearer authentication over HTTPS, on 
 ## Versioning
 
 The MDS APIs handle requests for specific versions of the specification from the clients.
-Version is communicated through the use of a custom media-type, `application/vnd.mds.provider+json`, combined with a required version parameter in the `Accept`.
+Version is communicated through the use of a custom media-type, `application/vnd.mds.provider+json` or `application/vnd.mds+json`, combined with a required version parameter.
 
-See Open Mobility Foundation's MDS description on versioning [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#versioning).
 
-<aside class="warning">Current MDS implementation only supports version 0.4</aside>
+See Open Mobility Foundation's MDS description on versioning [here](https://github.com/openmobilityfoundation/mobility-data-specification/blob/dev/general-information.md#versioning).
+
+<aside class="warning">Current MDS implementation only supports versions 0.4 and 1.2</aside>
 
 ### Header
 
 | Key    | Value                                         |
 | ------ | --------------------------------------------- |
 | Accept | application/vnd.mds.provider+json;version=0.4 |
+| Accept | application/vnd.mds+json;version=1.2          |
 
 ## Trips
 
 > A trips request.
 
 ```shell
+# v0.4
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/trips?end_time=2020-01-01T23
 
-Do not copy ^ as the zone-ID might not match yours
+# v1.2
+$ curl -H "Accept: application/vnd.mds+json;version=1.2"
+  mds.voiapp.io/en/9/trips?end_time=2020-01-01T23
+
+Do not copy ^ as the zone-ID or Accept might not match yours
 ```
 
 A trip represents a journey taken by a customer with a geo-tagged start and stop point.
 The `/trips endpoint allows a user to query historical trip data that happened within the queried hour.
 
-See Open Mobility Foundation's MDS description on trips [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#trips).
+See Open Mobility Foundation's MDS description on trips [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider#trips), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider#trips).
 
 ### HTTPS request
 
@@ -98,15 +105,20 @@ See Open Mobility Foundation's MDS description on trips [here](https://github.co
 > A status changes request.
 
 ```shell
+# v0.4
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/status_changes?event_time=2020-01-01T23
 
-Do not copy ^ as the zone-ID might not match yours
+# v1.2
+$ curl -H "Accept: application/vnd.mds+json;version=1.2"
+  mds.voiapp.io/en/9/status_changes?event_time=2020-01-01T23
+
+Do not copy ^ as the zone-ID or Accept might not match yours
 ```
 
 The status of the inventory of vehicles available for customer use. The `/status_changes` endpoint allows a user to query the historical availability for a system within the queried hour.
 
-See Open Mobility Foundation's MDS description on status changes [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#status_changes).
+See Open Mobility Foundation's MDS description on status changes [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider#status-changes), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider#status-changes).
 
 ### HTTPS request
 
@@ -129,17 +141,22 @@ See Open Mobility Foundation's MDS description on status changes [here](https://
 > An events request.
 
 ```shell
+# v0.4
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/events?start_time=1580518800000&end_time=1581123600000
 
-Do not copy ^ as the zone-ID might not match yours
+# v1.2
+$ curl -H "Accept: application/vnd.mds+json;version=1.2"
+  mds.voiapp.io/en/9/events?start_time=1580518800000&end_time=1581123600000
+
+Do not copy ^ as the zone-ID or Accept might not match yours
 ```
 
 The `/events` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events.
 
 The `/events` endpoint functions similarly to `/status_changes`, but does not include data older than 2 weeks.
 
-See Open Mobility Foundation's MDS description of events [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider#events).
+See Open Mobility Foundation's MDS description of events [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider#events), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider#events).
 
 ### HTTPS request
 
@@ -163,15 +180,20 @@ See Open Mobility Foundation's MDS description of events [here](https://github.c
 > An vehicles request.
 
 ```shell
+# v0.4
 $ curl -H "Accept: application/vnd.mds.provider+json;version=0.4"
   mds.voiapp.io/en/9/vehicles
 
-Do not copy ^ as the zone-ID might not match yours
+# v1.2
+$ curl -H "Accept: application/vnd.mds+json;version=1.2"
+  mds.voiapp.io/en/9/vehicles
+
+Do not copy ^ as the zone-ID or Accept might not match yours
 ```
 
 The `/vehicles` endpoint returns the current status of vehicles on the PROW. Only vehicles that are currently in available, unavailable, or reserved states should be returned in this payload.
 
-See Open Mobility Foundation's MDS description of events [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/release-0.4.1/provider#vehicles).
+See Open Mobility Foundation's MDS description of events [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider#vehicles), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider#vehicles).
 
 ### HTTPS request
 
