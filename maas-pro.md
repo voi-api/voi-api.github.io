@@ -12,6 +12,8 @@ description: A deep integration API, used for completing full user journeys.
 
 Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. This API is not rate-limited but we expect you to cache cacheable data. More details on each point.
 
+All major updates will be communicated with all active partners via email before they are implemented.
+
 ## Development
 
 For a broader description of the integration-process, check out our [checklist](/checklist/).
@@ -320,33 +322,6 @@ Update user details allow for a user to be updated. Only fields that are sent in
 | StatusNotFound            | User not found       | ErrUserNotFound    |
 | StatusInternalServerError |                      |
 
-## Delete user
-
-```shell
-curl -X DELETE https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
-  -H "X-Auth-Token $TOKEN"
-```
-
-Use to delete a user. The user will not be able to start a rental
-
-### HTTPS request
-
-`DELETE https://partners.voiapp.io/v1/user/{id}`
-
-### Path parameters
-
-| parameter | description                  | presence |
-| --------- | ---------------------------- | -------- |
-| id        | the user id (UUID version 4) | required |
-
-### Errors
-
-| Code                      | Detail                | ErrorCode             |
-| ------------------------- | --------------------- | --------------------- |
-| StatusBadRequest          | Invalid user id       | InvalidUserId         |
-| StatusNotFound            | User not found        | ErrUserNotFound       |
-| StatusInternalServerError | Failed to delete User | ErrFailedToDeleteUser |
-
 # Rental
 
 A rental is a domain where a user has access to a scooter. It is done by starting and ending a rental. At the end of a rental, the price will be posted so that the partner can charge the user. A user can only rent one scooter at a time and it is not possible to pre-book a scooter.
@@ -649,11 +624,6 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 | StatusNotFound            | Rental ID does not exist                   | RentalIDDoesNotExist |
 | StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded   |
 | StatusInternalServerError |                                            |
-
-### End Ride Photo
-
-In Zones where `end ride photo` is applicable, the end rental response will include a `photoURL`. This to allow for the end ride photo, taken by the user, to be sent to Voi.
-Instructions for end ride photo should be displayed in the partner application. Such as brightness, no people in photo, correct parking, fines, etc.
 
 ### On pricing
 
@@ -1238,7 +1208,7 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 ## Endpoints not planned
 
-For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
+For clarity, here we list endpoints that are nost available. We have not planned to build them as of yet but will notify all our partners if we do.
 
 - It's not possible to delete users in our system
 - Ask user to contact our customer support for the right to be forgotten.
