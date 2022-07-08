@@ -339,10 +339,14 @@ A rental is a domain where a user has access to a scooter. It is done by startin
             "attributes": {
                 "rentalDurationMin": 12,
                 "cost": {
+                    "startPrice": 30,
+                    "pricePerMinute": 15,
+                    "subtotal": 294,
                     "total": {
                         "amount": 280,
                         "currency": "EUR",
-                        "vat": 53
+                        "vat": 53,
+                        "vatPercentage": 0.19
                     }
                 },
                 "state": "ENDED",
@@ -383,10 +387,14 @@ All successful rental interactions responds with the following rental model.
 | type                 | string  | The type will be "rental"                                                                                                                                                                                                                                                                   | required                                   |
 | rentalDurationMin    | integer | The rental's duration, in full minutes, rounded up. Used for calculating the charge.                                                                                                                                                                                                        | required                                   |
 | cost                 | object  | Contains rental's cost information,                                                                                                                                                                                                                                                         | required                                   |
+| startPrice           | integer | Unlock fee (null if unknown for historical data)                                                                                                                                                                                                                                            | optional                                   |
+| pricePerMinute       | integer | Price per rounded-up minute (null if unknown for historical data)                                                                                                                                                                                                                           | optional                                   |
+| subtotal             | integer | Total amount excluding VAT                                                                                                                                                                                                                                                                  | required                                   |
 | total                | object  | Contains the rental's total cost                                                                                                                                                                                                                                                            | required                                   |
 | amount               | integer | The priced amount, including VAT, in minor units (also called subunit)                                                                                                                                                                                                                      | required                                   |
 | currency             | string  | The alphabetic currency code (ISO 4217)                                                                                                                                                                                                                                                     | required                                   |
 | vat                  | integer | The price VAT amount in minor units (also called subunit)                                                                                                                                                                                                                                   | required                                   |
+| vatPercentage        | number  | The price VAT percentage                                                                                                                                                                                                                                                                    | required                                   |
 | state                | string  | The current state of the rental <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended.<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to. <br> [more details here](/payments/#prices-and-fees) | required                                   |
 | startedAt            | string  | Time when the rental started (RFC3339 in UTC)                                                                                                                                                                                                                                               | required                                   |
 | endedAt              | string  | Time when the rental ended (RFC3339 in UTC)                                                                                                                                                                                                                                                 | optional                                   |
@@ -438,10 +446,14 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
             "attributes": {
                 "rentalDurationMin": 0,
                 "cost": {
+                    "startPrice": 30,
+                    "pricePerMinute": 15,
+                    "subtotal": 294,                  
                     "total": {
                         "amount": 0,
                         "currency": "SEK",
-                        "vat": 0
+                        "vat": 0,
+                        "vatPercentage": 0.19                        
                     }
                 },
                 "state": "RUNNING",
@@ -565,10 +577,14 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
             "attributes": {
                 "rentalDurationMin": 12,
                 "cost": {
+                    "startPrice": 30,
+                    "pricePerMinute": 15,
+                    "subtotal": 294,                        
                     "total": {
                         "amount": 280,
                         "currency": "EUR",
-                        "vat": 53
+                        "vat": 53,
+                        "vatPercentage": 0.19
                     }
                 },
                 "state": "ENDED",
