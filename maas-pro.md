@@ -91,7 +91,7 @@ A product is usually a distinct app with a different name. We keep them seperate
 
 ## Register
 
-`POST https://partner.voiapp.io/v1/product/register`
+`POST https://partners.voiapp.io/v1/product/register`
 
 Use to register a new product.
 
@@ -111,7 +111,7 @@ Use to register a new product.
 
 ## List
 
-`GET https://partner.voiapp.io/v1/product`
+`GET https://partners.voiapp.io/v1/product`
 
 Will return a list of all your products
 
@@ -123,7 +123,7 @@ Will return a list of all your products
 
 ## Update
 
-`PUT https://partner.voiapp.io/v1/product`
+`PUT https://partners.voiapp.io/v1/product`
 
 Use to update a product name.
 
@@ -146,7 +146,7 @@ Use to update a product name.
 
 ## Delete
 
-`DELETE https://partner.voiapp.io/v1/product/{id}`
+`DELETE https://partners.voiapp.io/v1/product/{id}`
 
 Use to delete a product. The product will still be listed but marked as inactive.
 
