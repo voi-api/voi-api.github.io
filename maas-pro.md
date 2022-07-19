@@ -322,6 +322,24 @@ Update user details allow for a user to be updated. Only fields that are sent in
 | StatusNotFound            | User not found       | ErrUserNotFound    |
 | StatusInternalServerError |                      |
 
+## Delete User
+
+> A delete user request.
+
+```shell 
+{
+curl -X Delete https://partners.voiapp.io/v1/user/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
+  -H "X-Auth-Token $TOKEN"
+  -d '{"emai": "agatha.christie@gmail.com", "phoneNumber": "+46911"}'
+}
+```
+
+The delete user request allows you to completely remove the users account.
+
+### HTTPS request
+
+`DELETE https://partners.voiapp.io/v1/user/{id}`
+
 # Rental
 
 A rental is a domain where a user has access to a scooter. It is done by starting and ending a rental. At the end of a rental, the price will be posted so that the partner can charge the user. A user can only rent one scooter at a time and it is not possible to pre-book a scooter.
