@@ -357,13 +357,13 @@ A rental is a domain where a user has access to a scooter. It is done by startin
             "attributes": {
                 "rentalDurationMin": 12,
                 "cost": {
-                    "startPrice": 30,
-                    "pricePerMinute": 15,
-                    "subtotal": 294,
+                    "startPrice": 150,
+                    "pricePerMinute": 30,
+                    "subtotal": 429,
                     "total": {
-                        "amount": 280,
+                        "amount": 510,
                         "currency": "EUR",
-                        "vat": 53,
+                        "vat": 81,
                         "vatPercentage": 0.19
                     }
                 },
@@ -466,7 +466,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
                 "cost": {
                     "startPrice": 30,
                     "pricePerMinute": 15,
-                    "subtotal": 294,                  
+                    "subtotal": 0,                  
                     "total": {
                         "amount": 0,
                         "currency": "SEK",
@@ -595,13 +595,13 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
             "attributes": {
                 "rentalDurationMin": 12,
                 "cost": {
-                    "startPrice": 30,
-                    "pricePerMinute": 15,
-                    "subtotal": 294,                        
+                    "startPrice": 150,
+                    "pricePerMinute": 30,
+                    "subtotal": 429,
                     "total": {
-                        "amount": 280,
+                        "amount": 510,
                         "currency": "EUR",
-                        "vat": 53,
+                        "vat": 81,
                         "vatPercentage": 0.19
                     }
                 },
