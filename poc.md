@@ -13,7 +13,7 @@ For Integration requests please click [here](https://voidev.atlassian.net/servic
 | Category                       | Name              | E-mail                                                        |
 | ------------------------------ | ----------------- | ------------------------------------------------------------- |
 | Commercial                     | Jasmin Rimmele    | [jasmin.rimmele@voiapp.io](mailto:jasmin.rimmele@voiapp.io)   |
-| Customer Support Process       | Aldona Martynenka |                                                               |
+| Customer Support Process       | Katie wilson |                                                               |
 | 2nd line support               |                   | [partner-support@voiapp.io](mailto:partner-support@voiapp.io) |
 | Customer Support for End users |                   | [support@voiapp.io](mailto:support@voiapp.io)                 |
 | Finance                        | Lisa Villman      | [partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io) |
