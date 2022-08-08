@@ -652,12 +652,13 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 ### Errors
 
-| Code                      | Detail                                     | ErrorCode            |
-| ------------------------- | ------------------------------------------ | -------------------- |
-| StatusBadRequest          | Invalid rental id                          | InvalidRentalID      |
-| StatusNotFound            | Rental ID does not exist                   | RentalIDDoesNotExist |
-| StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded   |
-| StatusInternalServerError |                                            |
+| Code                      | Detail                                     | ErrorCode                  |
+| ------------------------- | ------------------------------------------ | --------------------       |
+| StatusBadRequest          | Invalid rental id                          | InvalidRentalID            |
+| StatusNotFound            | Rental ID does not exist                   | RentalIDDoesNotExist.      |
+| StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded         |
+| StatusMethodNotAllowed    | This is no parking area,Can not end rental | FailedToEndRentalNoParking |
+| StatusInternalServerError | Unable to end rental: Internal Error.      | FailedToEndRental          |
 
 ### On pricing
 
