@@ -32,7 +32,7 @@ Berlin|145|030-40740740-7
 Hamburg|151|040-41112000-0
 Augsburg|162|0821-44999999
 Switzerland||044-5519984
-Italy||+39 02 1241 25094
+Italy||+39 800-561931
 
 ## Contacting partner's customer support
 Voi will need the following information:
