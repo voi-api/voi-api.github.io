@@ -10,7 +10,7 @@ description: A deep integration API, used for completing full user journeys.
 
 ## API contract
 
-Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. This API is not rate-limited but we expect you to cache cacheable data. More details on each point.
+Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform breaking changes to this version of the API, though we might add new endpoints. This API is not rate-limited but we expect you to cache cacheable data. More details on each point.
 
 All major updates will be communicated with all active partners via email before they are implemented.
 
@@ -18,7 +18,7 @@ All major updates will be communicated with all active partners via email before
 
 For a broader description of the integration-process, check out our [checklist](/checklist/).
 
-Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
+Test your application against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in these ways.
 
 - Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
 
@@ -59,7 +59,7 @@ API endpoints available for the mobility partner, are protected with token authe
 
 # Product
 
-A product is usually a distinct app with a different name. We keep them seperate for monitoring, invoicing and customer support. All users are associated with a single product. You can have unlimited products and they will only available with your auth token. You should use the same product for multiple platforms, for example if you run your app on both iOs and Android.
+A product is usually a distinct app with a different name. We keep them seperate for monitoring, invoicing and customer support. All users are associated with a single product. You can have unlimited products and they will only be available with your auth token. You should use the same product for multiple platforms, for example if you run your app on both iOs and Android.
 
 ## Product model
 
@@ -87,7 +87,7 @@ A product is usually a distinct app with a different name. We keep them seperate
 | id          | string | The product's id (UUID version 4)              | Required |
 | type        | string | For vehicles the type will always be "product" | Required |
 | productName | string | Your products name                             | Required |
-| state       | string | Can be acitve or inactive                      | Required |
+| state       | string | Can be active or inactive                      | Required |
 
 ## Register
 
@@ -206,7 +206,7 @@ Register user creates a new user with a unique user id. A user is required to be
 
 | field       | type   | description                                                                                                                                                                                                  | presence |
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email adress. | required |
+| email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email address. | required |
 | firstName   | string | The user's first name                                                                                                                                                                                        | optional |
 | lastName    | string | The user's last name                                                                                                                                                                                         | optional |
 | phoneNumber | string | The users' phone number. (not used as identifier)                                                                                                                                                            | optional |
@@ -553,7 +553,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 | field           | type   | description                                 | presence |
 | --------------- | ------ | ------------------------------------------- | -------- |
-| userEndLocation | object | The user’s location when disarm the vehicle | optional |
+| userEndLocation | object | The user’s location when disarming the vehicle | optional |
 
 ### Errors
 
@@ -1148,7 +1148,7 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 | --------- | ---------------------------- |
 | zoneId    | The id of the requested zone |
 
-<aside class="warning">All behavior connected to the areas in a zone is enforced by the system. But for good A user experience, we recommend explaining the areas and their implication TO the user.</aside>
+<aside class="warning">All behavior connected to the areas in a zone is enforced by the system. But for a good user experience, we recommend explaining the areas and their implication TO the user.</aside>
 
 ### Response
 
@@ -1229,11 +1229,11 @@ Get all operational zones that a partner has access to.
 
 ### Response
 
-| field    | type   | description                            |
-| -------- | ------ | -------------------------------------- |
-| zones    | object | A zone object                          |
-| zoneId   | Number | Vois unique id of the operational Zone |
-| zoneName | Number | The name of the city                   |
+| field    | type   | description                             |
+| -------- | ------ | --------------------------------------- |
+| zones    | object | A zone object                           |
+| zoneId   | Number | Voi's unique id of the operational Zone |
+| zoneName | Number | The name of the city                    |
 
 # Miscellaneous
 
@@ -1243,7 +1243,7 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 ## Endpoints not planned
 
-For clarity, here we list endpoints that are nost available. We have not planned to build them as of yet but will notify all our partners if we do.
+For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
 
 - It's not possible to delete users in our system
 - Ask user to contact our customer support for the right to be forgotten.
