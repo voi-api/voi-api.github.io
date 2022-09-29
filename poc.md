@@ -8,7 +8,6 @@ description: Who to contact about what.
 
 # Points of contact
 
-For Integration requests please click [here](https://voidev.atlassian.net/servicedesk/customer/portal/16/group/72)
 
 | Category                       | Name              | E-mail                                                        |
 | ------------------------------ | ----------------- | ------------------------------------------------------------- |
@@ -17,4 +16,4 @@ For Integration requests please click [here](https://voidev.atlassian.net/servic
 | 2nd line support               |                   | [partner-support@voiapp.io](mailto:partner-support@voiapp.io) |
 | Customer Support for End users |                   | [support@voiapp.io](mailto:support@voiapp.io)                 |
 | Finance                        | Lisa Villman      | [partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io) |
-| Product/Engineering            | Tom Stenberg      | [tom.stenberg@voiapp.io](mailto:tom.stenberg@voiapp.io)       |
+| Technical support              | Hernan Martinez   | [hernan.martinez@voiapp.io](mailto:hernan.martinez@voiapp.io)       |
