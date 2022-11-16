@@ -21,16 +21,7 @@ For regulatory reasons, we also provide phone-support in some markets. Phone sup
 
 City|Zone Id|Phone-number
 -----|-----|-----
-Stuttgart|175|0711-88880808
-Düsseldorf|174|0211-91191008
-Dortmund|186|0231-53035005
-Nürnberg|169|0911-47880086
-Frankfurt|192|069-37305005
-Karlsruhe|178|0721-97665000
-Ingolstadt|183|0841-79408333
-Berlin|145|030-40740740-7
-Hamburg|151|040-41112000-0
-Augsburg|162|0821-44999999
+Germany||0800 10 400 10
 Switzerland||044-5519984
 Italy||+39 800-561931
 
