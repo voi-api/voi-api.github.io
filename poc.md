@@ -11,7 +11,7 @@ description: Who to contact about what.
 
 | Category                       | Name              | E-mail                                                        |
 | ------------------------------ | ----------------- | ------------------------------------------------------------- |
-| Commercial                     | Jasmin Rimmele    | [jasmin.rimmele@voiapp.io](mailto:jasmin.rimmele@voiapp.io)   |
+| Commercial                     | Sirak Tekeste     | [sirak.tekeste@voiapp.io](mailto:sirak.tekeste@voiapp.io)   |
 | Customer Support Process       | Katie Wilson |                                                               |
 | 2nd line support               |                   | [partner-support@voiapp.io](mailto:partner-support@voiapp.io) |
 | Customer Support for End users |                   | [support@voiapp.io](mailto:support@voiapp.io)                 |
