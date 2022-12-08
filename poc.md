@@ -15,5 +15,5 @@ description: Who to contact about what.
 | Customer Support Process       | Katie Wilson |                                                               |
 | 2nd line support               |                   | [partner-support@voiapp.io](mailto:partner-support@voiapp.io) |
 | Customer Support for End users |                   | [support@voiapp.io](mailto:support@voiapp.io)                 |
-| Finance                        | Lisa Villman      | [partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io) |
+| Finance                        |                   | [partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io) |
 | Technical support              | Hernan Martinez   | [hernan.martinez@voiapp.io](mailto:hernan.martinez@voiapp.io)       |
