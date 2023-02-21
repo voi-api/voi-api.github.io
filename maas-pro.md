@@ -1156,7 +1156,7 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 
 | field      | type   | description                              | presence |
 | ---------- | ------ | ---------------------------------------- | -------- |
-| id         | string | The operational zone id                  | required |
+| id         | string | ID of the operational zone               | required |
 | type       | string | For zones the type will always be "area" | required |
 | attributes | object | Operation attributes                     | required |
 
