@@ -1154,12 +1154,11 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 
 ### Response
 
-| field      | type   | description                                                                | presence |
-| ---------- | ------ | -------------------------------------------------------------------------- | -------- |
-| id         | string | The operational zone id                                                    | required |
-| type       | string | For zones the type will always be "area"                                   | required |
-| attributes | object | Operation attributes                                                       | required |
-| geometry   | object | Describes the geometry for the area (geoJSON), described as multipolygons. | required |
+| field      | type   | description                              | presence |
+| ---------- | ------ | ---------------------------------------- | -------- |
+| id         | string | The operational zone id                  | required |
+| type       | string | For zones the type will always be "area" | required |
+| attributes | object | Operation attributes                     | required |
 
 #### Attributes
 
