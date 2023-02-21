@@ -326,7 +326,7 @@ Update user details allow for a user to be updated. Only fields that are sent in
 
 > A delete user request.
 
-```shell 
+```shell
 {
 curl -X Delete https://partners.voiapp.io/v1/user/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
   -H "X-Auth-Token $TOKEN"
@@ -466,12 +466,12 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
                 "cost": {
                     "startPrice": 30,
                     "pricePerMinute": 15,
-                    "subtotal": 0,                  
+                    "subtotal": 0,
                     "total": {
                         "amount": 0,
                         "currency": "SEK",
                         "vat": 0,
-                        "vatPercentage": 0.19                        
+                        "vatPercentage": 0.19
                     }
                 },
                 "state": "RUNNING",
@@ -653,7 +653,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 ### Errors
 
 | Code                      | Detail                                     | ErrorCode                  |
-| ------------------------- | ------------------------------------------ | --------------------       |
+| ------------------------- | ------------------------------------------ | -------------------------- |
 | StatusBadRequest          | Invalid rental id                          | InvalidRentalID            |
 | StatusNotFound            | Rental ID does not exist                   | RentalIDDoesNotExist.      |
 | StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded         |
@@ -1076,6 +1076,7 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
     "attributes": {
       "areas": [
         {
+          "id": "651d1341-775d-4e0a-a5d3-310add50ef7f",
           "area_type": "no-parking",
           "geometry": {
             "type": "MultiPolygon",
@@ -1096,6 +1097,7 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
           }
         },
         {
+          "id": "839073a2-a6fe-4d7b-8dce-7d1896d014a7",
           "area_type": "slow-zone",
           "geometry": {
             "type": "MultiPolygon",
@@ -1152,11 +1154,25 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 
 ### Response
 
+| field      | type   | description                              | presence |
+| ---------- | ------ | ---------------------------------------- | -------- |
+| id         | string | ID of the operational zone               | required |
+| type       | string | For zones the type will always be "area" | required |
+| attributes | object | Operation attributes                     | required |
+
+#### Attributes
+
+| field | type  | description               | presence |
+| ----- | ----- | ------------------------- | -------- |
+| areas | array | Array of operations areas | required |
+
+#### Area
+
 | field     | type   | description                                                                | presence |
 | --------- | ------ | -------------------------------------------------------------------------- | -------- |
-| id        | string | The operational zone id                                                    | required |
-| type      | string | For zones the type will always be "area"                                   | required |
-| area_type | string | The area type (one of the supported area types)                            | required |
+| id        | string | The id of the area                                                         | required |
+| type      | string | The type of the area                                                       | required |
+| area_type | string | The area type [Area Types](#supported-zone-areas)                          | required |
 | geometry  | object | Describes the geometry for the area (geoJSON), described as multipolygons. | required |
 
 ### Errors
