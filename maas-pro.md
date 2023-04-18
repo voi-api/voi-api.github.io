@@ -780,8 +780,8 @@ All successful pricing interactions responds with the following pricing model.
 | -------------- | ------- | ------------------------------------------------------------------- | -------- |
 | id             | string  | The vehicle's id (UUID version 4) for which the pricing is derived  | required |
 | type           | string  | For pricing the type will always be "pricing"                       | required |
-| pricePerMinute | integer | the price per minute, excluding Vat, in minor units                 | required |
-| startPrice     | integer | the start price, excluding Vat in minor units (also called subunit) | required |
+| pricePerMinute | integer | the price per minute, including Vat, in minor units                 | required |
+| startPrice     | integer | the start price, including Vat in minor units (also called subunit) | required |
 | currency       | string  | the three-letter alphabetic currency code (ISO 4217)                | required |
 | vat            | integer | the VAT percentage                                                  | required |
 
@@ -871,8 +871,8 @@ All successful vehicle interactions responds with the following vehicle model.
 | latitude       | number  | The latitude component of the location                                                         | required |
 | code           | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code. | required |
 | price          | object  | The vehicle price                                                                              | required |
-| pricePerMinute | integer | the price per minute, excluding Vat, in minor units                                            | required |
-| startPrice     | integer | the start price, excluding Vat in minor units (also called subunit)                            | required |
+| pricePerMinute | integer | the price per minute, including Vat, in minor units                                            | required |
+| startPrice     | integer | the start price, including Vat in minor units (also called subunit)                            | required |
 | currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                           | required |
 | vat            | integer | the VAT percentage                                                                             | required |
 
