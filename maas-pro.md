@@ -1247,12 +1247,12 @@ Get all operational zones that a partner has access to.
 
 ### Response
 
-| field       | type   | description                            |
-| ----------- | ------ | -------------------------------------- |
-| zones       | object | A zone object                          |
-| zoneId      | Number | Vois unique id of the operational Zone |
-| zoneName    | Number | The name of the city                   |
-| parkingMode | string | default parking mode                   |
+| field       | type   | description                                          |
+| ----------- | ------ | ---------------------------------------------------- |
+| zones       | object | A zone object                                        |
+| zoneId      | Number | Vois unique id of the operational Zone               |
+| zoneName    | Number | The name of the city                                 |
+| parkingMode | string | default parking mode. [Parking modes](#parking-mode) |
 
 #### Parking mode
 
