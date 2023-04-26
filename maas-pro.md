@@ -1225,11 +1225,13 @@ Replace {id} with relevant zoneID
          "zones":[
             {
                "zoneId":"1",
-               "zoneName":"Stockholm"
+               "zoneName":"Stockholm",
+               "parkingMode": "free-floating"
             },
             {
                "zoneId":"145",
-               "zoneName":"Berlin"
+               "zoneName":"Berlin",
+               "parkingMode": "parking-spot"
             }
          ]
       }
@@ -1245,11 +1247,19 @@ Get all operational zones that a partner has access to.
 
 ### Response
 
-| field    | type   | description                            |
-| -------- | ------ | -------------------------------------- |
-| zones    | object | A zone object                          |
-| zoneId   | Number | Vois unique id of the operational Zone |
-| zoneName | Number | The name of the city                   |
+| field       | type   | description                                          |
+| ----------- | ------ | ---------------------------------------------------- |
+| zones       | object | A zone object                                        |
+| zoneId      | Number | Vois unique id of the operational Zone               |
+| zoneName    | Number | The name of the city                                 |
+| parkingMode | string | default parking mode. [Parking modes](#parking-mode) |
+
+#### Parking mode
+
+| parking mode  | description                                                                       |
+| ------------- | --------------------------------------------------------------------------------- |
+| free-floating | Users can end their ride anywhere, except for in No parking zone & No Riding Zone |
+| parking-spot  | Users will only be able to end their ride inside a Parking spot                   |
 
 # Miscellaneous
 
