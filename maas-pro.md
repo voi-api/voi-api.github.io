@@ -1127,14 +1127,15 @@ Every city has it's own operational zone. Within each operational zone, there ar
 
 ### Supported Zone Areas
 
-| area type    | Description                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------- |
-| operations   | The operational area, where Voi operates                                                 |
-| no-parking   | An area where rentals can't be ended\*                                                   |
-| parking-spot | An area where a rental must be ended\*                                                   |
-| slow-zone    | An area where a vehicle's max-speed will be lowered, the maximum speed is not available. |
-| no-riding    | An area vehicles may stop(depending on configuration) and you cannot end the ride.       |
-| incentive    | An area where users are incentivized to park                                             |
+| area type     | Description                                                                                               |
+| ------------- | --------------------------------------------------------------------------------------------------------- |
+| operations    | The operational area, where Voi operates                                                                  |
+| no-parking    | An area where rentals can't be ended\*                                                                    |
+| parking-spot  | An area where a rental must be ended\*                                                                    |
+| slow-zone     | An area where a vehicle's max-speed will be lowered, the maximum speed is not available.                  |
+| no-riding     | An area vehicles may stop(depending on configuration) and you cannot end the ride.                        |
+| incentive     | An area where users are incentivized to park                                                              |
+| free-floating | An area where rental can be ended without restrictions (only from [Area V2](#get-zone-areas-v2) endpoint) |
 
 Each operational zone operates with either mandatory parking spots or a free-floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
 
@@ -1181,6 +1182,14 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 | ------------------------- | ----------------- | ----------- |
 | StatusBadRequest          | Zone id was empty | EmptyZoneID |
 | StatusInternalServerError |                   |
+
+## Get zone areas v2
+
+This endpoint returns the same data as version one except free-floating an extra area type.
+
+### HTTPS request
+
+`GET https://partners.voiapp.io/v2/zone/id/{zoneId}`
 
 ## Get parking zone occupancy
 
