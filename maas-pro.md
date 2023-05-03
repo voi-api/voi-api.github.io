@@ -1185,7 +1185,7 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 
 ## Get zone areas v2
 
-This endpoint returns the same data as version one except free-floating an extra area type.
+This endpoint returns the same data as version one except free-floating as an extra area type.
 
 ### HTTPS request
 
