@@ -592,6 +592,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
         {
             "id": "82267e03-f5b1-4b76-86c6-9f07df279372",
             "type": "rental",
+            "photoUploadURL": "https://storage.googleapis.com/some-bucket/eeee6666-7777-dddd-aaaa-ffff00001111.jpeg?Expires=1683724202&GoogleAccessId=sa-wi-some-thing%40other-thing.gserviceaccount.com&Signature=dGhpcy1pcy1ub3QtYS12YWxpZC1zaWduYXR1cmUtLWRvbnQtZXZlbi10cnk=",
             "attributes": {
                 "rentalDurationMin": 12,
                 "cost": {
@@ -632,6 +633,11 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
         }
     ]
 }
+```
+
+> Parking Photo Upload Request.
+```shell
+curl -X PUT "https://storage.googleapis.com/url-from-end-rental-response" --upload-file filename.jpg -H 'Content-Type: image/jpeg'
 ```
 
 ### HTTPS request
