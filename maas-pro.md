@@ -592,6 +592,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
         {
             "id": "82267e03-f5b1-4b76-86c6-9f07df279372",
             "type": "rental",
+            "photoUploadURL": "https://storage.googleapis.com/some-bucket/eeee6666-7777-dddd-aaaa-ffff00001111.jpeg?Expires=1683724202&GoogleAccessId=sa-wi-some-thing%40other-thing.gserviceaccount.com&Signature=dGhpcy1pcy1ub3QtYS12YWxpZC1zaWduYXR1cmUtLWRvbnQtZXZlbi10cnk=",
             "attributes": {
                 "rentalDurationMin": 12,
                 "cost": {
@@ -671,6 +672,27 @@ Pricing is under active development and constantly evolving, but it typically co
 **Refunds** The partner is responsible for performing refunds. When this is done it is defined in the customer support criteria. Sometimes, Voi customer support also requests the partner to perform refunds.
 
 **Parking fees and other charges post-ride** Voi does not perform any charges after the ride is ended.
+
+## Upload Parking Photo
+
+> Parking Photo Upload Request.
+
+```shell
+curl -X PUT "https://storage.googleapis.com/url-from-end-rental-response" --upload-file filename.jpg -H 'Content-Type: image/jpeg'
+```
+
+After ending a rental, the API returns (among other things) a unique, cryptographically signed URL (`photoUploadURL`)
+that allows to upload a photo of the parked vehicle. Currently, this photo is stored for compliance reasons only and not
+validated in any way.
+
+### Restrictions
+
+- The PUT URL expires after 30 minutes
+- The photo must be a JPEG image.
+- The photo must be taken in `portrait` mode only!
+- The photo must only use the regular lens (not the wide angle lens).
+- The HTTP requests must use the PUT verb.
+- The request must specify the content-type header as `image/jpeg`.
 
 ## Rental by id
 
