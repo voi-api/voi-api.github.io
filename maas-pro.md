@@ -687,6 +687,7 @@ validated in any way.
 
 ### Restrictions
 
+- The PUT URL expires after 30 minutes
 - The photo must be a JPEG image.
 - The photo must be taken in `portrait` mode only!
 - The photo must only use the regular lens (not the wide angle lens).
