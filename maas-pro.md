@@ -1086,7 +1086,8 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 
 # Zone
 
-## Get zone areas
+## ~~Get zone areas v1~~ (deprecated - please use [the v2 endpoint](#get-zone-areas-v2) below)
+<aside class="warning">This endpoint has been deprecated and will be removed by 2023-12-31 !</aside>
 
 > The zones response model.
 
