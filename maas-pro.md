@@ -568,6 +568,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 ## End rental
 
 End rental locks the vehicle and makes it available for other users to use. The partner typically initiates the payment process when ending the rental.
+After 10 minutes of inactivity during an ongoing rental (i.e. the vehicle hasn't moved for 10 minutes), the vehicle locks automatically and the rental is ended, if the vehicle is located in a place where ending the rental is permitted. 
 
 When the rental has ended the total cost of the rental is returned in the end rental response.
 
