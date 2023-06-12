@@ -502,11 +502,12 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 ### JSON body data
 
-| field             | type   | description                                       | presence |
-| ----------------- | ------ | ------------------------------------------------- | -------- |
-| userId            | string | The id of the user for whom the rental is started | required |
-| vehicleId         | string | The id of the vehicle which will be rented.       | required |
-| userStartLocation | object | The user’s location when starting the rental      | optional |
+| field                | type   | description                                       | presence |
+| -------------------- | ------ | ------------------------------------------------- | -------- |
+| userId               | string | The id of the user for whom the rental is started | required |
+| vehicleId            | string | The id of the vehicle which will be rented.       | required |
+| userStartLocation    | object | The user’s location when starting the rental      | optional |
+| userLicenseValidated | object | The user driving license is validated             | optional |
 
 ### Errors
 
@@ -568,7 +569,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 ## End rental
 
 End rental locks the vehicle and makes it available for other users to use. The partner typically initiates the payment process when ending the rental.
-After 10 minutes of inactivity during an ongoing rental (i.e. the vehicle hasn't moved for 10 minutes), the vehicle locks automatically and the rental is ended, if the vehicle is located in a place where ending the rental is permitted. 
+After 10 minutes of inactivity during an ongoing rental (i.e. the vehicle hasn't moved for 10 minutes), the vehicle locks automatically and the rental is ended, if the vehicle is located in a place where ending the rental is permitted.
 
 When the rental has ended the total cost of the rental is returned in the end rental response.
 
@@ -1088,6 +1089,7 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 # Zone
 
 ## ~~Get zone areas v1~~ (deprecated - please use [the v2 endpoint](#get-zone-areas-v2) below)
+
 <aside class="warning">This endpoint has been deprecated and will be removed by 2023-12-31 !</aside>
 
 > The zones response model.
@@ -1259,12 +1261,14 @@ Replace {id} with relevant zoneID
             {
                "zoneId":"1",
                "zoneName":"Stockholm",
-               "parkingMode": "free-floating"
+               "parkingMode": "free-floating",
+               "licenceVerificationRequired": false
             },
             {
                "zoneId":"145",
                "zoneName":"Berlin",
-               "parkingMode": "parking-spot"
+               "parkingMode": "parking-spot",
+               "licenceVerificationRequired": true
             }
          ]
       }
@@ -1280,12 +1284,13 @@ Get all operational zones that a partner has access to.
 
 ### Response
 
-| field       | type   | description                                          |
-| ----------- | ------ | ---------------------------------------------------- |
-| zones       | object | A zone object                                        |
-| zoneId      | Number | Vois unique id of the operational Zone               |
-| zoneName    | Number | The name of the city                                 |
-| parkingMode | string | default parking mode. [Parking modes](#parking-mode) |
+| field                       | type    | description                                          |
+| --------------------------- | ------- | ---------------------------------------------------- |
+| zones                       | object  | A zone object                                        |
+| zoneId                      | Number  | Vois unique id of the operational Zone               |
+| zoneName                    | Number  | The name of the city                                 |
+| parkingMode                 | string  | default parking mode. [Parking modes](#parking-mode) |
+| licenceVerificationRequired | boolean | verifying user driving licence is required           |
 
 #### Parking mode
 
