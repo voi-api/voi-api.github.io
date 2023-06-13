@@ -511,15 +511,16 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 ### Errors
 
-| Code                      | Detail                                | ErrorCode           |
-| ------------------------- | ------------------------------------- | ------------------- |
-| StatusBadRequest          | Invalid request body                  | InvalidRequestBody  |
-| StatusBadRequest          | Invalid user id                       | InvalidUserId       |
-| StatusBadRequest          | Invalid vehicle id                    | InvalidVehicleId    |
-| StatusBadRequest          | User does not exist                   | UserNotFound        |
-| StatusBadRequest          | This user already has a rental        | RentalAlreadyExists |
-| StatusBadRequest          | Vehicle not found                     | VehicleNotFound     |
-| StatusMethodNotAllowed    | Rental not allowed during sleep hours | ZoneIsSleeping      |
+| Code                      | Detail                                | ErrorCode                 |
+| ------------------------- |---------------------------------------|---------------------------|
+| StatusBadRequest          | Invalid request body                  | InvalidRequestBody        |
+| StatusBadRequest          | Invalid user id                       | InvalidUserId             |
+| StatusBadRequest          | Invalid vehicle id                    | InvalidVehicleId          |
+| StatusBadRequest          | User does not exist                   | UserNotFound              |
+| StatusBadRequest          | This user already has a rental        | RentalAlreadyExists       |
+| StatusBadRequest          | Vehicle not found                     | VehicleNotFound           |
+| StatusMethodNotAllowed    | Rental not allowed during sleep hours | ZoneIsSleeping            |
+| StatusMethodNotAllowed    | User is too far from vehicle          | ErrUserTooFarFromVehicle  |
 | StatusInternalServerError |                                       |
 
 ## Manual Disarm
