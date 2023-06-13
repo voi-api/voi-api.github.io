@@ -511,17 +511,22 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 ### Errors
 
-| Code                      | Detail                                | ErrorCode                 |
-| ------------------------- |---------------------------------------|---------------------------|
-| StatusBadRequest          | Invalid request body                  | InvalidRequestBody        |
-| StatusBadRequest          | Invalid user id                       | InvalidUserId             |
-| StatusBadRequest          | Invalid vehicle id                    | InvalidVehicleId          |
-| StatusBadRequest          | User does not exist                   | UserNotFound              |
-| StatusBadRequest          | This user already has a rental        | RentalAlreadyExists       |
-| StatusBadRequest          | Vehicle not found                     | VehicleNotFound           |
-| StatusMethodNotAllowed    | Rental not allowed during sleep hours | ZoneIsSleeping            |
-| StatusMethodNotAllowed    | User is too far from vehicle          | ErrUserTooFarFromVehicle  |
-| StatusInternalServerError |                                       |
+| Code                      | Detail                                          | ErrorCode                       |
+| ------------------------- | ----------------------------------------------- | ------------------------------- |
+| StatusBadRequest          | Invalid request body                            | InvalidRequestBody              |
+| StatusBadRequest          | Invalid user id                                 | InvalidUserId                   |
+| StatusBadRequest          | Invalid vehicle id                              | InvalidVehicleId                |
+| StatusBadRequest          | User does not exist                             | UserNotFound                    |
+| StatusBadRequest          | This user already has a rental                  | RentalAlreadyExists             |
+| StatusBadRequest          | Vehicle not found                               | VehicleNotFound                 |
+| StatusBadRequest          | User must validate their driver's license       | UserLicenceVerificationRequired |
+| StatusMethodNotAllowed    | User is located too far from the vehicle        | UserTooFarFromVehicle           |
+| StatusMethodNotAllowed    | Rental not allowed during sleep hours           | ZoneIsSleeping                  |
+| StatusMethodNotAllowed    | Vehicle is unavailable (e.g. pending repair)    | VehicleNotAvailable             |
+| StatusMethodNotAllowed    | Zone is currently not permitting rentals        | ZoneIsSleeping                  |
+| StatusInternalServerError | Internal error while communicating with vehicle | FailedToUpdateVehicle           |
+| StatusInternalServerError | Internal error while trying to unlock vehicle   | FailedToUnlockVehicle           |
+| StatusInternalServerError | Unexpected Internal Error                       | FailedToStartRental             |
 
 ## Manual Disarm
 
