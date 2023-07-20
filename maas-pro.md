@@ -1,6 +1,6 @@
 ---
 layout: code
-title: Deep integrations
+title: Deep Integrations
 permalink: /maas-pro/
 menu: main
 description: A MaaS API, used for completing full user journeys.
