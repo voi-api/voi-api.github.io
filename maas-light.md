@@ -1,6 +1,6 @@
 ---
 layout: code
-title: Maas Light
+title: Light Integrations
 permalink: /maas-light/
 menu: main
 description: A read only API, containing MDS, GBFS and Zone data
