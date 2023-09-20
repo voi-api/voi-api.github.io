@@ -1266,26 +1266,32 @@ Replace {id} with relevant zoneID
 
 ```shell
 {
-   "data":{
-      "id":"4EAC93B2-CB40-4FFD-B905-F4505E2E3BAD",
-      "type":"zone",
-      "attributes":{
-         "zones":[
-            {
-               "zoneId":"1",
-               "zoneName":"Stockholm",
-               "parkingMode": "free-floating",
-               "licenceVerificationRequired": false
-            },
-            {
-               "zoneId":"145",
-               "zoneName":"Berlin",
-               "parkingMode": "parking-spot",
-               "licenceVerificationRequired": true
-            }
-         ]
-      }
-   }
+  "data":{
+    "id":"4EAC93B2-CB40-4FFD-B905-F4505E2E3BAD",
+    "type":"zone",
+    "attributes":{
+      "zones":[
+        {
+          "zoneId":"1",
+          "zoneName":"Stockholm",
+          "parkingMode": "free-floating",
+          "licenceVerificationRequired": false,
+          "speedConfig": {
+            "maxSpeed": 25,
+            "minRequiredRides": 3,
+            "reducedSpeed": 11,
+            "speedUnit": "km/h"
+          }
+        },
+        {
+          "zoneId":"145",
+          "zoneName":"Berlin",
+          "parkingMode": "parking-spot",
+          "licenceVerificationRequired": true
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -1304,6 +1310,7 @@ Get all operational zones that a partner has access to.
 | zoneName                    | Number  | The name of the city                                 |
 | parkingMode                 | string  | default parking mode. [Parking modes](#parking-mode) |
 | licenceVerificationRequired | boolean | verifying user driving licence is required           |
+| speedConfig                 | object  | Zone speed restrictions                              |
 
 #### Parking mode
 
@@ -1311,6 +1318,15 @@ Get all operational zones that a partner has access to.
 | ------------- | --------------------------------------------------------------------------------- |
 | free-floating | Users can end their ride anywhere, except for in No parking zone & No Riding Zone |
 | parking-spot  | Users will only be able to end their ride inside a Parking spot                   |
+
+#### Speed config
+
+| parking mode     | description                                                                                                           |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+| maxSpeed         | MaxSpeed Maximum speed for the zone, for unit see `speedUnit`.                                                        |
+| minRequiredRides | Minimum required rides defined for a zone to be eligible to upgrade from beginners (speed) mode to normal speed mode. |
+| reducedSpeed     | ReducedSpeed Reduced speed for beginners mode given in the unit defined in `speedUnit`.                               |
+| speedUnit        | SpeedUnit The unit for the speed, it could be km/h or mph.                                                            |
 
 # Miscellaneous
 
