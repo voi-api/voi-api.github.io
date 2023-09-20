@@ -449,7 +449,9 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
            "userStartLocation": {
                     "longitude": 18.07571600306903,
                     "latitude": 59.319013004372515
-           }
+           },
+           "userLicenseValidated": true,
+           "beginnersMode": false,
       }"
 ```
 
@@ -502,12 +504,17 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 ### JSON body data
 
-| field                | type   | description                                       | presence |
-| -------------------- | ------ | ------------------------------------------------- | -------- |
-| userId               | string | The id of the user for whom the rental is started | required |
-| vehicleId            | string | The id of the vehicle which will be rented.       | required |
-| userStartLocation    | object | The user’s location when starting the rental      | optional |
-| userLicenseValidated | object | The user driving license is validated             | optional |
+| field                | type    | description                                       | presence |
+| -------------------- | ------- | ------------------------------------------------- | -------- |
+| userId               | string  | The id of the user for whom the rental is started | required |
+| vehicleId            | string  | The id of the vehicle which will be rented.       | required |
+| userStartLocation    | object  | The user’s location when starting the rental      | optional |
+| userLicenseValidated | boolean | The user driving license is validated             | optional |
+| beginnersMode        | boolean | Start rental with beginner mode speed             | optional |
+
+The `beginners mode` is a feature that limits the speed of the vehicle to the zone reduced speed. This is a feature that is used to make the scooter more accessible to new users.
+
+> Its upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.
 
 ### Errors
 
