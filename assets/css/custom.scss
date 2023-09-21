@@ -44,7 +44,7 @@
 .content{ h1 {
     font-size: 24px;
     margin-bottom: 0;
-    
+
     &:first-child {
         padding-top: 60px
     }
@@ -76,6 +76,11 @@
 .content aside.warning {
     color: #f46c63;
     background: #f46c631f;
+}
+
+.content aside.notic {
+    color: #e1e0de;
+    background: #1a85b4;
 }
 
 .toc-wrapper {
@@ -229,7 +234,7 @@ input#input-search {
 
 
 .home_content {
-    padding: calc(91vw/12.6) calc(30vw/12.6) 0 calc(30vw/12.6); 
+    padding: calc(91vw/12.6) calc(30vw/12.6) 0 calc(30vw/12.6);
 }
 
 .home_left{
@@ -327,7 +332,7 @@ a.home_product{
     display: block;
     text-align: center;
     margin: 0 0 calc(20vw/12.6);
-    padding: calc(17vw/12.6);  
+    padding: calc(17vw/12.6);
     width: calc(254vw/12.6);
     box-sizing: border-box;
     h1 {
@@ -364,7 +369,7 @@ a.sub-product {
         margin-bottom: 30px;
         padding-top: 38px;
     }
-    
+
     .home_left{
         width: 100%;
     }

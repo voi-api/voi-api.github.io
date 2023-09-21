@@ -514,7 +514,7 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 The `beginners mode` is a feature that limits the speed of the vehicle to the zone reduced speed. This is a feature that is used to make the scooter more accessible to new users.
 
-> It is upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.
+<aside class="notic">It is upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.</aside>
 
 ### Errors
 
