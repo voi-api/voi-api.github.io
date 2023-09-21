@@ -449,7 +449,9 @@ curl -X POST https://partners.voiapp.io/v1/rental/start
            "userStartLocation": {
                     "longitude": 18.07571600306903,
                     "latitude": 59.319013004372515
-           }
+           },
+           "userLicenseValidated": true,
+           "beginnersMode": false,
       }"
 ```
 
@@ -502,12 +504,17 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 ### JSON body data
 
-| field                | type   | description                                       | presence |
-| -------------------- | ------ | ------------------------------------------------- | -------- |
-| userId               | string | The id of the user for whom the rental is started | required |
-| vehicleId            | string | The id of the vehicle which will be rented.       | required |
-| userStartLocation    | object | The user’s location when starting the rental      | optional |
-| userLicenseValidated | object | The user driving license is validated             | optional |
+| field                | type    | description                                       | presence |
+| -------------------- | ------- | ------------------------------------------------- | -------- |
+| userId               | string  | The id of the user for whom the rental is started | required |
+| vehicleId            | string  | The id of the vehicle which will be rented.       | required |
+| userStartLocation    | object  | The user’s location when starting the rental      | optional |
+| userLicenseValidated | boolean | The user driving license is validated             | optional |
+| beginnersMode        | boolean | Start rental with beginner mode speed             | optional |
+
+The `beginners mode` is a feature that limits the speed of the vehicle to the zone reduced speed. This is a feature that is used to make the scooter more accessible to new users.
+
+> It is upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.
 
 ### Errors
 
@@ -1259,26 +1266,32 @@ Replace {id} with relevant zoneID
 
 ```shell
 {
-   "data":{
-      "id":"4EAC93B2-CB40-4FFD-B905-F4505E2E3BAD",
-      "type":"zone",
-      "attributes":{
-         "zones":[
-            {
-               "zoneId":"1",
-               "zoneName":"Stockholm",
-               "parkingMode": "free-floating",
-               "licenceVerificationRequired": false
-            },
-            {
-               "zoneId":"145",
-               "zoneName":"Berlin",
-               "parkingMode": "parking-spot",
-               "licenceVerificationRequired": true
-            }
-         ]
-      }
-   }
+  "data":{
+    "id":"4EAC93B2-CB40-4FFD-B905-F4505E2E3BAD",
+    "type":"zone",
+    "attributes":{
+      "zones":[
+        {
+          "zoneId":"1",
+          "zoneName":"Stockholm",
+          "parkingMode": "free-floating",
+          "licenceVerificationRequired": false,
+          "speedConfig": {
+            "maxSpeed": 25,
+            "minRequiredRides": 3,
+            "reducedSpeed": 11,
+            "speedUnit": "km/h"
+          }
+        },
+        {
+          "zoneId":"145",
+          "zoneName":"Berlin",
+          "parkingMode": "parking-spot",
+          "licenceVerificationRequired": true
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -1297,6 +1310,7 @@ Get all operational zones that a partner has access to.
 | zoneName                    | Number  | The name of the city                                 |
 | parkingMode                 | string  | default parking mode. [Parking modes](#parking-mode) |
 | licenceVerificationRequired | boolean | verifying user driving licence is required           |
+| speedConfig                 | object  | Zone speed restrictions                              |
 
 #### Parking mode
 
@@ -1304,6 +1318,15 @@ Get all operational zones that a partner has access to.
 | ------------- | --------------------------------------------------------------------------------- |
 | free-floating | Users can end their ride anywhere, except for in No parking zone & No Riding Zone |
 | parking-spot  | Users will only be able to end their ride inside a Parking spot                   |
+
+#### Speed config
+
+| parking mode     | description                                                                                                           |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+| maxSpeed         | Maximum speed for the zone, for unit see `speedUnit`.                                                                 |
+| minRequiredRides | Minimum required rides defined for a zone to be eligible to upgrade from beginners (speed) mode to normal speed mode. |
+| reducedSpeed     | Reduced speed for beginners mode given in the unit defined in `speedUnit`.                                            |
+| speedUnit        | The unit for the speed, it could be km/h or mph.                                                                      |
 
 # Miscellaneous
 
