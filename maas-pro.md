@@ -514,7 +514,7 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 The `beginners mode` is a feature that limits the speed of the vehicle to the zone reduced speed. This is a feature that is used to make the scooter more accessible to new users.
 
-> Its upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.
+> It is upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.
 
 ### Errors
 
@@ -1323,10 +1323,10 @@ Get all operational zones that a partner has access to.
 
 | parking mode     | description                                                                                                           |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------- |
-| maxSpeed         | MaxSpeed Maximum speed for the zone, for unit see `speedUnit`.                                                        |
+| maxSpeed         | Maximum speed for the zone, for unit see `speedUnit`.                                                                 |
 | minRequiredRides | Minimum required rides defined for a zone to be eligible to upgrade from beginners (speed) mode to normal speed mode. |
-| reducedSpeed     | ReducedSpeed Reduced speed for beginners mode given in the unit defined in `speedUnit`.                               |
-| speedUnit        | SpeedUnit The unit for the speed, it could be km/h or mph.                                                            |
+| reducedSpeed     | Reduced speed for beginners mode given in the unit defined in `speedUnit`.                                            |
+| speedUnit        | The unit for the speed, it could be km/h or mph.                                                                      |
 
 # Miscellaneous
 
