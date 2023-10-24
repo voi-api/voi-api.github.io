@@ -15,10 +15,9 @@ This section describes the Mobility Data Specification (MDS) provider API, expla
 > A token request.
 
 ```shell
-$ curl -X POST -u user:password
-  -d grant_type=client_credentials
-  -H "Content-Type:application/x-www-form-urlencoded"
-  mds.voiapp.io/token
+$ curl --location https://mds.voiapp.io/token \
+     -X POST -u USER_ID:PASSWORD \
+     --form 'grant_type="client_credentials"'
 ```
 
 > A token response.
