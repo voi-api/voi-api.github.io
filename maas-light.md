@@ -50,7 +50,6 @@ The token is required in the header, using Bearer authentication over HTTPS, on 
 The MDS APIs handle requests for specific versions of the specification from the clients.
 Version is communicated through the use of a custom media-type, `application/vnd.mds.provider+json` or `application/vnd.mds+json`, combined with a required version parameter.
 
-
 See Open Mobility Foundation's MDS description on versioning [here](https://github.com/openmobilityfoundation/mobility-data-specification/blob/dev/general-information.md#versioning).
 
 <aside class="warning">Current MDS implementation only supports versions 0.4 and 1.2</aside>
