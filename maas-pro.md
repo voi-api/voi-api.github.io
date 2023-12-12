@@ -682,7 +682,7 @@ Pricing is under active development and constantly evolving, but it typically co
 
 **End ride fines** If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will end the ride with a cost corresponding to the time when the scooter stopped moving and in additon add a fee of 25€. This fee will be included in the end-ride charge.
 
-**Short rides** For rides __before__ 1st of January 2024, If the users ride for less than 100 meters or less than 2 minutes, we will not charge for the ride. It is optional for the partner to present receipts and/or add these rides to the invoicing material. after 1st of January 2024, we will charge for all rides.
+**Short rides** For rides **before** 1st of January 2024, If the users ride for less than 100 meters or less than 2 minutes, we will not charge for the ride. It is optional for the partner to present receipts and/or add these rides to the invoicing material. after 1st of January 2024, we will charge for all rides.
 
 **Refunds** The partner is responsible for performing refunds. When this is done it is defined in the customer support criteria. Sometimes, Voi customer support also requests the partner to perform refunds.
 
@@ -1311,6 +1311,7 @@ Get all operational zones that a partner has access to.
 | parkingMode                 | string  | default parking mode. [Parking modes](#parking-mode) |
 | licenceVerificationRequired | boolean | verifying user driving licence is required           |
 | speedConfig                 | object  | Zone speed restrictions                              |
+| isSleeping                  | boolean | Zone is in sleep mode so vehicle will be available   |
 
 #### Parking mode
 
