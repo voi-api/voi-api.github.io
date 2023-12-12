@@ -1311,7 +1311,7 @@ Get all operational zones that a partner has access to.
 | parkingMode                 | string  | default parking mode. [Parking modes](#parking-mode) |
 | licenceVerificationRequired | boolean | verifying user driving licence is required           |
 | speedConfig                 | object  | Zone speed restrictions                              |
-| isSleeping                  | boolean | Zone is in sleep mode so vehicle will be available   |
+| isSleeping                  | boolean | Zone is in sleep mode so vehicle will be unavailable |
 
 #### Parking mode
 
