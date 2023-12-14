@@ -697,8 +697,7 @@ curl -X PUT "https://storage.googleapis.com/url-from-end-rental-response" --uplo
 ```
 
 After ending a rental, the API returns (among other things) a unique, cryptographically signed URL (`photoUploadURL`)
-that allows to upload a photo of the parked vehicle. Currently, this photo is stored for compliance reasons only and not
-validated in any way.
+that the partners **must** use to upload a photo of the parked vehicle.
 
 ### Restrictions
 
@@ -706,6 +705,7 @@ validated in any way.
 - The photo must be a JPEG image.
 - The photo must be taken in `portrait` mode only!
 - The photo must only use the regular lens (not the wide angle lens).
+- The photo must be in raw format (not base64 encoded).
 - The HTTP requests must use the PUT verb.
 - The request must specify the content-type header as `image/jpeg`.
 
