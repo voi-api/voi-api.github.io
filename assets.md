@@ -16,5 +16,5 @@ Brand guidelines, design assets and user journey flows can be found and retrieve
 The most recently updated versions of these documents are always available at the following addresses, we recommend including them as web views in your apps and they will be updated automatically. They are all available in multiple languages, you can pick the language on the respective page to get the url for that language.
 
 - [Frequently asked questions](https://help.voi.com/lang/en_gb/)
-- [Terms and conditions](https://www.voiscooters.com/voi-user-agreement-12rr/)
-- [Privacy Policy](https://www.voiscooters.com/legal/voi-privacy-policy/)
+- [Terms and conditions](https://www.voi.com/voi-user-agreement-12rr/)
+- [Privacy Policy](https://www.voi.com/legal/voi-privacy-policy/)
