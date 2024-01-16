@@ -693,7 +693,7 @@ Pricing is under active development and constantly evolving, but it typically co
 > Parking Photo Upload Request.
 
 ```shell
-curl -X PUT "https://partners.voiapp.io/v1/rental/<id>/parking-photo-validation" --upload-file filename.jpg -H 'Content-Type: image/jpeg'
+curl -X PUT "URL-FROM-END-RENTAL" --upload-file filename.jpg -H 'Content-Type: image/jpeg'
 ```
 
 > Parking Photo Upload Response.
@@ -725,6 +725,7 @@ Possible decisions are:
 | ValidateParkingPhotoFailed      | Validate parking photo failed       |
 | ErrRentalIsNotEnded             | Rental is not ended                 |
 | ParkingPhotoUploadWindowExpired | The photo upload window has expired |
+| ErrInvalidURLSignature          | Invalid URL signature               |
 
 ### Restrictions
 
