@@ -693,11 +693,39 @@ Pricing is under active development and constantly evolving, but it typically co
 > Parking Photo Upload Request.
 
 ```shell
-curl -X PUT "https://storage.googleapis.com/url-from-end-rental-response" --upload-file filename.jpg -H 'Content-Type: image/jpeg'
+curl -X PUT "URL-FROM-END-RENTAL" --upload-file filename.jpg -H 'Content-Type: image/jpeg'
 ```
 
-After ending a rental, the API returns (among other things) a unique, cryptographically signed URL (`photoUploadURL`)
+> Parking Photo Upload Response.
+
+```shell
+{
+   "decision": "good-parking"
+}
+```
+
+After ending a rental, the API returns (among other things) a unique URL (`photoUploadURL`)
 that the partners **must** use to upload a photo of the parked vehicle.
+
+Possible decisions are:
+
+| decision     | description                                                    |
+| ------------ | -------------------------------------------------------------- |
+| good-parking | The photo is accepted and vehicle is parked correctly.         |
+| bad-parking  | The photo is not accepted and vehicle is not parked correctly. |
+| bad-photo    | The photo could not be processed.                              |
+| no-decision  | The photo is uploaded but no decision is made.                 |
+| unknown      | The photo is uploaded but no decision is made.                 |
+
+### Errors
+
+| Code                            | Detail                              |
+| ------------------------------- | ----------------------------------- |
+| InvalidParkingPhoto             | Invalid parking photo               |
+| ValidateParkingPhotoFailed      | Validate parking photo failed       |
+| ErrRentalIsNotEnded             | Rental is not ended                 |
+| ParkingPhotoUploadWindowExpired | The photo upload window has expired |
+| ErrInvalidURLSignature          | Invalid URL signature               |
 
 ### Restrictions
 
