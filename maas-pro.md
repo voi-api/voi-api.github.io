@@ -916,7 +916,8 @@ Pricing information can be accessed for a particular vehicle by referencing the 
          },
         "code": "L33T",
         "zoneId": "145",
-        "locked": true
+        "locked": true,
+        "status": "ready"
       }
     },
   ]
@@ -925,21 +926,25 @@ Pricing information can be accessed for a particular vehicle by referencing the 
 
 All successful vehicle interactions responds with the following vehicle model.
 
-| field          | type    | description                                                                                    | presence |
-| -------------- | ------- | ---------------------------------------------------------------------------------------------- | -------- |
-| id             | string  | The vehicle's id (UUID version 4)                                                              | required |
-| type           | string  | For vehicles the type will always be "vehicle"                                                 | required |
-| vehicle_type   | string  | The vehicles type , values are `scooter`, `bicycle`                                            | required |
-| batteryLevel   | integer | The state of charge of the vehicles' battery in percent (0-100)                                | required |
-| location       | object  | The vehicle’s location                                                                         | required |
-| longitude      | number  | The longitude component of the location                                                        | required |
-| latitude       | number  | The latitude component of the location                                                         | required |
-| code           | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code. | required |
-| price          | object  | The vehicle price                                                                              | required |
-| pricePerMinute | integer | the price per minute, including Vat, in minor units                                            | required |
-| startPrice     | integer | the start price, including Vat in minor units (also called subunit)                            | required |
-| currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                           | required |
-| vat            | integer | the VAT percentage                                                                             | required |
+| field          | type    | description                                                                                          | presence |
+| -------------- | ------- | ---------------------------------------------------------------------------------------------------- | -------- |
+| id             | string  | The vehicle's id (UUID version 4)                                                                    | required |
+| type           | string  | For vehicles the type will always be "vehicle"                                                       | required |
+| vehicle_type   | string  | The vehicles type , values are `scooter`, `bicycle`                                                  | required |
+| attributes     | object  | The vehicle’s attributes, see below                                                                  | required |
+| batteryLevel   | integer | The state of charge of the vehicles' battery in percent (0-100)                                      | required |
+| location       | object  | The vehicle’s location                                                                               | required |
+| longitude      | number  | The longitude component of the location                                                              | required |
+| latitude       | number  | The latitude component of the location                                                               | required |
+| code           | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code.       | required |
+| zoneId         | string  | The zone id in which this vehicle operates.                                                          | required |
+| locked         | bool    | The lock status of the vehicle.                                                                      | required |
+| status         | string  | The availability status of the vehicle, can be one of 'ready', 'riding', 'booked' or 'unavailable'.  | required |
+| price          | object  | The vehicle price                                                                                    | required |
+| pricePerMinute | integer | the price per minute, including Vat, in minor units                                                  | required |
+| startPrice     | integer | the start price, including Vat in minor units (also called subunit)                                  | required |
+| currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                                 | required |
+| vat            | integer | the VAT percentage                                                                                   | required |
 
 ## Get vehicles by zone
 
@@ -967,7 +972,8 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
          },
         "code": "L33T",
         "zoneId": "145",
-        "locked": true
+        "locked": true,
+        "status": "ready"
       },
       "price": {
         "currency": "EUR",
@@ -988,7 +994,8 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         },
         "code": "D0IT",
         "zoneId": "145",
-        "locked": true
+        "locked": true,
+        "status": "ready"
       },
       "price": {
         "currency": "EUR",
@@ -1049,7 +1056,8 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
             },
            "code": "L33T",
            "zoneId": "145",
-          "locked": true
+           "locked": true,
+           "status": "ready"
          },
          "price": {
            "currency": "EUR",
@@ -1098,7 +1106,8 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
         },
         "code": "D0IT",
         "zoneId": "145",
-        "locked": true
+        "locked": true,
+        "status": "ready"
       },
       "price": {
         "currency": "EUR",
