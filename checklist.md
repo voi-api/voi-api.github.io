@@ -6,50 +6,42 @@ menu: main
 description: Deep integration checklist
 ---
 
-# Overview
+# Step-by-step process for a light integration or data sharing
+A light integration or data sharing activation completes steps in the following order:
 
-A typical integration completes steps in the following order
+1.  Get in contact with your local point of contact at Voi;
+2. Sign an NDA (Voi can provide standard templates) between both parties;
+3. Provide information: 
+   - Planned go-live date,
+   - Zone(s)/citie(s) you wish to have access to,
+   - API(s) you wish to have access to (standard GBFS or standard MDS),
+   - Points of contact (account manager, technical point of contact).
+4. Sign a Light integration agreement or Data Sharing agreement (Voi can provide standard templates) between both parties, specifying the terms of the integration partnership;
+5. Voi will grant you access to the given API(s) and zone(s). You will receive an automated email with your access tokens to connect;
+6. Launch;
+7. Celebrate!
 
-1. Sign data sharing agreement/NDA
-2. Rough commercial agreement
-3. Kick off, technical integration meeting
-4. Sign final commercial agreement
-5. Payment and customer support alignment
-6. Finalize technical integration
-7. Launch
-8. Celebrate
+Voi’s team will be always available at any point of the process for a meeting to discuss and provide guidance.
 
-# Agreements
+# Step-by-step process for a deep integration 
+A deep integration completes steps in the following order:
+1. Get in contact with your local point of contact at Voi;
+2. Sign an NDA (Voi can provide standard templates) between both parties;
+3. Provide information: 
+   - Planned go-live date,
+   - Zone(s)/citie(s) you wish to have access to,
+   - Points of contact (account manager, technical point of contact, platform provider, PSP, customer points of contact, etc),
+   - Method for Voi to request the partner to perform a refund.
+4. Get access to our staging environment for your zone/city: 
+   - Send an email to partner-technical-support@voiapp.io and provide us with an email address where you will receive the access tokens + specify which virtual zone/city you want to test the API in,
+   - You will receive a secret link from us to retrieve your staging environment access token,
+   - Implement our MaaS API in our staging environment and test implementation with virtual scooters.
+5. After testing, take a meeting with your Voi local and technical points of contact to agree on partnership terms (financials if needed, customer support process, refund process);
+6. Sign a Deep integration agreement (Voi can provide standard templates) between both parties, specifying the terms of the integration partnership;
+7. Get access to our production environment for your zone/city:
+   - Send an email to partner-technical-support@voiapp.io and provide us with an email address where you will receive the access tokens + specify which virtual zone/city you want to test the API in,
+   - You will receive a secret link from us to retrieve your production environment access token.
+8. Launch;
+9. Celebrate! 
 
-The following agreements need to be reached. Contact our [Commercial point of contact](/poc/) for details.
-
-- Data sharing agreement – basically an NDA.
-- Commercial agreement – Covers all aspects of an integration.
-
-# Technical integration
-
-Follow these steps to complete a deep integration
-
-0. Get access to staging from our [engineering point of contact](/poc/).
-1. Implement MaaS Pro API in our staging environment.
-2. Test implementation with virtual scooters in our staging environment.
-3. Request access to production from our [engineering point of contact](/poc/)
-4. Perform a final test in closed beta.
-5. Go live on the agreed-upon date.
-6. Celebrate!
-
-# Meetings (optional)
-
-We offer the partners to align on details with [counterparts](/poc/) in the following areas. Reach out to them if you want to set up a meeting.
-
-- Payment – recommended doing close to launch.
-- Customer support – recommended doing half-way through the integration.
-- Engineering, make sure to test our API before to get the most out of this meeting.
-
-# Provide information
-
-Voi needs the following information from the partners
-
-- Planned go-live date.
-- Point of contact for customer support.
-- Method for Voi to request the partner to perform a refund.
+Voi’s team will be always available at any point of the process for a meeting to discuss and provide guidance.

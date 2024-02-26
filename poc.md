@@ -12,4 +12,4 @@ description: Who to contact about what.
 | ------------------------------------- | --------------------------------------------------------------------------------- |
 | Customer Support for End users        | [support@voiapp.io](mailto:support@voiapp.io)                                     |
 | Finance                               | [partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io)                     |
-| Technical support and other questions | [partner-technical-support@voiapp.io](mailto:partner-technical-support@voiapp.io) |
+| Existing integrated partners only     | [partner-technical-support@voiapp.io](mailto:partner-technical-support@voiapp.io) |

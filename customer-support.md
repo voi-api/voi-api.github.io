@@ -22,11 +22,15 @@ We have different [points of contact](/poc/), one for you and one for your end u
 
 For regulatory reasons, we also provide phone-support in some markets. Phone support has no access to admin tools, meaning they can answer simple questions and most users calling in will get referred to e-mail-support. For the following cities, we provide phone-based customer support:
 
-| City        | Zone Id | Phone-number   |
-| ----------- | ------- | -------------- |
-| Germany     |         | 0800 10 400 10 |
-| Switzerland |         | 044-5519984    |
-| Italy       |         | +39 800-561931 |
+| City        | Zone Id | Phone-number      |
+| ----------- | ------- | --------------    |
+| Sweden      |         | +46 8 525 197 27  |
+| Germany     |         | +49 800 0002709   |
+| Switzerland |         | +41 55 539 11 37  |
+| France      |         | +33 9 71 08 13 55 |
+| Italy       |         | +39 02 385 85465  |
+| Spain       |         | +34 511 604 831   |
+| UK          |         | +44 7476 550190   |
 
 ## Contacting partner's customer support
 
