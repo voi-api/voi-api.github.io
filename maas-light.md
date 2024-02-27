@@ -1,7 +1,7 @@
 ---
 layout: code
 title: Light Integrations
-permalink: /maas-light/
+permalink: /light-integration-and-data-sharing/
 menu: main
 description: A read only API, containing MDS, GBFS and Zone data
 ---

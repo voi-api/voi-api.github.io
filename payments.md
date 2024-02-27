@@ -5,8 +5,8 @@ permalink: /payments/
 menu: main
 description: Paymentflows, refunds, fraud and invoicing
 ---
-# What is MaaS Pro?
-MaaS Pro allows end-users to book and ride Vois' through partner apps.
+# What is a deep integration?
+A deep integration allows end-users to book and ride Vois' through partner apps.
 
 # Payment flow
 When a user finishes a ride, Voi calculates the total price of the ride and returns this to the partner. The partner then charges the end-user for the ride. Regularly, the partner will provide Voi with invoicing material, including a list of refunded rides, VAT, and the total amount owed, per day and city(CEST timezone). Voi will then create an invoice with potential commissions deducted and send it to the partner. The invoice will be sent in the local currency of each city. How often invoices are sent is defined in the contract between Voi and the partner.
