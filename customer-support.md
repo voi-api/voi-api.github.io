@@ -25,12 +25,15 @@ For regulatory reasons, we also provide phone-support in some markets. Phone sup
 | City        | Zone Id | Phone-number      |
 | ----------- | ------- | --------------    |
 | Sweden      |         | +46 8 525 197 27  |
-| Germany     |         | +49 800 0002709   |
+| Germany: Berlin, Bremen, <br>Dusseldorf, Dortmund, Frankfurt, Nuremberg     |         | Toll-free +49 800 0002709   |
+| Germany: All other cities    |         | +49 1573 5993270  |
 | Switzerland |         | +41 55 539 11 37  |
 | France      |         | +33 9 71 08 13 55 |
 | Italy       |         | +39 02 385 85465  |
-| Spain       |         | +34 511 604 831   |
-| UK          |         | +44 7476 550190   |
+| Spain: Seville       |         | Toll-free +34 900 759 150   |
+| Spain: All other cities       |         | +34 511 604 831   |
+| UK: Bath, Birmingham, Bristol          |         | Toll-free +44 808 501 5724   |
+| UK: All other cities          |         | +44 7476 550190   |
 
 ## Contacting partner's customer support
 
