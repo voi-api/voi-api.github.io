@@ -294,7 +294,6 @@ p{
 
 
 .home_products_right{
-    width: calc(304vw/12.6);
     float: left;
     border: 1px solid #F0F0F0;
     border-radius: 12px;
@@ -314,7 +313,7 @@ p{
 
 .home_products_header{
     margin: calc(30vw/12.6)0 0 calc(30vw/12.6);
-    padding: calc(12vw/12.6) 0 calc(20vw/12.6) calc(84vw/12.6);
+    padding: calc(12vw/7.6) 0 calc(20vw/12.6) calc(84vw/12.6);
     background: url('/assets/images/ic_products.svg') no-repeat;
     background-size: calc(64vw/12.6);
 
