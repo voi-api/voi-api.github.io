@@ -356,6 +356,7 @@ A rental is a domain where a user has access to a scooter. It is done by startin
             "type": "rental",
             "attributes": {
                 "rentalDurationMin": 12,
+                "rentalDistanceMeters" : 142,
                 "cost": {
                     "startPrice": 150,
                     "pricePerMinute": 30,
@@ -404,6 +405,7 @@ All successful rental interactions responds with the following rental model.
 | id                   | string  | The rental's unique id (UUID Version 4)                                                                                                                                                                                                                                                     | required                                   |
 | type                 | string  | The type will be "rental"                                                                                                                                                                                                                                                                   | required                                   |
 | rentalDurationMin    | integer | The rental's duration, in full minutes, rounded up. Used for calculating the charge.                                                                                                                                                                                                        | required                                   |
+| rentalDistanceMeters    | integer | The rental's distance travelled, in full meters, rounded up.                                                                                                                                                                                                        | required                                   |
 | cost                 | object  | Contains rental's cost information,                                                                                                                                                                                                                                                         | required                                   |
 | startPrice           | integer | Unlock fee (null if unknown for historical data)                                                                                                                                                                                                                                            | optional                                   |
 | pricePerMinute       | integer | Price per rounded-up minute (null if unknown for historical data)                                                                                                                                                                                                                           | optional                                   |
