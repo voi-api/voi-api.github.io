@@ -1,7 +1,7 @@
 ---
 layout: code
 title: Deep Integrations
-permalink: /maas-pro/
+permalink: /deep-integration/
 menu: main
 description: A MaaS API, used for completing full user journeys.
 ---
@@ -16,7 +16,7 @@ All major updates will be communicated with all active partners via email before
 
 ## Development
 
-For a broader description of the integration-process, check out our [checklist](/checklist/).
+For a broader description of the integration-process, check out our [checklist](/checklist-deep/).
 
 Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
 
@@ -820,7 +820,7 @@ Returns the [rental model](#rental-model) for users all rentals.
 
 # Pricing
 
-The cost of renting a Voi can differ, amongst others based on where the scooter is located and what time it is. When the user starts the ride, we commit to the price presented at that time. Some exceptions will cause the price to change, [more details here](/maas-pro/#end-rental). All prices are in the local currency.
+The cost of renting a Voi can differ, amongst others based on where the scooter is located and what time it is. When the user starts the ride, we commit to the price presented at that time. Some exceptions will cause the price to change, [more details here](/deep-integration/#end-rental). All prices are in the local currency.
 
 ## Pricing model
 
