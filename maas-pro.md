@@ -919,7 +919,8 @@ Pricing information can be accessed for a particular vehicle by referencing the 
         "code": "L33T",
         "zoneId": "145",
         "locked": true,
-        "status": "ready"
+        "status": "ready",
+        "maxRangeMeters" : 80000
       }
     },
   ]
@@ -999,7 +1000,8 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         "code": "D0IT",
         "zoneId": "145",
         "locked": true,
-        "status": "ready"
+        "status": "ready",
+        "maxRangeMeters" : 80000
       },
       "price": {
         "currency": "EUR",
@@ -1061,7 +1063,8 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
            "code": "L33T",
            "zoneId": "145",
            "locked": true,
-           "status": "ready"
+           "status": "ready",
+           "maxRangeMeters" : 80000
          },
          "price": {
            "currency": "EUR",
@@ -1111,7 +1114,8 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
         "code": "D0IT",
         "zoneId": "145",
         "locked": true,
-        "status": "ready"
+        "status": "ready",
+        "maxRangeMeters" : 80000
       },
       "price": {
         "currency": "EUR",
