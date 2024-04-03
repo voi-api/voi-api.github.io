@@ -942,6 +942,7 @@ All successful vehicle interactions responds with the following vehicle model.
 | zoneId         | string  | The zone id in which this vehicle operates.                                                          | required |
 | locked         | bool    | The lock status of the vehicle.                                                                      | required |
 | status         | string  | The availability status of the vehicle, can be one of 'ready', 'riding', 'booked' or 'unavailable'.  | required |
+| maxRangeMeters | number  | The max range in meters for the this vehicle type                                                    | required |
 | price          | object  | The vehicle price                                                                                    | required |
 | pricePerMinute | integer | the price per minute, including Vat, in minor units                                                  | required |
 | startPrice     | integer | the start price, including Vat in minor units (also called subunit)                                  | required |
@@ -975,7 +976,8 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
         "code": "L33T",
         "zoneId": "145",
         "locked": true,
-        "status": "ready"
+        "status": "ready",
+        "maxRangeMeters" : 80000
       },
       "price": {
         "currency": "EUR",
