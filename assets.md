@@ -9,7 +9,7 @@ description: Graphics, legal documents
 # Brand guidelines, design assets and user journey
 
 You must adhere to Voi's brand guidelines when using Voi's brand.
-Brand guidelines, design assets and user journey flows can be found and retrieved in various formats [here](https://brand.voi.com/d/1xC2QW9yiDw4/introduction-1#/brand-assets/app-assets).
+Brand guidelines, design assets and user journey flows can be found and retrieved in various formats [here](https://brand.voi.com/d/1xC2QW9yiDw4/introduction-1#/assets/app-elements).
 
 # Texts
 
