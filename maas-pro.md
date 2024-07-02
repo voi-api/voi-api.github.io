@@ -1253,12 +1253,13 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 
 #### Area
 
-| field     | type   | description                                                                | presence |
-| --------- | ------ | -------------------------------------------------------------------------- | -------- |
-| id        | string | The id of the area                                                         | required |
-| type      | string | The type of the area                                                       | required |
-| area_type | string | The area type [Area Types](#supported-zone-areas)                          | required |
-| geometry  | object | Describes the geometry for the area (geoJSON), described as multipolygons. | required |
+| field         | type   | description                                                                                                                             | presence |
+|---------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------| -------- |
+| id            | string | The id of the area                                                                                                                      | required |
+| type          | string | The type of the area                                                                                                                    | required |
+| area_type     | string | The area type [Area Types](#supported-zone-areas)                                                                                       | required |
+| vehicle_types | array  | Array of vehicle type which can operate this area, empty means no restriction on vehicle type. possible values are `scooter`, `bicycle` | required |
+| geometry      | object | Describes the geometry for the area (geoJSON), described as multipolygons.                                                              | required |
 
 ### Errors
 
