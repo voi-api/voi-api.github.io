@@ -1140,9 +1140,11 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 
 ### Errors
 
-| Code                      | Detail | ErrorCode |
-| ------------------------- | ------ | --------- |
-| StatusInternalServerError |        |
+| Code                      | Detail                     | ErrorCode               |
+| ------------------------- | -------------------------- | ----------------------- |
+| StatusBadRequest          | vehicle id incorrect       | InvalidVehicleID        |
+| StatusNotFound            | vehicle not found          | VehicleNotFound         |
+| StatusInternalServerError |                            |                         |
 
 # Zone
 
