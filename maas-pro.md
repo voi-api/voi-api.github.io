@@ -1087,6 +1087,14 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
 | --------- | ---------------------------------------------------------------------------------------- | -------- |
 | code      | the 4-letter alphanumeric vehicle code, visually available on the vehicle in text and as | required |
 
+### Errors
+
+| Code                      | Detail                     | ErrorCode               |
+| ------------------------- | -------------------------- | ----------------------- |
+| StatusBadRequest          | vehicle code incorrect     | BadVehicleCode          |
+| StatusNotFound            | vehicle not found          | VehicleNotFound         |
+| StatusInternalServerError |                            |                         |
+
 ## Get Vehicle by id
 
 > A get vehicle by id request.
@@ -1140,9 +1148,11 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 
 ### Errors
 
-| Code                      | Detail | ErrorCode |
-| ------------------------- | ------ | --------- |
-| StatusInternalServerError |        |
+| Code                      | Detail                     | ErrorCode               |
+| ------------------------- | -------------------------- | ----------------------- |
+| StatusBadRequest          | vehicle id incorrect       | InvalidVehicleID        |
+| StatusNotFound            | vehicle not found          | VehicleNotFound         |
+| StatusInternalServerError |                            |                         |
 
 # Zone
 
