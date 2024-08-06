@@ -137,9 +137,13 @@ See Open Mobility Foundation's MDS description on trips [v2.0](https://github.co
 > A vehicles request.
 
 ```shell
-# v2.0
+# v2.0 - All vehicles
 $ curl -H "Accept: application/vnd.mds+json;version=2.0"
   api.voiapp.io/v1/partner-apis/mds/1/vehicles
+
+# V2.0 - Single device
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/vehicles/703af7e8-ac8c-5543-b2ac-64ef52812d19
 
 Do not copy ^ as the zone-ID or Accept might not match yours
 ```
@@ -171,13 +175,18 @@ See Open Mobility Foundation's MDS description on status changes [v2.0](https://
 
 ### HTTPS request
 
+To fetch all vehicles in a zoneID
 `GET mds.voiapp.io/en/{zoneID}/vehicles`
+
+Optionally to fetch the status of a single device
+`GET mds.voiapp.io/en/{zoneID}/vehicles/{deviceID}`
 
 ### Path parameters
 
 | parameter | description                                  | presence |
 | --------- | -------------------------------------------- | -------- |
 | zoneID    | The zone id for the requested status changes | required |
+| deviceID  | A specific deviceID to request               | optional |
 
 
 ## Vehicle Status
@@ -185,9 +194,13 @@ See Open Mobility Foundation's MDS description on status changes [v2.0](https://
 > A vehicle status request.
 
 ```shell
-# v2.0
+# v2.0 - All vehicles
 $ curl -H "Accept: application/vnd.mds+json;version=2.0"
   api.voiapp.io/v1/partner-apis/mds/1/vehicles/status
+
+# v2.0 - Single device 
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/vehicles/status/6aca5a87-60e9-51eb-8147-c38b58100c83
 
 Do not copy ^ as the zone-ID or Accept might not match yours
 ```
@@ -249,14 +262,18 @@ See Open Mobility Foundation's MDS description on status changes [v2.0](https://
 
 ### HTTPS request
 
+To fetch all vehicles in a zoneID
 `GET mds.voiapp.io/en/{zoneID}/vehicles/status`
+
+Optionally to fetch the status of a single device
+`GET mds.voiapp.io/en/{zoneID}/vehicles/status/{deviceID}`
 
 ### Path parameters
 
 | parameter | description                                  | presence |
 | --------- | -------------------------------------------- | -------- |
 | zoneID    | The zone id for the requested status changes | required |
-
+| deviceID  | A specific deviceID to request               | optional |
 
 ## Events, recent
 
