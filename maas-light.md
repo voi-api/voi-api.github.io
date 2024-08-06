@@ -176,10 +176,10 @@ See Open Mobility Foundation's MDS description on status changes [v2.0](https://
 ### HTTPS request
 
 To fetch all vehicles in a zoneID
-`GET mds.voiapp.io/en/{zoneID}/vehicles`
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles`
 
 Optionally to fetch the status of a single device
-`GET mds.voiapp.io/en/{zoneID}/vehicles/{deviceID}`
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles/{deviceID}`
 
 ### Path parameters
 
@@ -263,10 +263,10 @@ See Open Mobility Foundation's MDS description on status changes [v2.0](https://
 ### HTTPS request
 
 To fetch all vehicles in a zoneID
-`GET mds.voiapp.io/en/{zoneID}/vehicles/status`
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles/status`
 
 Optionally to fetch the status of a single device
-`GET mds.voiapp.io/en/{zoneID}/vehicles/status/{deviceID}`
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles/status/{deviceID}`
 
 ### Path parameters
 
@@ -330,7 +330,7 @@ See Open Mobility Foundation's MDS description of recent events [v2.0](https://g
 
 ### HTTPS request
 
-`GET mds.voiapp.io/en/{zoneID}/events/recent`
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/events/recent`
 
 ### Path parameters
 
@@ -398,7 +398,7 @@ See Open Mobility Foundation's MDS description of historical events [v2.0](https
 
 ### HTTPS request
 
-`GET mds.voiapp.io/en/{zoneID}/events/historical`
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/events/historical`
 
 ### Path parameters
 
