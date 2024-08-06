@@ -7,7 +7,7 @@ description: A read only API, containing MDS, GBFS and Zone data
 ---
 
 # MDS 2.0
-This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider).
+This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md).
 
 ## Authentication
 When setting up the partner agreement with VOI, you will receive an email with a UserID and a link to set a Password, this combination will be used to request the client credentials. 
@@ -52,7 +52,7 @@ Version is communicated through the use of a custom media-type, `application/vnd
 
 See Open Mobility Foundation's MDS description on versioning [here](https://github.com/openmobilityfoundation/mobility-data-specification/blob/dev/general-information.md#versioning).
 
-<aside class="warning">Current MDS 2.0 implementation only supports versions 2.0, for version 1.2 or 0.4 see [here](#MDS 1.2 and 0.4).</aside>
+<aside class="warning">Current MDS 2.0 implementation only supports versions 2.0, for version 1.2 or 0.4 see [here](#mds-12-and-04).</aside>
 
 ### Header
 
@@ -635,7 +635,7 @@ Every JSON file presented in this specification contains the same common header 
 
 ## Authentication
 
-Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#MDS 1.2 and 0.4).
+Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds-12-and-04).
 
 ## Free bike status
 
@@ -827,7 +827,7 @@ Every JSON file presented in this specification contains the same common header 
 
 ### Authentication
 
-Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
+Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds-20).
 
 ## Auto-discovery
 
