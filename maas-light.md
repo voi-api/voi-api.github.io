@@ -6,9 +6,416 @@ menu: main
 description: A read only API, containing MDS, GBFS and Zone data
 ---
 
-# MDS
+# MDS 2.0
+This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md).
 
-This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider), [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider).
+## Authentication
+When setting up the partner agreement with VOI, you will receive an email with a UserID and a link to set a Password, this combination will be used to request the client credentials. 
+
+> A token request.
+
+```shell
+$ curl --location https://api.voiapp.io/v1/partner-apis/token \
+     -X POST -u USER_ID:PASSWORD \
+     --form 'grant_type="client_credentials"'
+```
+
+> A token response.
+
+```shell
+{
+    "access_token": "<access token>",
+    "expires_in": 900,
+    "token_type": "bearer"
+}
+```
+
+OAuth 2.0's `client_credentials grant type (outlined in [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4)) is used as the authentication and authorization scheme.
+This is sometimes called a two-legged OAuth.
+
+### HTTPS request
+
+`POST api.voiapp.io/v1/partner-apis/token`
+
+### Usage
+
+The token is required in the header, using Bearer authentication over HTTPS, on all API calls to MDS and GBFS endpoints.
+
+| Key           | Value               |
+| ------------- | ------------------- |
+| Authorization | Bearer access-token |
+
+## Versioning
+
+The MDS APIs handle requests for specific versions of the specification from the clients.
+Version is communicated through the use of a custom media-type, `application/vnd.mds+json;version=2.0`.
+
+See Open Mobility Foundation's MDS description on versioning [here](https://github.com/openmobilityfoundation/mobility-data-specification/blob/dev/general-information.md#versioning).
+
+<aside class="warning">Current MDS 2.0 implementation only supports versions 2.0, for version 1.2 or 0.4 see [here](#mds-12-and-04).</aside>
+
+### Header
+
+| Key    | Value                                |
+| ------ | ------------------------------------ |
+| Accept | application/vnd.mds+json;version=2.0 |
+
+
+## Trips
+
+> A trips request.
+
+```shell
+# v2.0
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/trips?end_time=2024-06-13T10
+
+Do not copy ^ as the zone-ID or Accept might not match yours
+```
+
+> A trips response.
+
+```shell
+{
+    "last_updated": {
+        "last_updated": 1722932136606
+    },
+    "ttl": {
+        "ttl": 0
+    },
+    "version": "2.0.0",
+    "trips": [
+        {
+            "accessibility_attributes": [],
+            "device_id": "d48ac4f0-d971-4cd0-be18-9658ebde9c75",
+            "distance": 8329,
+            "duration": 1652,
+            "end_location": {
+                "lat": 59.306113,
+                "lng": 18.107582
+            },
+            "end_time": 1718272978417,
+            "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+            "start_location": {
+                "lat": 59.311543,
+                "lng": 18.059523
+            },
+            "start_time": 1718271326209,
+            "trip_id": "95ba3c85-8087-457d-9fed-8469ffb2dad7",
+            "trip_type": [
+                "rider"
+            ]
+        }
+    ]
+}
+```
+
+
+A trip represents a journey taken by a customer with a geo-tagged start and stop point.
+The `/trips endpoint allows a user to query historical trip data that happened within the queried hour.
+
+See Open Mobility Foundation's MDS description on trips [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md#trips).
+
+### HTTPS request
+
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/trips`
+
+### Path parameters
+
+| parameter | description                         | presence |
+| --------- | ----------------------------------- | -------- |
+| zoneID    | The zone id for the requested trips | required |
+
+### Query parameters
+
+| parameter | description                                                                                                                       | presence |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| end_time  | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended DateTime representing a UTC hour between 00 and 23. | required |
+
+## Vehicles
+
+> A vehicles request.
+
+```shell
+# v2.0 - All vehicles
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/vehicles
+
+# V2.0 - Single device
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/vehicles/703af7e8-ac8c-5543-b2ac-64ef52812d19
+
+Do not copy ^ as the zone-ID or Accept might not match yours
+```
+
+> A vehicles response.
+
+```shell
+{
+    "version": "2.0.0",
+    "vehicles": [
+        {
+            "device_id": "703af7e8-ac8c-5543-b2ac-64ef52812d19",
+            "maximum_speed": 20,
+            "propulsion_types": [
+                "electric"
+            ],
+            "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+            "vehicle_id": "b383",
+            "vehicle_type": "scooter_standing"
+        },
+    ],
+    "links": {}
+}
+```
+
+The status of the inventory of vehicles available for customer use. The `/vehicles` endpoint returns all vehicles in the zone and their type.
+
+See Open Mobility Foundation's MDS description on status changes [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md#vehicles).
+
+### HTTPS request
+
+To fetch all vehicles in a zoneID
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles`
+
+Optionally to fetch the status of a single device
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles/{deviceID}`
+
+### Path parameters
+
+| parameter | description                                  | presence |
+| --------- | -------------------------------------------- | -------- |
+| zoneID    | The zone id for the requested status changes | required |
+| deviceID  | A specific deviceID to request               | optional |
+
+
+## Vehicle Status
+
+> A vehicle status request.
+
+```shell
+# v2.0 - All vehicles
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/vehicles/status
+
+# v2.0 - Single device 
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/vehicles/status/6aca5a87-60e9-51eb-8147-c38b58100c83
+
+Do not copy ^ as the zone-ID or Accept might not match yours
+```
+
+> A vehicle status response.
+
+```shell
+{
+    "last_updated": {
+        "last_updated": 0
+    },
+    "ttl": {
+        "ttl": 0
+    },
+    "version": "2.0.0",
+    "vehicles_status": [
+        {
+            "device_id": "6aca5a87-60e9-51eb-8147-c38b58100c83",
+            "last_event": {
+                "battery_percent": 54,
+                "device_id": "6aca5a87-60e9-51eb-8147-c38b58100c83",
+                "event_id": "276ced41-0b6d-482a-85b0-84755b7dc97f",
+                "event_types": [
+                    "trip_end"
+                ],
+                "location": {
+                    "lat": 59.31385,
+                    "lng": 18.075726
+                },
+                "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+                "timestamp": 1722841638075,
+                "trip_ids": [
+                    "9456de24-eb22-46bb-b8af-b114b29d496e"
+                ],
+                "vehicle_state": "available"
+            },
+            "last_telemetry": {
+                "battery_percent": 50,
+                "device_id": "6aca5a87-60e9-51eb-8147-c38b58100c83",
+                "journey_id": null,
+                "location": {
+                    "lat": 59.31388,
+                    "lng": 18.075653
+                },
+                "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+                "telemetry_id": "926adb5b-45a2-51e3-a9d4-dbd472f50d31",
+                "timestamp": 1722932388272,
+                "trip_ids": null
+            },
+            "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334"
+        }
+    ]
+}
+```
+
+The status of the inventory of vehicles available for customer use. The `/vehicles/status` endpoint returns all vehicles in the zone along with their most recent event and telemetry.
+
+See Open Mobility Foundation's MDS description on status changes [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md#vehicle-status).
+
+### HTTPS request
+
+To fetch all vehicles in a zoneID
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles/status`
+
+Optionally to fetch the status of a single device
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/vehicles/status/{deviceID}`
+
+### Path parameters
+
+| parameter | description                                  | presence |
+| --------- | -------------------------------------------- | -------- |
+| zoneID    | The zone id for the requested status changes | required |
+| deviceID  | A specific deviceID to request               | optional |
+
+## Events, recent
+
+> A recent events request.
+
+```shell
+# v2.0
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/events/recent?start_time=1722931200000&end_time=1722934800000
+
+Do not copy ^ as the zone-ID or Accept might not match yours
+```
+
+> A recent events response.
+
+```shell
+{
+    "last_updated": {
+        "last_updated": 1722935579741
+    },
+    "ttl": {
+        "ttl": 0
+    },
+    "version": "2.0.0",
+    "events": [
+        {
+            "battery_percent": 33,
+            "device_id": "1786c844-82e7-5fcd-88cf-e2b0869030d5",
+            "event_id": "222117b0-8cbb-4021-9eb7-799522ae9b54",
+            "event_types": [
+                "trip_start"
+            ],
+            "location": {
+                "lat": 59.33512,
+                "lng": 18.067327
+            },
+            "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+            "timestamp": 1722931201181,
+            "trip_ids": [
+                "504387ca-ac49-4198-845f-76e508fd5b73"
+            ],
+            "vehicle_state": "on_trip"
+        },
+    ],
+    "links": {}
+}
+```
+
+The `/events/recent` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events. The recent endpoint only provides data up to two weeks back in time. For more data, see [Historical events](#events,historical)
+
+The `/events/recent` endpoint functions similarly to `/vehicles/status`.
+
+See Open Mobility Foundation's MDS description of recent events [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md#recent-events).
+
+### HTTPS request
+
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/events/recent`
+
+### Path parameters
+
+| parameter | description                          | presence |
+| --------- | ------------------------------------ | -------- |
+| zoneID    | The zone id for the requested events | required |
+
+### Query parameters
+
+| parameter  | description                                      | presence |
+| ---------- | ------------------------------------------------ | -------- |
+| start_time | timestamp, integer milliseconds since Unix epoch | required |
+| end_time   | timestamp, integer milliseconds since Unix epoch | required |
+
+## Events, historical
+
+> A recent events request.
+
+```shell
+# v2.0
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/mds/1/events/historical?event_time=2024-06-13T10
+
+Do not copy ^ as the zone-ID or Accept might not match yours
+```
+
+> A historical events response.
+
+```shell
+{
+    "last_updated": {
+        "last_updated": 1722935878725
+    },
+    "ttl": {
+        "ttl": 0
+    },
+    "version": "2.0.0",
+    "events": [
+        {
+            "battery_percent": 84,
+            "device_id": "5a90ff25-a0eb-5995-a7e5-dc2f29091cd0",
+            "event_id": "5e61f822-46e1-462f-bbbe-9e8e8fd51191",
+            "event_types": [
+                "trip_start"
+            ],
+            "location": {
+                "lat": 59.314285,
+                "lng": 18.063965
+            },
+            "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+            "timestamp": 1718272800160,
+            "trip_ids": [
+                "f4249d42-80ae-467c-90cc-8b53bc070054"
+            ],
+            "vehicle_state": "on_trip"
+        },
+    ],
+    "links": {}
+}
+```
+
+The `/events/historical` endpoint is a hourly historical version of the `recent` events. It provides data that is older than two weeks (can also query data newer than two weeks) in chunks of one hour.  
+
+See Open Mobility Foundation's MDS description of historical events [v2.0](https://github.com/openmobilityfoundation/mobility-data-specification/blob/release-2.0.0/provider/README.md#events).
+
+### HTTPS request
+
+`GET api.voiapp.io/v1/partner-apis/mds/{zoneID}/events/historical`
+
+### Path parameters
+
+| parameter | description                          | presence |
+| --------- | ------------------------------------ | -------- |
+| zoneID    | The zone id for the requested events | required |
+
+### Query parameters
+
+| parameter   | description                                                                                                                       | presence |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| event_time  | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended DateTime representing a UTC hour between 00 and 23. | required |
+
+
+# MDS 1.2 and 0.4
+
+This section describes the Mobility Data Specification (MDS) provider API, explained in full on the Open Mobility Foundation's GitHub [v0.4](https://github.com/openmobilityfoundation/mobility-data-specification/tree/0.4.1/provider) and [v1.2](https://github.com/openmobilityfoundation/mobility-data-specification/tree/1.2.0/provider).
 
 ## Authentication
 
@@ -228,7 +635,7 @@ Every JSON file presented in this specification contains the same common header 
 
 ## Authentication
 
-Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
+Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds-12-and-04).
 
 ## Free bike status
 
@@ -420,7 +827,7 @@ Every JSON file presented in this specification contains the same common header 
 
 ### Authentication
 
-Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds).
+Authentication for GBFS is the same as for MDS and is described in the MDS section found [here](#mds-20).
 
 ## Auto-discovery
 
