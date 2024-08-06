@@ -322,7 +322,7 @@ Do not copy ^ as the zone-ID or Accept might not match yours
 }
 ```
 
-The `/events/recent` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events. The recent endpoint only provides data up to two weeks back in time. For more data, see [Historical events](#events,historical)
+The `/events/recent` endpoint is a near real-time feed of status changes, designed to give access to as recent as possible series of events. The recent endpoint only provides data up to two weeks back in time. For more data, see [Historical events](#events-historical)
 
 The `/events/recent` endpoint functions similarly to `/vehicles/status`.
 
