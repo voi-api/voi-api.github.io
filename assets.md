@@ -21,5 +21,5 @@ The most recently updated versions of these documents are always available at th
 
 # Status page
 
-Find information about service performance and ongoing incidents on the Voi status page. 
+Find information about service performance and ongoing and past incidents on the Voi status page. 
 [Voi status page] (https://voitechnology.statuspage.io/).
