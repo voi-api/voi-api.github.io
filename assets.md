@@ -3,7 +3,7 @@ layout: text
 title: Assets
 permalink: /assets/
 menu: main
-description: Graphics, legal documents
+description: Graphics, legal documents, and status page
 ---
 
 # Brand guidelines, design assets and user journey
@@ -18,3 +18,7 @@ The most recently updated versions of these documents are always available at th
 - [Frequently asked questions](https://help.voi.com/lang/en_gb/)
 - [Terms and conditions](https://www.voi.com/voi-user-agreement-12rr/)
 - [Privacy Policy](https://www.voi.com/legal/voi-privacy-policy/)
+
+# Status page
+
+Find information about service performance and ongoing and past incidents on the [Voi status page] (https://voitechnology.statuspage.io/).
