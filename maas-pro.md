@@ -187,10 +187,10 @@ All successful user interactions respond with the following user model.
 | id          | string | The unique id for the user (UUID Version 4)           | required |
 | type        | string | The type will be "user"                               | required |
 | email       | string | The user's email address                              | required |
+| externalId  | string | The user's id created in the API consumers own system | required |
 | firstName   | string | The user's first name                                 | optional |
 | lastName    | string | The user's last name                                  | optional |
 | phoneNumber | string | The user's phone number                               | optional |
-| externalId  | string | The user's id created in the API consumers own system | optional |
 
 ## Register user
 
@@ -207,10 +207,10 @@ Register user creates a new user with a unique user id. A user is required to be
 | field       | type   | description                                                                                                                                                                                                  | presence |
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
 | email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email adress. | required |
+| externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                  | required |
 | firstName   | string | The user's first name                                                                                                                                                                                        | optional |
 | lastName    | string | The user's last name                                                                                                                                                                                         | optional |
 | phoneNumber | string | The users' phone number. (not used as identifier)                                                                                                                                                            | optional |
-| externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                  | optional |
 | productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                              | optional |
 
 ### Errors
