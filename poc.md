@@ -11,5 +11,5 @@ description: Who to contact about what.
 | Topic                                                    | E-mail                                                                            |
 | -------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | Customer Support for End users                           | [support@voiapp.io](mailto:support@voiapp.io)                                     |
-| Finance                                                  | [partner-invoice@voiapp.io](mailto:partner-invoice@voiapp.io)                     |
+| Finance                                                  | [receivables@voiapp.io](mailto:receivables@voiapp.io)                             |
 | Existing integrated partners only API technical support  | [partner-technical-support@voiapp.io](mailto:partner-technical-support@voiapp.io) |
