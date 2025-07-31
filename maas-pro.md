@@ -537,49 +537,6 @@ The `beginners mode` is a feature that limits the speed of the vehicle to the zo
 | StatusInternalServerError | Internal error while trying to unlock vehicle   | FailedToUnlockVehicle           |
 | StatusInternalServerError | Unexpected Internal Error                       | FailedToStartRental             |
 
-## Manual Disarm
-
-The Manual Disarm is dedicated to vehicles that are equipped with a lock that requires manual steps from a user such as (e-bikes).
-This endpoint is required only when the vehicle type is `bicycle`
-
-> An Manual Disarm request.
-
-```shell
-curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df279372/disarm
-  -H "X-Auth-Token: $TOKEN"
-  -d "{
-           "userEndLocation": {
-                    "longitude": 18.07571600384937,
-                    "latitude": 59.319013004374839
-           }
-      }"
-```
-
-### HTTPS request
-
-`POST https://partners.voiapp.io/v1/rental/<rentalId>/disarm`
-
-### Path parameters
-
-| parameter | description          |
-| --------- | -------------------- |
-| rentalId  | The id of the rental |
-
-### Post data
-
-| field           | type   | description                                 | presence |
-| --------------- | ------ | ------------------------------------------- | -------- |
-| userEndLocation | object | The user’s location when disarm the vehicle | optional |
-
-### Errors
-
-| Code                      | Detail                        | ErrorCode                  |
-| ------------------------- | ----------------------------- | -------------------------- |
-| StatusBadRequest          | Invalid rental id             | InvalidRentalID            |
-| StatusNotFound            | Rental ID does not exist      | RentalIDDoesNotExist       |
-| StatusMethodNotAllowed    | Vehicle not manually lockable | VehicleNotManuallyLockable |
-| StatusMethodNotAllowed    | Vehicle is already locked     | VehicleAlreadyLocked       |
-| StatusInternalServerError |                               |
 
 ## End rental
 
