@@ -10,7 +10,7 @@ description: A MaaS API, used for completing full user journeys.
 
 ## API contract
 
-Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. This API is not rate-limited but we expect you to cache cacheable data. More details on each point.
+Regardless of new features launched in the future, Voi commits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. This API is not rate-limited, but we expect you to cache cacheable data. More details on each point.
 
 All major updates will be communicated with all active partners via email before they are implemented.
 
@@ -18,16 +18,15 @@ All major updates will be communicated with all active partners via email before
 
 For a broader description of the integration-process, check out our [checklist](/checklist-deep/).
 
-Test your applicaition against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The test-enviroment differ from the real enviroment in theese ways.
+Test your application against our staging environment. In staging, we provide virtual scooters and available zone types, located in Berlin. The staging-environment differ from the real environment in these ways.
 
-- Whenever you call the scooter with unlocking or lock it will respond with success, even if you already have a rental running, for example.
-
-- The scooter's location will not change even if you provide an end ride location.
-- The zones and scooters are spread over a much larger area than the real scooters.
+- Whenever you call the vehicle with unlocking or lock it will respond with success, even if you already have a rental running, for example.
+- The vehicle location will not change even if you provide an end ride location.
+- The zones and vehicles are spread over a much larger area than the real vehicles.
 
 ## Going live
 
-Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment in the cities you operate in together with your cities zoneId:s. Now you will be able to test the integration with real scooters that you can pick from the street. Test the integration in closed beta before giving access to all your users.
+Once the development is done, reach out to our [point of contact for engineering](/poc/) to receive keys to our production environment in the cities you operate in together with your cities zoneId:s. Now you will be able to test the integration with real vehicles that you can pick from the street. Test the integration in closed beta before giving access to all your users.
 
 ## Rate Limit
 
@@ -54,12 +53,12 @@ API endpoints available for the mobility partner, are protected with token authe
 ## Header Parameters
 
 | Key          | Value      |
-| ------------ | ---------- |
+|--------------|------------|
 | X-Auth-Token | your-token |
 
 # Product
 
-A product is usually a distinct app with a different name. We keep them seperate for monitoring, invoicing and customer support. All users are associated with a single product. You can have unlimited products and they will only available with your auth token. You should use the same product for multiple platforms, for example if you run your app on both iOs and Android.
+A product is usually a distinct app with a different name. We keep them separate for monitoring, invoicing and customer support. All users are associated with a single product. You can have unlimited products, and they will be only available with your auth token. You should use the same product for multiple platforms, for example if you run your app on both iOs and Android.
 
 ## Product model
 
@@ -83,11 +82,11 @@ A product is usually a distinct app with a different name. We keep them seperate
 ### Response
 
 | field       | type   | description                                    | presence |
-| ----------- | ------ | ---------------------------------------------- | -------- |
+|-------------|--------|------------------------------------------------|----------|
 | id          | string | The product's id (UUID version 4)              | Required |
-| type        | string | For vehicles the type will always be "product" | Required |
+| type        | string | For vehicles the type will always be "product" | Required |
 | productName | string | Your products name                             | Required |
-| state       | string | Can be acitve or inactive                      | Required |
+| state       | string | Can be active or inactive                      | Required |
 
 ## Register
 
@@ -97,14 +96,14 @@ Use to register a new product.
 
 ### Payload Request
 
-| parameter   | description                     | Presense |
-| ----------- | ------------------------------- | -------- |
+| parameter   | description                     | presence |
+|-------------|---------------------------------|----------|
 | productName | The actual name of the product. | Required |
 
 ### Errors
 
 | Code                      | Detail                     | ErrorCode               |
-| ------------------------- | -------------------------- | ----------------------- |
+|---------------------------|----------------------------|-------------------------|
 | StatusBadRequest          | Invalid request body       | InvalidRequestBody      |
 | StatusBadRequest          | Empty product name         | EmptyProductName        |
 | StatusInternalServerError | Failed to register product | FailedToRegisterProduct |
@@ -118,7 +117,7 @@ Will return a list of all your products
 ### Errors
 
 | Code               | Detail                | ErrorCode          |
-| ------------------ | --------------------- | ------------------ |
+|--------------------|-----------------------|--------------------|
 | FailedToGetProduct | Failed to get product | FailedToGetProduct |
 
 ## Update
@@ -129,15 +128,15 @@ Use to update a product name.
 
 ### Payload Request
 
-| parameter   | description                               | Presense |
-| ----------- | ----------------------------------------- | -------- |
-| productName | The new name of your product.             | Required |
-| productId   | The id of the product you want to change  | Required |
+| parameter   | description                              | presence |
+|-------------|------------------------------------------|----------|
+| productName | The new name of your product.            | Required |
+| productId   | The id of the product you want to change | Required |
 
 ### Errors
 
 | Code                      | Detail                   | ErrorCode             |
-| ------------------------- | ------------------------ | --------------------- |
+|---------------------------|--------------------------|-----------------------|
 | StatusBadRequest          | Invalid request body     | InvalidRequestBody    |
 | EmptyProductName          | Empty product name       | EmptyProductName      |
 | StatusBadRequest          | Empty product id         | ErrEmptyProductID     |
@@ -152,8 +151,8 @@ Use to delete a product. The product will still be listed but marked as inactive
 
 ### Path parameters
 
-| parameter | description                               | Presense |
-| --------- | ----------------------------------------- | -------- |
+| parameter | description                               | presence |
+|-----------|-------------------------------------------|----------|
 | productId | The id of the product you want to delete. | Required |
 
 # User
@@ -183,7 +182,7 @@ This section describes the possible interactions with the user domain of the API
 All successful user interactions respond with the following user model.
 
 | field       | type   | description                                           | presence |
-| ----------- | ------ | ----------------------------------------------------- | -------- |
+|-------------|--------|-------------------------------------------------------|----------|
 | id          | string | The unique id for the user (UUID Version 4)           | required |
 | type        | string | The type will be "user"                               | required |
 | email       | string | The user's email address                              | required |
@@ -204,25 +203,27 @@ Register user creates a new user with a unique user id. A user is required to be
 
 ### Post data
 
-| field       | type   | description                                                                                                                                                                                                  | presence |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email adress. | required |
-| externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                  | required |
-| firstName   | string | The user's first name                                                                                                                                                                                        | optional |
-| lastName    | string | The user's last name                                                                                                                                                                                         | optional |
-| phoneNumber | string | The users' phone number. (not used as identifier)                                                                                                                                                            | optional |
-| productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                              | optional |
+| field       | type   | description                                                                                                                                                                                                   | presence |
+|-------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email address. | required |
+| externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                   | required |
+| firstName   | string | The user's first name                                                                                                                                                                                         | optional |
+| lastName    | string | The user's last name                                                                                                                                                                                          | optional |
+| phoneNumber | string | The users' phone number. (not used as identifier)                                                                                                                                                             | optional |
+| productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                               | optional |
 
 ### Errors
 
-| Code                      | Detail                               | ErrorCode                   |
-| ------------------------- | ------------------------------------ | --------------------------- |
-| StatusBadRequest          | Invalid request body                 | InvalidRequestBody          |
-| StatusBadRequest          | This external user id already exists | ExternalUserIDAlreadyExists |
-| StatusBadRequest          | Empty user email id                  | EmptyUserEmailID            |
-| StatusInternalServerError |                                      |
+| Code                      | Detail                    | ErrorCode                 |
+|---------------------------|---------------------------|---------------------------|
+| StatusBadRequest          | Invalid request body      | InvalidRequestBody        |
+| StatusBadRequest          | Empty user external id    | ErrEmptyUserExternalID    |
+| StatusBadRequest          | Empty user email id       | EmptyUserEmailID          |
+| StatusBadRequest          | Invalid user email format | ErrInvalidUserEmailID     |
+| StatusInternalServerError | Unable to register user   | ErrUserRegistrationFailed |
+| StatusInternalServerError |                           |                           |
 
-<aside class="warning">We have some problems with older scooter models failing to unlock. For some scooters this can generate long response-times and/or StatusInternalServerError errors.</aside>
+<aside class="warning">We have some problems with older vehicle models failing to unlock. For some vehicles this can generate long response-times and/or StatusInternalServerError errors.</aside>
 
 ## Get user
 
@@ -260,13 +261,13 @@ Get user by user-id
 ### Path parameters
 
 | parameter | description                  | presence |
-| --------- | ---------------------------- | -------- |
+|-----------|------------------------------|----------|
 | id        | the user id (UUID version 4) | required |
 
 ### Errors
 
 | Code                      | Detail          | ErrorCode       |
-| ------------------------- | --------------- | --------------- |
+|---------------------------|-----------------|-----------------|
 | StatusBadRequest          | Invalid user id | InvalidUserId   |
 | StatusNotFound            | User not found  | ErrUserNotFound |
 | StatusInternalServerError |                 |
@@ -308,7 +309,7 @@ Update user details allow for a user to be updated. Only fields that are sent in
 ### Patch parameters
 
 | field       | type   | description              | presence |
-| ----------- | ------ | ------------------------ | -------- |
+|-------------|--------|--------------------------|----------|
 | email       | string | The user's email address | optional |
 | firstName   | string | The user's first name    | optional |
 | lastName    | string | The user's last name     | optional |
@@ -317,7 +318,7 @@ Update user details allow for a user to be updated. Only fields that are sent in
 ### Errors
 
 | Code                      | Detail               | ErrorCode          |
-| ------------------------- | -------------------- | ------------------ |
+|---------------------------|----------------------|--------------------|
 | StatusBadRequest          | Invalid request body | InvalidRequestBody |
 | StatusNotFound            | User not found       | ErrUserNotFound    |
 | StatusInternalServerError |                      |
@@ -401,11 +402,11 @@ A rental is a domain where a user has access to a scooter. It is done by startin
 All successful rental interactions responds with the following rental model.
 
 | field                | type    | description                                                                                                                                                                                                                                                                                 | presence                                   |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+|----------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
 | id                   | string  | The rental's unique id (UUID Version 4)                                                                                                                                                                                                                                                     | required                                   |
 | type                 | string  | The type will be "rental"                                                                                                                                                                                                                                                                   | required                                   |
 | rentalDurationMin    | integer | The rental's duration, in full minutes, rounded up. Used for calculating the charge.                                                                                                                                                                                                        | required                                   |
-| rentalDistanceMeters    | integer | The rental's distance travelled, in full meters, rounded up.                                                                                                                                                                                                        | required                                   |
+| rentalDistanceMeters | integer | The rental's distance travelled, in full meters, rounded up.                                                                                                                                                                                                                                | required                                   |
 | cost                 | object  | Contains rental's cost information,                                                                                                                                                                                                                                                         | required                                   |
 | startPrice           | integer | Unlock fee (null if unknown for historical data)                                                                                                                                                                                                                                            | optional                                   |
 | pricePerMinute       | integer | Price per rounded-up minute (null if unknown for historical data)                                                                                                                                                                                                                           | optional                                   |
@@ -427,8 +428,8 @@ All successful rental interactions responds with the following rental model.
 | vehicleEndLocation   | object  | The vehicle’s end location                                                                                                                                                                                                                                                                  | optional                                   |
 | longitude            | number  | The longitude component in a location                                                                                                                                                                                                                                                       | required (if parent object is present)     |
 | latitude             | number  | The latitude component in a location                                                                                                                                                                                                                                                        | required (if parent object is present)     |
-| receipt              |  object | The receipt object                                                                                                                                                                                                                                                                          | required for ended rides                   |
-| url                  |  string |  A link to a pdf containing the receipt.                                                                                                                                                                                                                                                    | required (if the parent object is present) |
+| receipt              | object  | The receipt object                                                                                                                                                                                                                                                                          | required for ended rides                   |
+| url                  | string  | A link to a pdf containing the receipt.                                                                                                                                                                                                                                                     | required (if the parent object is present) |
 
 <aside class="warning">The <code>amount</code> is always in <b>minor units</b>. In most currencies the relation between the major unit and the minor unit is 1/100.<br>
 <b>Example:</b> In the currency euro (EUR), 100 of the minor unit cent corresponds with one major unit of EUR. <br>
@@ -507,7 +508,7 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 ### JSON body data
 
 | field                | type    | description                                       | presence |
-| -------------------- | ------- | ------------------------------------------------- | -------- |
+|----------------------|---------|---------------------------------------------------|----------|
 | userId               | string  | The id of the user for whom the rental is started | required |
 | vehicleId            | string  | The id of the vehicle which will be rented.       | required |
 | userStartLocation    | object  | The user’s location when starting the rental      | optional |
@@ -516,12 +517,19 @@ Start rental makes a vehicle accessible to ride. The vehicle-Id is usually retri
 
 The `beginners mode` is a feature that limits the speed of the vehicle to the zone reduced speed. This is a feature that is used to make the scooter more accessible to new users.
 
-<aside class="notic">It is upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.</aside>
+<aside class="notice">
+It is upto the partner to decide if the user reached the minimum number of required rides to be able to start a rental without beginners mode.
+</aside>
+
+<aside class="notice">
+We do not limit the duration of the rental as soon as its running. 
+</aside>
+
 
 ### Errors
 
 | Code                      | Detail                                          | ErrorCode                       |
-| ------------------------- | ----------------------------------------------- | ------------------------------- |
+|---------------------------|-------------------------------------------------|---------------------------------|
 | StatusBadRequest          | Invalid request body                            | InvalidRequestBody              |
 | StatusBadRequest          | Invalid user id                                 | InvalidUserId                   |
 | StatusBadRequest          | Invalid vehicle id                              | InvalidVehicleId                |
@@ -616,19 +624,19 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 ### Path parameters
 
 | parameter | description                              |
-| --------- | ---------------------------------------- |
+|-----------|------------------------------------------|
 | rentalId  | The id of the rental that is to be ended |
 
 ### Post data
 
 | field           | type   | description                                | presence |
-| --------------- | ------ | ------------------------------------------ | -------- |
+|-----------------|--------|--------------------------------------------|----------|
 | userEndLocation | object | The user’s location when ending the rental | optional |
 
 ### Errors
 
 | Code                      | Detail                                     | ErrorCode                  |
-| ------------------------- | ------------------------------------------ | -------------------------- |
+|---------------------------|--------------------------------------------|----------------------------|
 | StatusBadRequest          | Invalid rental id                          | InvalidRentalID            |
 | StatusNotFound            | Rental ID does not exist                   | RentalIDDoesNotExist.      |
 | StatusBadRequest          | Rental is already ended for this rental id | RentalAlreadyEnded         |
@@ -639,7 +647,7 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 Pricing is under active development and constantly evolving, but it typically consists of a fixed fee and a minute fee. Below are other conditions that will also affect the price of the ride. Regardless, the actual price will always be returned when ending the ride.
 
-**End ride fines** If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will end the ride with a cost corresponding to the time when the scooter stopped moving and in additon add a fee of 25€. This fee will be included in the end-ride charge.
+**End ride fines** If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will end the ride with a cost corresponding to the time when the scooter stopped moving and in addition add a fee of 25€. This fee will be included in the end-ride charge.
 
 **Short rides** For rides **before** 1st of January 2024, If the users ride for less than 100 meters or less than 2 minutes, we will not charge for the ride. It is optional for the partner to present receipts and/or add these rides to the invoicing material. after 1st of January 2024, we will charge for all rides.
 
@@ -669,7 +677,7 @@ that the partners **must** use to upload a photo of the parked vehicle.
 Possible decisions are:
 
 | decision     | description                                                    |
-| ------------ | -------------------------------------------------------------- |
+|--------------|----------------------------------------------------------------|
 | good-parking | The photo is accepted and vehicle is parked correctly.         |
 | bad-parking  | The photo is not accepted and vehicle is not parked correctly. |
 | bad-photo    | The photo could not be processed.                              |
@@ -679,7 +687,7 @@ Possible decisions are:
 ### Errors
 
 | Code                            | Detail                              |
-| ------------------------------- | ----------------------------------- |
+|---------------------------------|-------------------------------------|
 | InvalidParkingPhoto             | Invalid parking photo               |
 | ValidateParkingPhotoFailed      | Validate parking photo failed       |
 | ErrRentalIsNotEnded             | Rental is not ended                 |
@@ -695,8 +703,12 @@ Possible decisions are:
 - The photo must be in raw format (not base64 encoded).
 - The HTTP requests must use the PUT verb.
 - The request must specify the content-type header as `image/jpeg`.
+- Absence of the photo will result in a `bad-parking` decision.
 
 ## Rental by id
+
+> A get rental by id request. this endpoint can be used to get the status of a rental.
+> Recommended frequency is every 10 seconds.
 
 ```shell
 curl https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df279372
@@ -713,7 +725,7 @@ Returns the [rental model](#rental-model)
 ### Path parameters
 
 | parameter | description                           |
-| --------- | ------------------------------------- |
+|-----------|---------------------------------------|
 | id        | The rental id of the requested rental |
 
 ## Active rental by user
@@ -735,13 +747,13 @@ Returns the [rental model](#rental-model) for the currently active rental.
 ### Path parameters
 
 | parameter | description                          |
-| --------- | ------------------------------------ |
+|-----------|--------------------------------------|
 | id        | The user id for the requested rental |
 
 ### Errors
 
 | Code                      | Detail                       | ErrorCode            |
-| ------------------------- | ---------------------------- | -------------------- |
+|---------------------------|------------------------------|----------------------|
 | StatusBadRequest          | Invalid input                | InvalidInput         |
 | StatusNotFound            | Unable to find active rental | ActiveRentalNotFound |
 | StatusInternalServerError |                              |
@@ -763,13 +775,13 @@ Returns the [rental model](#rental-model) for users all rentals.
 ### Path parameters
 
 | parameter | description                           |
-| --------- | ------------------------------------- |
+|-----------|---------------------------------------|
 | id        | The user id for the requested rentals |
 
 ### Errors
 
 | Code                      | Detail          | ErrorCode       |
-| ------------------------- | --------------- | --------------- |
+|---------------------------|-----------------|-----------------|
 | StatusBadRequest          | Invalid input   | InvalidInput    |
 | StatusBadRequest          | Invalid user id | InvalidUserId   |
 | StatusNotFound            | User not found  | ErrUserNotFound |
@@ -801,7 +813,7 @@ The cost of renting a Voi can differ, amongst others based on where the scooter 
 All successful pricing interactions responds with the following pricing model.
 
 | field          | type    | description                                                         | presence |
-| -------------- | ------- | ------------------------------------------------------------------- | -------- |
+|----------------|---------|---------------------------------------------------------------------|----------|
 | id             | string  | The vehicle's id (UUID version 4) for which the pricing is derived  | required |
 | type           | string  | For pricing the type will always be "pricing"                       | required |
 | pricePerMinute | integer | the price per minute, including Vat, in minor units                 | required |
@@ -844,13 +856,13 @@ Pricing information can be accessed for a particular vehicle by referencing the 
 ### Path parameters
 
 | parameter | description                      | presence |
-| --------- | -------------------------------- | -------- |
+|-----------|----------------------------------|----------|
 | id        | The vehicle id (UUID version 4). | required |
 
 ### Errors
 
 | Code                      | Detail             | ErrorCode        |
-| ------------------------- | ------------------ | ---------------- |
+|---------------------------|--------------------|------------------|
 | StatusBadRequest          | Invalid vehicle id | InvalidVehicleId |
 | StatusInternalServerError |                    |
 
@@ -886,26 +898,26 @@ Pricing information can be accessed for a particular vehicle by referencing the 
 
 All successful vehicle interactions responds with the following vehicle model.
 
-| field          | type    | description                                                                                          | presence |
-| -------------- | ------- | ---------------------------------------------------------------------------------------------------- | -------- |
-| id             | string  | The vehicle's id (UUID version 4)                                                                    | required |
-| type           | string  | For vehicles the type will always be "vehicle"                                                       | required |
-| vehicle_type   | string  | The vehicles type , values are `scooter`, `bicycle`                                                  | required |
-| attributes     | object  | The vehicle’s attributes, see below                                                                  | required |
-| batteryLevel   | integer | The state of charge of the vehicles' battery in percent (0-100)                                      | required |
-| location       | object  | The vehicle’s location                                                                               | required |
-| longitude      | number  | The longitude component of the location                                                              | required |
-| latitude       | number  | The latitude component of the location                                                               | required |
-| code           | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code.       | required |
-| zoneId         | string  | The zone id in which this vehicle operates.                                                          | required |
-| locked         | bool    | The lock status of the vehicle.                                                                      | required |
-| status         | string  | The availability status of the vehicle, can be one of 'ready', 'riding', 'booked' or 'unavailable'.  | required |
-| maxRangeMeters | number  | The max range in meters for the this vehicle type                                                    | required |
-| price          | object  | The vehicle price                                                                                    | required |
-| pricePerMinute | integer | the price per minute, including Vat, in minor units                                                  | required |
-| startPrice     | integer | the start price, including Vat in minor units (also called subunit)                                  | required |
-| currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                                 | required |
-| vat            | integer | the VAT percentage                                                                                   | required |
+| field          | type    | description                                                                                         | presence |
+|----------------|---------|-----------------------------------------------------------------------------------------------------|----------|
+| id             | string  | The vehicle's id (UUID version 4)                                                                   | required |
+| type           | string  | For vehicles the type will always be "vehicle"                                                      | required |
+| vehicle_type   | string  | The vehicles type , values are `scooter`, `bicycle`                                                 | required |
+| attributes     | object  | The vehicle’s attributes, see below                                                                 | required |
+| batteryLevel   | integer | The state of charge of the vehicles' battery in percent (0-100)                                     | required |
+| location       | object  | The vehicle’s location                                                                              | required |
+| longitude      | number  | The longitude component of the location                                                             | required |
+| latitude       | number  | The latitude component of the location                                                              | required |
+| code           | string  | The 4-letter alphanumeric vehicle code, also available on the physical vehicle and as QR-code.      | required |
+| zoneId         | string  | The zone id in which this vehicle operates.                                                         | required |
+| locked         | bool    | The lock status of the vehicle.                                                                     | required |
+| status         | string  | The availability status of the vehicle, can be one of 'ready', 'riding', 'booked' or 'unavailable'. | required |
+| maxRangeMeters | number  | The max range in meters for the this vehicle type                                                   | required |
+| price          | object  | The vehicle price                                                                                   | required |
+| pricePerMinute | integer | the price per minute, including Vat, in minor units                                                 | required |
+| startPrice     | integer | the start price, including Vat in minor units (also called subunit)                                 | required |
+| currency       | string  | the three-letter alphabetic currency code (ISO 4217)                                                | required |
+| vat            | integer | the VAT percentage                                                                                  | required |
 
 ## Get vehicles by zone
 
@@ -980,7 +992,7 @@ To be able to start a rental or get pricing, the vehicle which is subject to the
 ### Query parameters
 
 | parameter | description                  | presence |
-| --------- | ---------------------------- | -------- |
+|-----------|------------------------------|----------|
 | zoneID    | The id of the requested zone | required |
 
 <aside class="warning">You can only get vehicles from the operational zones you have access to.</aside>
@@ -988,7 +1000,7 @@ To be able to start a rental or get pricing, the vehicle which is subject to the
 ### Errors
 
 | Code                      | Detail | ErrorCode |
-| ------------------------- | ------ | --------- |
+|---------------------------|--------|-----------|
 | StatusInternalServerError |        |
 
 ## Get Vehicle by code
@@ -1041,16 +1053,16 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
 ### Path parameters
 
 | parameter | description                                                                              | presence |
-| --------- | ---------------------------------------------------------------------------------------- | -------- |
+|-----------|------------------------------------------------------------------------------------------|----------|
 | code      | the 4-letter alphanumeric vehicle code, visually available on the vehicle in text and as | required |
 
 ### Errors
 
-| Code                      | Detail                     | ErrorCode               |
-| ------------------------- | -------------------------- | ----------------------- |
-| StatusBadRequest          | vehicle code incorrect     | BadVehicleCode          |
-| StatusNotFound            | vehicle not found          | VehicleNotFound         |
-| StatusInternalServerError |                            |                         |
+| Code                      | Detail                 | ErrorCode       |
+|---------------------------|------------------------|-----------------|
+| StatusBadRequest          | vehicle code incorrect | BadVehicleCode  |
+| StatusNotFound            | vehicle not found      | VehicleNotFound |
+| StatusInternalServerError |                        |                 |
 
 ## Get Vehicle by id
 
@@ -1100,16 +1112,16 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 ### Query parameters
 
 | parameter | description                       | presence |
-| --------- | --------------------------------- | -------- |
+|-----------|-----------------------------------|----------|
 | id        | The vehicle's id (UUID version 4) | required |
 
 ### Errors
 
-| Code                      | Detail                     | ErrorCode               |
-| ------------------------- | -------------------------- | ----------------------- |
-| StatusBadRequest          | vehicle id incorrect       | InvalidVehicleID        |
-| StatusNotFound            | vehicle not found          | VehicleNotFound         |
-| StatusInternalServerError |                            |                         |
+| Code                      | Detail               | ErrorCode        |
+|---------------------------|----------------------|------------------|
+| StatusBadRequest          | vehicle id incorrect | InvalidVehicleID |
+| StatusNotFound            | vehicle not found    | VehicleNotFound  |
+| StatusInternalServerError |                      |                  |
 
 # Zone
 
@@ -1174,12 +1186,12 @@ curl https://partners.voiapp.io/v1/vehicles/id/12345678-1337-abcd-1234-1234abcd0
 }
 ```
 
-Every city has it's own operational zone. Within each operational zone, there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
+Every city has its own operational zone. Within each operational zone, there are zone areas, such as no-parking areas, slow areas, and operational areas. To display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
 
 ### Supported Zone Areas
 
 | area type     | Description                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------- |
+|---------------|-----------------------------------------------------------------------------------------------------------|
 | operations    | The operational area, where Voi operates                                                                  |
 | no-parking    | An area where rentals can't be ended\*                                                                    |
 | parking-spot  | An area where a rental must be ended\*                                                                    |
@@ -1199,7 +1211,7 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 ### Path parameters
 
 | parameter | description                  |
-| --------- | ---------------------------- |
+|-----------|------------------------------|
 | zoneId    | The id of the requested zone |
 
 <aside class="warning">All behavior connected to the areas in a zone is enforced by the system. But for good A user experience, we recommend explaining the areas and their implication TO the user.</aside>
@@ -1207,7 +1219,7 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 ### Response
 
 | field      | type   | description                              | presence |
-| ---------- | ------ | ---------------------------------------- | -------- |
+|------------|--------|------------------------------------------|----------|
 | id         | string | ID of the operational zone               | required |
 | type       | string | For zones the type will always be "area" | required |
 | attributes | object | Operation attributes                     | required |
@@ -1215,23 +1227,23 @@ Some of our operational zones have vehicle sleep times. During vehicle sleep tim
 #### Attributes
 
 | field | type  | description               | presence |
-| ----- | ----- | ------------------------- | -------- |
+|-------|-------|---------------------------|----------|
 | areas | array | Array of operations areas | required |
 
 #### Area
 
-| field         | type   | description                                                                                                                              | presence |
-|---------------|--------|------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| id            | string | The id of the area                                                                                                                       | required |
-| type          | string | The type of the area                                                                                                                     | required |
-| area_type     | string | The area type [Area Types](#supported-zone-areas)                                                                                        | required |
-| vehicle_types | array  | Array of vehicle types which can operate this area, empty means no restriction on vehicle type. possible values are `scooter`, `bicycle` | optional |
-| geometry      | object | Describes the geometry for the area (geoJSON), described as multipolygons.                                                               | required |
+| field         | type   | description                                                                                                                                    | presence |
+|---------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| id            | string | The id of the area                                                                                                                             | required |
+| type          | string | The type of the area                                                                                                                           | required |
+| area_type     | string | The area type [Area Types](#supported-zone-areas)                                                                                              | required |
+| vehicle_types | array  | Array of vehicle types which can operate this area, empty means no restriction on vehicle type. possible values are `scooter`, `bicycle`       | optional |
+| geometry      | object | Describes the geometry for the area (geoJSON), described as multipolygons.                                                                     | required |
 
 ### Errors
 
 | Code                      | Detail            | ErrorCode   |
-| ------------------------- | ----------------- | ----------- |
+|---------------------------|-------------------|-------------|
 | StatusBadRequest          | Zone id was empty | EmptyZoneID |
 | StatusInternalServerError |                   |
 
@@ -1268,7 +1280,7 @@ Replace {id} with relevant zoneID
 ### Response
 
 | field     | type   | description                                                         |
-| --------- | ------ | ------------------------------------------------------------------- |
+|-----------|--------|---------------------------------------------------------------------|
 | Id        | String | Specific parking-spot area id                                       |
 | Occupancy | Number | Number of parked scooters in the parking-spot area                  |
 | Capacity  | Number | Maximum Capacity of number of scooters inside the parking-spot area |
@@ -1317,7 +1329,7 @@ Get all operational zones that a partner has access to.
 ### Response
 
 | field                       | type    | description                                           |
-| --------------------------- | ------- | ----------------------------------------------------- |
+|-----------------------------|---------|-------------------------------------------------------|
 | zones                       | object  | A zone object                                         |
 | zoneId                      | Number  | Vois unique id of the operational Zone                |
 | zoneName                    | Number  | The name of the city                                  |
@@ -1329,14 +1341,14 @@ Get all operational zones that a partner has access to.
 #### Parking mode
 
 | parking mode  | description                                                                       |
-| ------------- | --------------------------------------------------------------------------------- |
+|---------------|-----------------------------------------------------------------------------------|
 | free-floating | Users can end their ride anywhere, except for in No parking zone & No Riding Zone |
 | parking-spot  | Users will only be able to end their ride inside a Parking spot                   |
 
 #### Speed config
 
 | parking mode     | description                                                                                                           |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+|------------------|-----------------------------------------------------------------------------------------------------------------------|
 | maxSpeed         | Maximum speed for the zone, for unit see `speedUnit`.                                                                 |
 | minRequiredRides | Minimum required rides defined for a zone to be eligible to upgrade from beginners (speed) mode to normal speed mode. |
 | reducedSpeed     | Reduced speed for beginners mode given in the unit defined in `speedUnit`.                                            |
@@ -1350,8 +1362,11 @@ Since the right to be forgotten and other GDPR-requests require that we go throu
 
 ## Endpoints not planned
 
-For clarity, here we list endpoints that are nost available. We have not planned to build them as of yet but will notify all our partners if we do.
+For clarity, here we list endpoints that are not available. We have not planned to build them yet but will notify all our partners if we do.
 
 - It's not possible to delete users in our system
 - Ask user to contact our customer support for the right to be forgotten.
 - We have not included lock and reserve in our API, since the feature is not widely used.
+- Payment methods are not available in the API, since we do not support payment methods in the partner app.
+- We do not have a way to provide a reason for absense of parking photo.
+- We do not provide callbacks or webhooks for any of the endpoints, all interactions are pull-based.
