@@ -522,7 +522,7 @@ It is upto the partner to decide if the user reached the minimum number of requi
 </aside>
 
 <aside class="notice">
-We do not limit the duration of the rental as soon as its running. 
+We do not restrict the duration of any rental while it is active. 
 </aside>
 
 
