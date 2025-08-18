@@ -1052,9 +1052,10 @@ curl https://partners.voiapp.io/v1/vehicles/code/L33T
 
 ### Path parameters
 
-| parameter | description                                                                              | presence |
-|-----------|------------------------------------------------------------------------------------------|----------|
-| code      | the 4-letter alphanumeric vehicle code, visually available on the vehicle in text and as | required |
+| parameter | description                                                                                                                                  | presence |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| code      | The 4-character alphanumeric vehicle code, printed on the vehicle and encoded in the QR code URI (format: https://open.voi.com/scan/{code}). | required |
+
 
 ### Errors
 
