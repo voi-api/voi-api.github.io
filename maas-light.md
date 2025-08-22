@@ -1909,7 +1909,7 @@ See Open Mobility Foundation's MDS description on versioning [here](https://gith
 ```shell
 # v2.0
 $ curl -H "Accept: application/vnd.insurance+json;version=2.0"
-  api.voiapp.io/v1/partner-apis/insurance/1/trips?end_time=2025-08-06T12
+  api.voiapp.io/v1/partner-apis/insurance/1/trips?end_time=2025-08-16T13
 
 Do not copy ^ as the zone-ID or Accept might not match yours
 ```
@@ -1926,15 +1926,17 @@ Do not copy ^ as the zone-ID or Accept might not match yours
             "city": "Berlin",
             "country": "DE",
             "device_id": "93d4e213-0d93-5839-a631-8070ded1be5a",
-            "duration": 31,
+            "distance": 5903,
+            "duration": 3269,
+            "average_ride_speed": 6,
             "start_location": {
-                "lat": 59.338303,
-                "lng": 18.06197
+                "lat": 52.53364,
+                "lng": 13.4337015
             },
-            "start_time": 1754482925099,
+            "start_time": 1755346018818,
             "end_location": {
-                "lat": 59.9091,
-                "lng": 10.74257
+                "lat": 52.57755,
+                "lng": 13.427708
             },
             "end_time": 1754482956399,
             "is_group_ride": false,
@@ -1965,7 +1967,9 @@ The `trips:` Payload `{ "trips": [] }`, is an array of objects with the followin
 | `city`                       | String  | City where the trip took place                                                         |
 | `country`                    | String  | Country code where the trip took place                                                 |
 | `device_id`                  | String  | Unique identifier for the device used                                                  |
+| `distance`                   | Number  | Distance of the trip in meters                                                         |
 | `duration`                   | Number  | Duration of the trip in seconds                                                        |
+| `average_ride_speed`         | Number  | Average speed during the trip in kilometers per hour                                   |
 | `start_location`             | Object  | Object containing lat/lng coordinates where trip started                               |
 | `start_time`                 | Number  | Unix timestamp when trip started                                                       |
 | `end_location`               | Object  | Object containing lat/lng coordinates where trip ended                                 |
