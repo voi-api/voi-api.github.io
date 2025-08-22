@@ -1899,7 +1899,7 @@ See Open Mobility Foundation's MDS description on versioning [here](https://gith
 
 | Key    | Value                                |
 | ------ | ------------------------------------ |
-| Accept | application/vnd.mds+json;version=2.0 |
+| Accept | application/vnd.insurance+json;version=2.0 |
 
 
 ## Trips
@@ -1908,7 +1908,7 @@ See Open Mobility Foundation's MDS description on versioning [here](https://gith
 
 ```shell
 # v2.0
-$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+$ curl -H "Accept: application/vnd.insurance+json;version=2.0"
   api.voiapp.io/v1/partner-apis/insurance/1/trips?end_time=2025-08-06T12
 
 Do not copy ^ as the zone-ID or Accept might not match yours
