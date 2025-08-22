@@ -1845,3 +1845,155 @@ The `data:` Payload `{ "regions": [] }`, is an array of objects with the followi
 | ------------ | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `region_id`  | String | Unique identifier for this region (e.g. "3", "4", "5", "6")                                                                 |
 | `name`       | Array  | Array of objects containing name text (e.g. "North", "East", "South", "West") and language code (e.g. "en") for this region |
+
+
+
+# Insurance providers 
+This section describes the API used by Insurance providers. It is an extension of the Mobility Data Specification (MDS) provider API 2.0 schema, [see above for more on that](#mds-20). 
+
+## Authentication
+When setting up the partner agreement with VOI, you will receive an email with a UserID and a link to set a Password, this combination will be used to request the client credentials. 
+
+> A token request.
+
+```shell
+$ curl --location https://api.voiapp.io/v1/partner-apis/token \
+     -X POST -u USER_ID:PASSWORD \
+     --form 'grant_type="client_credentials"'
+```
+
+> A token response.
+
+```shell
+{
+    "access_token": "<access token>",
+    "expires_in": 900,
+    "token_type": "bearer"
+}
+```
+
+OAuth 2.0's `client_credentials grant type (outlined in [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4)) is used as the authentication and authorization scheme.
+This is sometimes called a two-legged OAuth.
+
+### HTTPS request
+
+`POST api.voiapp.io/v1/partner-apis/token`
+
+### Usage
+
+The token is required in the header, using Bearer authentication over HTTPS, on all API calls to Insurance API, MDS and GBFS endpoints.
+
+| Key           | Value               |
+| ------------- | ------------------- |
+| Authorization | Bearer access-token |
+
+## Versioning
+
+The Insurance MDS APIs handle requests for specific versions of the specification from the clients.
+Version is communicated through the use of a custom media-type, `application/vnd.insurance+json;version=2.0`.
+
+See Open Mobility Foundation's MDS description on versioning [here](https://github.com/openmobilityfoundation/mobility-data-specification/blob/dev/general-information.md#versioning).
+
+
+### Header
+
+| Key    | Value                                |
+| ------ | ------------------------------------ |
+| Accept | application/vnd.mds+json;version=2.0 |
+
+
+## Trips
+
+> A trips request.
+
+```shell
+# v2.0
+$ curl -H "Accept: application/vnd.mds+json;version=2.0"
+  api.voiapp.io/v1/partner-apis/insurance/1/trips?end_time=2025-08-06T12
+
+Do not copy ^ as the zone-ID or Accept might not match yours
+```
+
+> A trips response.
+
+```shell
+{
+    "last_updated": 1755694420855,
+    "version": "2.0.0",
+    "trips": [
+        {
+            "accessibility_attributes": [],
+            "city": "Berlin",
+            "country": "DE",
+            "device_id": "93d4e213-0d93-5839-a631-8070ded1be5a",
+            "duration": 31,
+            "start_location": {
+                "lat": 59.338303,
+                "lng": 18.06197
+            },
+            "start_time": 1754482925099,
+            "end_location": {
+                "lat": 59.9091,
+                "lng": 10.74257
+            },
+            "end_time": 1754482956399,
+            "is_group_ride": false,
+            "license_plate": "2025-grün2-625bxi",
+            "license_plate_id": "e72955c7-c3cc-4cd1-8d0b-4a8c5376b127",
+            "provider_id": "1f129e3f-158f-4df5-af9c-a80de238e334",
+            "ride_type": "solo",
+            "trip_id": "020b1efc-4cf6-4dd6-b6e6-8dfe079c76c1",
+            "trip_type": [
+                "rider",
+                "voi"
+            ],
+            "user_ride_count": 66,
+            "vehicle_short_id": "trjs"
+        }
+    ]
+}
+```
+
+
+### Response
+
+The `trips:` Payload `{ "trips": [] }`, is an array of objects with the following structure.
+
+| Field Name                   | type    | Defines                                                                                |
+| ---------------------------- | ------- | -------------------------------------------------------------------------------------- |
+| `accessibility_attributes`   | Array   | Array of accessibility features available for this trip                                |
+| `city`                       | String  | City where the trip took place                                                         |
+| `country`                    | String  | Country code where the trip took place                                                 |
+| `device_id`                  | String  | Unique identifier for the device used                                                  |
+| `duration`                   | Number  | Duration of the trip in seconds                                                        |
+| `start_location`             | Object  | Object containing lat/lng coordinates where trip started                               |
+| `start_time`                 | Number  | Unix timestamp when trip started                                                       |
+| `end_location`               | Object  | Object containing lat/lng coordinates where trip ended                                 |
+| `end_time`                   | Number  | Unix timestamp when trip ended                                                         |
+| `is_group_ride`              | Boolean | Whether this was a group ride                                                          |
+| `license_plate`              | String  | The Visual License plate of the vehicle                                                |
+| `license_plate_id`           | String  | Unique identifier for the license plate                                                |
+| `provider_id`                | String  | Unique identifier for the service provider                                             |
+| `ride_type`                  | String  | Type of ride (e.g. "solo", "group-host","group-guest")                                 |
+| `trip_id`                    | String  | Unique identifier for the trip                                                         |
+| `trip_type`                  | Array   | Array of strings describing the trip type {"rider", "voi", "maas"}                     |
+| `user_ride_count`            | Number  | Number of rides the user has taken                                                     |
+| `vehicle_short_id`           | String  | Short identifier for the vehicle                                                       |
+
+
+
+### HTTPS request
+
+`GET api.voiapp.io/v1/partner-apis/insurance/{zoneID}/trips`
+
+### Path parameters
+
+| parameter | description                         | presence |
+| --------- | ----------------------------------- | -------- |
+| zoneID    | The zone id for the requested trips | required |
+
+### Query parameters
+
+| parameter | description                                                                                                                       | presence |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| end_time  | YYYY-MM-DDTHH, an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) extended DateTime representing a UTC hour between 00 and 23. | required |
