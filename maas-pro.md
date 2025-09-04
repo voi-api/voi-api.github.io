@@ -647,8 +647,6 @@ curl -X POST https://partners.voiapp.io/v1/rental/82267e03-f5b1-4b76-86c6-9f07df
 
 Pricing is under active development and constantly evolving, but it typically consists of a fixed fee and a minute fee. Below are other conditions that will also affect the price of the ride. Regardless, the actual price will always be returned when ending the ride.
 
-**End ride fines** If the user leaves the scooter without locking it, Voi will manually end the ride with a cost corresponding to the time when the scooter stopped moving and send a warning to the user. If the user leaves the scooter unlocked again, we will end the ride with a cost corresponding to the time when the scooter stopped moving and in addition add a fee of 25€. This fee will be included in the end-ride charge.
-
 **Short rides** For rides **before** 1st of January 2024, If the users ride for less than 100 meters or less than 2 minutes, we will not charge for the ride. It is optional for the partner to present receipts and/or add these rides to the invoicing material. after 1st of January 2024, we will charge for all rides.
 
 **Refunds** The partner is responsible for performing refunds. When this is done it is defined in the customer support criteria. Sometimes, Voi customer support also requests the partner to perform refunds.
