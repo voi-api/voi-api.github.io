@@ -170,9 +170,6 @@ This section describes the possible interactions with the user domain of the API
     "type": "user",
     "attributes": {
       "email": "example@mail.com",
-      "firstName": "Agatha",
-      "lastName": "Christie" ,
-      "phoneNumber: "+441234345",
       "externalId": "12345678-abcd-0000-1111-1234567890ab"
     }
   }
@@ -187,9 +184,6 @@ All successful user interactions respond with the following user model.
 | type        | string | The type will be "user"                               | required |
 | email       | string | The user's email address                              | required |
 | externalId  | string | The user's id created in the API consumers own system | required |
-| firstName   | string | The user's first name                                 | optional |
-| lastName    | string | The user's last name                                  | optional |
-| phoneNumber | string | The user's phone number                               | optional |
 
 ## Register user
 
@@ -207,9 +201,6 @@ Register user creates a new user with a unique user id. A user is required to be
 |-------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email address. | required |
 | externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                   | required |
-| firstName   | string | The user's first name                                                                                                                                                                                         | optional |
-| lastName    | string | The user's last name                                                                                                                                                                                          | optional |
-| phoneNumber | string | The users' phone number. (not used as identifier)                                                                                                                                                             | optional |
 | productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                               | optional |
 
 ### Errors
@@ -243,9 +234,6 @@ curl https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
     "type": "user",
     "attributes": {
       "email": "example@mail.com",
-      "firstName": "Agatha",
-      "lastName": "Christie" ,
-      "phoneNumber: "+441234345",
       "externalId": "12345678-abcd-0000-1111-1234567890ab"
     }
   }
@@ -279,7 +267,7 @@ Get user by user-id
 ```shell
 curl -X Patch https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
   -H "X-Auth-Token $TOKEN"
-  -d '{"emai": "agatha.christie@gmail.com", "phoneNumber": "+46911"}'
+  -d '{"emai": "agatha.christie@gmail.com"}'
 ```
 
 > An "update user" response.
@@ -291,9 +279,6 @@ curl -X Patch https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee
     "type": "user",
     "attributes": {
       "email": "agatha.christie@gmail.com",
-      "firstName": "Agatha",
-      "lastName": "Christie" ,
-      "phoneNumber: "+46911",
       "externalId": "12345678-abcd-0000-1111-1234567890ab"
     }
   }
@@ -311,9 +296,6 @@ Update user details allow for a user to be updated. Only fields that are sent in
 | field       | type   | description              | presence |
 |-------------|--------|--------------------------|----------|
 | email       | string | The user's email address | optional |
-| firstName   | string | The user's first name    | optional |
-| lastName    | string | The user's last name     | optional |
-| phoneNumber | string | The user's phone number  | optional |
 
 ### Errors
 
@@ -331,7 +313,7 @@ Update user details allow for a user to be updated. Only fields that are sent in
 {
 curl -X Delete https://partners.voiapp.io/v1/user/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
   -H "X-Auth-Token $TOKEN"
-  -d '{"emai": "agatha.christie@gmail.com", "phoneNumber": "+46911"}'
+  -d '{"emai": "agatha.christie@gmail.com"}'
 }
 ```
 
@@ -522,7 +504,7 @@ It is up to the partner to decide if the user reached the minimum number of requ
 </aside>
 
 <aside class="notice">
-We do not restrict the duration of any rental while it is active. 
+We do not restrict the duration of any rental while it is active.
 </aside>
 
 
