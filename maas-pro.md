@@ -56,105 +56,6 @@ API endpoints available for the mobility partner, are protected with token authe
 |--------------|------------|
 | X-Auth-Token | your-token |
 
-# Product
-
-A product is usually a distinct app with a different name. We keep them separate for monitoring, invoicing and customer support. All users are associated with a single product. You can have unlimited products, and they will be only available with your auth token. You should use the same product for multiple platforms, for example if you run your app on both iOs and Android.
-
-## Product model
-
-> The product response model
-
-```shell
-{
-   "data":[
-      {
-         "id":"48d45384-4fa6-4325-841b-3191385af8fc",
-         "type":"product",
-         "attributes":{
-            "productName": Travelizer,
-            "state":"ACTIVE"
-         }
-      }
-   ]
-}
-```
-
-### Response
-
-| field       | type   | description                                    | presence |
-|-------------|--------|------------------------------------------------|----------|
-| id          | string | The product's id (UUID version 4)              | Required |
-| type        | string | For vehicles the type will always be "product" | Required |
-| productName | string | Your products name                             | Required |
-| state       | string | Can be active or inactive                      | Required |
-
-## Register
-
-`POST https://partners.voiapp.io/v1/product/register`
-
-Use to register a new product.
-
-### Payload Request
-
-| parameter   | description                     | presence |
-|-------------|---------------------------------|----------|
-| productName | The actual name of the product. | Required |
-
-### Errors
-
-| Code                      | Detail                     | ErrorCode               |
-|---------------------------|----------------------------|-------------------------|
-| StatusBadRequest          | Invalid request body       | InvalidRequestBody      |
-| StatusBadRequest          | Empty product name         | EmptyProductName        |
-| StatusInternalServerError | Failed to register product | FailedToRegisterProduct |
-
-## List
-
-`GET https://partners.voiapp.io/v1/product`
-
-Will return a list of all your products
-
-### Errors
-
-| Code               | Detail                | ErrorCode          |
-|--------------------|-----------------------|--------------------|
-| FailedToGetProduct | Failed to get product | FailedToGetProduct |
-
-## Update
-
-`PUT https://partners.voiapp.io/v1/product`
-
-Use to update a product name.
-
-### Payload Request
-
-| parameter   | description                              | presence |
-|-------------|------------------------------------------|----------|
-| productName | The new name of your product.            | Required |
-| productId   | The id of the product you want to change | Required |
-
-### Errors
-
-| Code                      | Detail                   | ErrorCode             |
-|---------------------------|--------------------------|-----------------------|
-| StatusBadRequest          | Invalid request body     | InvalidRequestBody    |
-| EmptyProductName          | Empty product name       | EmptyProductName      |
-| StatusBadRequest          | Empty product id         | ErrEmptyProductID     |
-| StatusInternalServerError | Failed to update product | FailedToUpdateProduct |
-| StatusNotFound            | Product id not found     | FailedToUpdateProduct |
-
-## Delete
-
-`DELETE https://partners.voiapp.io/v1/product/{id}`
-
-Use to delete a product. The product will still be listed but marked as inactive.
-
-### Path parameters
-
-| parameter | description                               | presence |
-|-----------|-------------------------------------------|----------|
-| productId | The id of the product you want to delete. | Required |
-
 # User
 
 This section describes the possible interactions with the user domain of the API.
@@ -201,7 +102,7 @@ Register user creates a new user with a unique user id. A user is required to be
 |-------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email address. | required |
 | externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                   | required |
-| productId   | string | Your products Id. [You can create products as needed](#product)                                                                                                                                               | optional |
+
 
 ### Errors
 
