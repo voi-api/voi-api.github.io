@@ -70,7 +70,6 @@ This section describes the possible interactions with the user domain of the API
     "id": "9b39971c-8e51-5b32-aa07-dd2fee64c2b0",
     "type": "user",
     "attributes": {
-      "email": "example@mail.com",
       "externalId": "12345678-abcd-0000-1111-1234567890ab"
     }
   }
@@ -83,7 +82,6 @@ All successful user interactions respond with the following user model.
 |-------------|--------|-------------------------------------------------------|----------|
 | id          | string | The unique id for the user (UUID Version 4)           | required |
 | type        | string | The type will be "user"                               | required |
-| email       | string | The user's email address                              | required |
 | externalId  | string | The user's id created in the API consumers own system | required |
 
 ## Register user
@@ -100,7 +98,6 @@ Register user creates a new user with a unique user id. A user is required to be
 
 | field       | type   | description                                                                                                                                                                                                   | presence |
 |-------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| email       | string | The users' email address is used by Voi customer support to identify users when contacting Voi and to send updates of terms and conditions to users, therefore you must provide the users real email address. | required |
 | externalId  | string | The users' id created in the partner system. This is used by customer support, for debugging, and as a reference in the invoicing material.                                                                   | required |
 
 
@@ -110,8 +107,6 @@ Register user creates a new user with a unique user id. A user is required to be
 |---------------------------|---------------------------|---------------------------|
 | StatusBadRequest          | Invalid request body      | InvalidRequestBody        |
 | StatusBadRequest          | Empty user external id    | ErrEmptyUserExternalID    |
-| StatusBadRequest          | Empty user email id       | EmptyUserEmailID          |
-| StatusBadRequest          | Invalid user email format | ErrInvalidUserEmailID     |
 | StatusInternalServerError | Unable to register user   | ErrUserRegistrationFailed |
 | StatusInternalServerError |                           |                           |
 
@@ -134,7 +129,6 @@ curl https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
     "id": "9b39971c-8e51-5b32-aa07-dd2fee64c2b0",
     "type": "user",
     "attributes": {
-      "email": "example@mail.com",
       "externalId": "12345678-abcd-0000-1111-1234567890ab"
     }
   }
@@ -160,51 +154,6 @@ Get user by user-id
 | StatusBadRequest          | Invalid user id | InvalidUserId   |
 | StatusNotFound            | User not found  | ErrUserNotFound |
 | StatusInternalServerError |                 |
-
-## Update user details
-
-> An update user request.
-
-```shell
-curl -X Patch https://partners.voiapp.io/v1/users/9b39971c-8e51-5b32-aa07-dd2fee64c2b0
-  -H "X-Auth-Token $TOKEN"
-  -d '{"emai": "agatha.christie@gmail.com"}'
-```
-
-> An "update user" response.
-
-```shell
-{
-  "data": {
-    "id": "9b39971c-8e51-5b32-aa07-dd2fee64c2b0",
-    "type": "user",
-    "attributes": {
-      "email": "agatha.christie@gmail.com",
-      "externalId": "12345678-abcd-0000-1111-1234567890ab"
-    }
-  }
-}
-```
-
-Update user details allow for a user to be updated. Only fields that are sent in the patch request will be affected by the update request.
-
-### HTTPS request
-
-`PATCH https://partners.voiapp.io/v1/user/{id}`
-
-### Patch parameters
-
-| field       | type   | description              | presence |
-|-------------|--------|--------------------------|----------|
-| email       | string | The user's email address | optional |
-
-### Errors
-
-| Code                      | Detail               | ErrorCode          |
-|---------------------------|----------------------|--------------------|
-| StatusBadRequest          | Invalid request body | InvalidRequestBody |
-| StatusNotFound            | User not found       | ErrUserNotFound    |
-| StatusInternalServerError |                      |
 
 ## Delete User
 
